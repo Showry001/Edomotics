@@ -374,6 +374,39 @@
     ],
     "avif": true
   },
+  "founder-ganesh-vudutha": {
+    "width": 365,
+    "height": 365,
+    "widths": [
+      {
+        "w": 365,
+        "file": "media/img/founder-ganesh-vudutha-sm.webp"
+      }
+    ],
+    "avif": true
+  },
+  "founder-keshava-varma": {
+    "width": 365,
+    "height": 365,
+    "widths": [
+      {
+        "w": 365,
+        "file": "media/img/founder-keshava-varma-sm.webp"
+      }
+    ],
+    "avif": true
+  },
+  "founder-manjunath-n-m": {
+    "width": 365,
+    "height": 365,
+    "widths": [
+      {
+        "w": 365,
+        "file": "media/img/founder-manjunath-n-m-sm.webp"
+      }
+    ],
+    "avif": true
+  },
   "team-hyderabad": {
     "width": 4000,
     "height": 2168,

@@ -40,6 +40,10 @@ const PHOTOS = {
   'villa-dusk': `${framer}/rising-2.jpg`,
   'lounge-tall': `${framer}/rising-4.jpg`,
   'project-ravi-prasad': `${framer}/project-1.jpg`,
+  // Leadership portraits, from the Edomotics Framer site (365px originals: shown small, never upscaled).
+  'founder-ganesh-vudutha': '_src/founders/ganesh-vudutha.jpg',
+  'founder-keshava-varma': '_src/founders/keshava-varma.jpg',
+  'founder-manjunath-n-m': '_src/founders/manjunath-n-m.jpg',
   'team-hyderabad': `${framer}/team-hyderabad.jpg`,
   'team-bangalore': `${framer}/team-bangalore.jpg`,
 };

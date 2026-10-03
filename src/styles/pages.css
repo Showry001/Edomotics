@@ -212,6 +212,29 @@
 .bigstat dd { font-size: clamp(3.4rem, 1.6rem + 6vw, 9rem); font-weight: 500; letter-spacing: -0.06em; line-height: 0.85; font-variant-numeric: tabular-nums; }
 .bigstat dt { font-size: 0.875rem; color: var(--muted); order: 2; }
 
+/* Leadership: heading on the left, three portraits on the right (the clients section's
+   composition); cards share the project cards' type. The portraits are small originals,
+   so the cards stay a size at which they remain sharp. */
+.leaders { align-items: start; row-gap: 40px; }
+.leaders__head { grid-column: 1 / span 4; display: grid; gap: 24px; justify-items: start; }
+.leaders__head > p:not(.count) { font-size: 0.9375rem; max-width: 34ch; }
+.leaders__grid { grid-column: 5 / span 8; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gutter); }
+.leader { display: grid; gap: 14px; align-content: start; }
+.leader__img { aspect-ratio: 1; overflow: hidden; border-radius: 2px; background: var(--stone); }
+.leader__img img { width: 100%; height: 100%; object-fit: cover; }
+.leader__text { display: grid; gap: 6px; }
+.leader__role { font-size: 0.8125rem; color: var(--muted); }
+.leader__name { font-size: clamp(1.2rem, 0.95rem + 0.7vw, 1.75rem); font-weight: 500; letter-spacing: -0.035em; line-height: 1.04; }
+@media (max-width: 1080px) {
+  .leaders__head, .leaders__grid { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  /* Phones: one founder per row, portrait beside the name. */
+  .leaders__grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .leader { grid-template-columns: 38% minmax(0, 1fr); align-items: end; gap: 16px; }
+  .leader__text { padding-bottom: 4px; }
+}
+
 /* Low-resolution photographs are framed, never stretched full-bleed. */
 .phero__media--framed { max-width: 1000px; margin-inline: auto; aspect-ratio: 16 / 10; }
 .phero__media--framed img { height: 100%; margin-top: 0; }
