@@ -1,0 +1,386 @@
+{
+  "_readme": "One entry per project, in display order. The homepage and menu show the first three with \"featured\": true; \"hidden\": true keeps an entry out of the site entirely. To add a project: put its photos in _src/projects/<slug>/ (they become pictures named <slug>-01, <slug>-02… in file-name order), run `npm run media`, add an entry here, then run `npm run projects` to generate its page. Gallery blocks are \"wide\" (one photo) or \"pair\" (portrait first, then landscape); any picture name from src/media-manifest.json can be used. Leave unknown fields empty: the site shows them as [NEEDS COPY] rather than inventing anything.",
+  "projects": [
+    {
+      "slug": "akhil-sanjana-residence",
+      "name": "Akhil & Sanjana Residence",
+      "title": "Akhil &amp; Sanjana<br> Residence",
+      "kind": "Residence",
+      "location": "",
+      "featured": true,
+      "cover": "akhil-sanjana-residence-01",
+      "coverAlt": "The living room at dusk: rounded grey sofas around two timber coffee tables, and glass doors open to the city beyond.",
+      "lead": "A home full of colour and books, looking out over the city: a library wall lit from within, a listening room with floor-standing speakers, and a balcony that glows after dark.",
+      "heroVideo": null,
+      "gallery": [
+        {
+          "type": "wide",
+          "pics": [
+            {
+              "pic": "akhil-sanjana-residence-02",
+              "alt": "The family room: orange velvet seats around a low table, a curved sofa and a wall-mounted screen beneath a timber ceiling."
+            }
+          ]
+        },
+        {
+          "type": "pair",
+          "pics": [
+            {
+              "pic": "akhil-sanjana-residence-09",
+              "alt": "A bar corner papered in a botanical print, with a yellow refrigerator and coral bar stools under black pendants."
+            },
+            {
+              "pic": "akhil-sanjana-residence-08",
+              "alt": "Across the living room to the bar: a large floral painting, a bronze sculpture and the coral bar counter beyond."
+            }
+          ]
+        },
+        {
+          "type": "wide",
+          "pics": [
+            {
+              "pic": "akhil-sanjana-residence-03",
+              "alt": "A listening room: floor-standing speakers either side of an AV console and turntable, a large painting above and a leather recliner."
+            }
+          ]
+        },
+        {
+          "type": "pair",
+          "pics": [
+            {
+              "pic": "akhil-sanjana-residence-10",
+              "alt": "A cluster of woven pendant lights hanging in the stairwell."
+            },
+            {
+              "pic": "akhil-sanjana-residence-07",
+              "alt": "The upper landing, its pendant cluster lighting the stair below."
+            }
+          ]
+        },
+        {
+          "type": "wide",
+          "pics": [
+            {
+              "pic": "akhil-sanjana-residence-04",
+              "alt": "A library of floor-to-ceiling shelves, lit from within, around a sofa with a pink arm."
+            }
+          ]
+        },
+        {
+          "type": "pair",
+          "pics": [
+            {
+              "pic": "akhil-sanjana-residence-11",
+              "alt": "The dining room: a pink still-life painting above the table and a ring of light overhead."
+            },
+            {
+              "pic": "akhil-sanjana-residence-06",
+              "alt": "The balcony by day: a striped two-seater, planters and the city skyline."
+            }
+          ]
+        },
+        {
+          "type": "wide",
+          "pics": [
+            {
+              "pic": "akhil-sanjana-residence-05",
+              "alt": "The same balcony at night, its wall lights on and the city lit up below."
+            }
+          ]
+        }
+      ],
+      "galleryNote": "",
+      "related": null
+    },
+    {
+      "slug": "dr-akhil-sunitha-residence",
+      "name": "Dr Akhil & Sunitha Residence",
+      "title": "Dr Akhil &amp; Sunitha<br> Residence",
+      "kind": "Residence",
+      "location": "",
+      "featured": true,
+      "cover": "dr-akhil-sunitha-residence-01",
+      "coverAlt": "The house from its forecourt: white volumes under deep timber-lined eaves, a cantilevered porch and a sculpted bonsai beside the steps.",
+      "lead": "A house in a landscaped garden, with a dedicated home theatre, a living room under a hexagonal ring pendant and a bedroom that looks out over the water.",
+      "heroVideo": null,
+      "gallery": [
+        {
+          "type": "wide",
+          "pics": [
+            {
+              "pic": "dr-akhil-sunitha-residence-02",
+              "alt": "The entrance: broad stone steps under a timber-lined canopy on slender columns."
+            }
+          ]
+        },
+        {
+          "type": "pair",
+          "pics": [
+            {
+              "pic": "dr-akhil-sunitha-residence-04",
+              "alt": "A floating timber-and-glass staircase against a stone wall, traced by a single line of light."
+            },
+            {
+              "pic": "living-marble",
+              "alt": "The living room by day: tan leather sofas, a marble feature wall and the hexagonal pendant overhead."
+            }
+          ]
+        },
+        {
+          "type": "wide",
+          "pics": [
+            {
+              "pic": "living-hex",
+              "alt": "The living room under its hexagonal ring pendant, with the stairwell and a large painting beyond."
+            }
+          ]
+        },
+        {
+          "type": "pair",
+          "pics": [
+            {
+              "pic": "dr-akhil-sunitha-residence-05",
+              "alt": "The hexagonal pendant above a leather sofa and a round backlit mirror."
+            },
+            {
+              "pic": "living-media-wall",
+              "alt": "The family lounge: a white media wall, a linear chandelier and soft seating around a round table."
+            }
+          ]
+        },
+        {
+          "type": "wide",
+          "pics": [
+            {
+              "pic": "cinema-recliners",
+              "alt": "The dedicated home theatre: two rows of leather recliners in a fabric-lined room edged with a warm cove of light."
+            }
+          ]
+        },
+        {
+          "type": "pair",
+          "pics": [
+            {
+              "pic": "dr-akhil-sunitha-residence-06",
+              "alt": "Wire pendants hanging in the double-height stairwell, sheer curtains behind."
+            },
+            {
+              "pic": "dining-corridor",
+              "alt": "The long dining table by day, a crystal chandelier above and the courtyard beyond."
+            }
+          ]
+        },
+        {
+          "type": "wide",
+          "pics": [
+            {
+              "pic": "dr-akhil-sunitha-residence-03",
+              "alt": "The dining room in the evening, its ceiling cove and chandelier lit."
+            }
+          ]
+        },
+        {
+          "type": "pair",
+          "pics": [
+            {
+              "pic": "dr-akhil-sunitha-residence-07",
+              "alt": "A round backlit mirror reflecting the hexagonal pendant, beside a leather sofa."
+            },
+            {
+              "pic": "living-curved",
+              "alt": "A lounge with a curved cream sofa and a lit display niche."
+            }
+          ]
+        },
+        {
+          "type": "wide",
+          "pics": [
+            {
+              "pic": "bedroom-lakeview",
+              "alt": "A bedroom with floor-to-ceiling glass looking out over trees and the lake."
+            }
+          ]
+        },
+        {
+          "type": "wide",
+          "pics": [
+            {
+              "pic": "dr-akhil-sunitha-residence-08",
+              "alt": "The garden: a deep porch canopy, flowering shrubs and a stepping-stone path across the lawn."
+            }
+          ]
+        }
+      ],
+      "galleryNote": "",
+      "related": {
+        "href": "/home-theatre/",
+        "label": "Home theatre at Edomotics",
+        "title": "A room for <span class=\"serif-i\">picture and sound.</span>"
+      }
+    },
+    {
+      "slug": "seshu-rajalakshmi-residence",
+      "name": "Seshu & Rajalakshmi Residence",
+      "title": "Seshu &amp; Rajalakshmi<br> Residence",
+      "kind": "Residence",
+      "location": "",
+      "featured": true,
+      "cover": "seshu-rajalakshmi-residence-01",
+      "coverAlt": "The living room at night: a glass-leaf chandelier in a stepped ceiling cove above cream sofas and a polished marble floor.",
+      "lead": "A home drawn in warm, layered light: stepped ceiling coves throughout, a backlit stone wall behind the main bed and a glowing stone splashback in the kitchen.",
+      "heroVideo": null,
+      "gallery": [
+        {
+          "type": "wide",
+          "pics": [
+            {
+              "pic": "seshu-rajalakshmi-residence-02",
+              "alt": "From the sofa to the media wall: a woven cream sectional, a timber wall unit and glass-leaf chandeliers."
+            }
+          ]
+        },
+        {
+          "type": "pair",
+          "pics": [
+            {
+              "pic": "bedroom-cove",
+              "alt": "The living room in portrait: the chandelier in its cove above a cream sofa and the media wall."
+            },
+            {
+              "pic": "seshu-rajalakshmi-residence-03",
+              "alt": "The dining table in front of the media wall, a cluster of pendants overhead."
+            }
+          ]
+        },
+        {
+          "type": "wide",
+          "pics": [
+            {
+              "pic": "seshu-rajalakshmi-residence-04",
+              "alt": "The kitchen: a backlit stone splashback, light beneath the cabinets and timber joinery."
+            }
+          ]
+        },
+        {
+          "type": "pair",
+          "pics": [
+            {
+              "pic": "seshu-rajalakshmi-residence-10",
+              "alt": "A passage with a lit display cabinet."
+            },
+            {
+              "pic": "seshu-rajalakshmi-residence-05",
+              "alt": "The hob against the glowing stone splashback, the dining area beyond."
+            }
+          ]
+        },
+        {
+          "type": "wide",
+          "pics": [
+            {
+              "pic": "lounge-amber",
+              "alt": "The lounge seen across the room, warm cove light washing the curtains and walls."
+            }
+          ]
+        },
+        {
+          "type": "pair",
+          "pics": [
+            {
+              "pic": "lounge-tall",
+              "alt": "The lounge in portrait: the ceiling cove glowing above the curtains and the chandelier."
+            },
+            {
+              "pic": "seshu-rajalakshmi-residence-09",
+              "alt": "The lounge from its far end, a pendant of glass spheres above the sofa."
+            }
+          ]
+        },
+        {
+          "type": "wide",
+          "pics": [
+            {
+              "pic": "seshu-rajalakshmi-residence-06",
+              "alt": "The main bedroom: a backlit stone wall behind the bed, a ceiling cove and a timber floor."
+            }
+          ]
+        },
+        {
+          "type": "pair",
+          "pics": [
+            {
+              "pic": "bedroom-pendant",
+              "alt": "A bedroom with a single pendant beside the bed and curtains lit from above."
+            },
+            {
+              "pic": "seshu-rajalakshmi-residence-07",
+              "alt": "A bedroom with a study desk, panelled walls and curtains washed with light."
+            }
+          ]
+        },
+        {
+          "type": "wide",
+          "pics": [
+            {
+              "pic": "bedroom-sculpted",
+              "alt": "A bedroom with a sculpted plaster wall behind the bed, softly lit from a ceiling cove."
+            }
+          ]
+        },
+        {
+          "type": "wide",
+          "pics": [
+            {
+              "pic": "seshu-rajalakshmi-residence-08",
+              "alt": "A bedroom with a fluted headboard, a pendant light and a mirrored wardrobe."
+            }
+          ]
+        }
+      ],
+      "galleryNote": "",
+      "related": null
+    },
+    {
+      "slug": "ravi-prasad-residence",
+      "name": "Ravi Prasad Residence",
+      "title": "Ravi Prasad<br> Residence",
+      "kind": "Residence",
+      "location": "",
+      "featured": false,
+      "cover": "project-ravi-prasad",
+      "coverAlt": "A lounge in the Ravi Prasad Residence: copper-panelled walls, a glowing ceiling cove and two leather armchairs.",
+      "lead": "The lounge, filmed in its evening scene: copper-panelled walls, a glowing ceiling cove and a sculptural chandelier over two leather armchairs.",
+      "heroVideo": {
+        "src": "/media/video/hero.mp4",
+        "poster": "/media/video/hero-poster.webp"
+      },
+      "gallery": [
+        {
+          "type": "wide",
+          "pics": [
+            {
+              "pic": "project-ravi-prasad",
+              "alt": "The lounge from its entrance: copper wall panels on the left, armchairs facing a cream sofa and a pendant of glass spheres."
+            }
+          ]
+        },
+        {
+          "type": "pair",
+          "pics": [
+            {
+              "pic": "lounge-tall",
+              "alt": "The same lounge in portrait: the ceiling cove glowing above the curtains and the chandelier."
+            },
+            {
+              "pic": "lounge-amber",
+              "alt": "The lounge seen across the room, warm cove light washing the curtains and walls."
+            }
+          ]
+        }
+      ],
+      "related": null,
+      "hidden": true,
+      "hiddenNote": "Hidden: every photograph this project used (the lounge, from the old Framer site) is of the Seshu & Rajalakshmi Residence. Restore it with its own photos, or delete it if it is the same home."
+    }
+  ]
+}

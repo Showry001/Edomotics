@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<!-- @include head -->
+  <title>Contact — Edomotics</title>
+  <meta name="description" content="Start a project with Edomotics. Call +91 910 044 4648, email info@edomotics.com or send an enquiry. Experience centres in Hyderabad and Bengaluru.">
+  <meta property="og:title" content="Contact — Edomotics">
+  <meta property="og:description" content="Start a project with Edomotics.">
+  <meta property="og:image" content="/media/img/living-dining-md.webp">
+</head>
+<body>
+<!-- @include chrome -->
+
+  <div class="view" data-view data-page="contact">
+    <main id="main">
+
+      <!-- Hero -->
+      <section class="phero" data-theme="light" data-page-hero aria-labelledby="page-title">
+        <div class="wrap grid phero__head">
+          <div class="phero__title-wrap">
+            <p class="count phero__label" data-ph-label>Contact</p>
+            <h1 class="t-hero" id="page-title" data-ph-title>Start a project.<br> <span class="serif-i">Let’s talk.</span></h1>
+          </div>
+          <div class="phero__aside contact-direct" data-ph-aside>
+            <a class="link-u contact-direct__big" href="tel:+919100444648">+91 910 044 4648</a>
+            <a class="link-u contact-direct__big" href="mailto:info@edomotics.com">info@edomotics.com</a>
+          </div>
+        </div>
+        <figure class="phero__media" data-ph-media>
+          <img data-pic="living-dining" sizes="100vw" loading="eager" fetchpriority="high" alt="An open living and dining room under a stepped ceiling cove, a glass-leaf chandelier above the table.">
+        </figure>
+      </section>
+
+      <!-- Enquiry -->
+      <section class="enquiry block" id="enquiry" data-theme="light" aria-labelledby="enquiry-title">
+        <div class="wrap grid enquiry__grid">
+          <div class="enquiry__intro">
+            <p class="count">Enquiry</p>
+            <h2 class="t-xl" id="enquiry-title" data-lines>Tell us about <span class="serif-i">the home.</span></h2>
+            <p>A few details are enough to begin. We’ll reply to arrange a conversation, or a visit to the experience centre nearest you. Bring your architect.</p>
+
+            <p class="count enquiry__sub">Experience centres</p>
+<!-- @include centres class="" -->
+
+            <dl class="contact-meta">
+              <div><dt>Support for existing clients</dt><dd><a class="link-u" href="https://edomotics.freshdesk.com/support/login" target="_blank" rel="noopener">Support portal</a></dd></div>
+              <div><dt>Follow</dt><dd><a class="link-u" href="https://www.linkedin.com/company/edomotics-smart-systems-p-ltd/" target="_blank" rel="noopener">LinkedIn</a>, <a class="link-u" href="https://www.facebook.com/Edomotics-Smart-Systems-Pvt-Ltd-483276208548445/" target="_blank" rel="noopener">Facebook</a>, <a class="link-u" href="https://twitter.com/edomotics" target="_blank" rel="noopener">Twitter</a></dd></div>
+            </dl>
+          </div>
+
+          <!-- Set data-endpoint to a URL that accepts a JSON POST to make submissions live (see README). -->
+          <form class="form" novalidate data-form data-endpoint="" aria-labelledby="enquiry-title">
+            <div class="field">
+              <label for="f-name">Name <span aria-hidden="true">*</span></label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name">
+              <p class="field__error" id="e-name" data-error-for="name"></p>
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" aria-describedby="e-phone">
+              <p class="field__error" id="e-phone" data-error-for="phone"></p>
+            </div>
+            <div class="field field--wide">
+              <label for="f-email">Email <span aria-hidden="true">*</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email">
+              <p class="field__error" id="e-email" data-error-for="email"></p>
+            </div>
+            <fieldset class="field field--wide chips" aria-describedby="e-interest">
+              <legend>Service of interest <span aria-hidden="true">*</span></legend>
+              <label class="chip"><input type="checkbox" name="interest" value="Home automation"><span>Home automation</span></label>
+              <label class="chip"><input type="checkbox" name="interest" value="Home theatre"><span>Home theatre</span></label>
+              <label class="chip"><input type="checkbox" name="interest" value="Not sure yet"><span>Not sure yet</span></label>
+              <p class="field__error" id="e-interest" data-error-for="interest"></p>
+            </fieldset>
+            <div class="field">
+              <label for="f-centre">Nearest experience centre</label>
+              <select id="f-centre" name="centre"><option>Hyderabad</option><option>Bengaluru</option><option>Neither is close</option></select>
+            </div>
+            <div class="field">
+              <label for="f-stage">Project stage</label>
+              <select id="f-stage" name="stage"><option>At drawing stage</option><option>Under construction</option><option>Interiors under way</option><option>Already living in it</option></select>
+            </div>
+            <div class="field field--wide">
+              <label for="f-message">Message</label>
+              <textarea id="f-message" name="message" rows="4" aria-describedby="e-message"></textarea>
+              <p class="field__error" id="e-message" data-error-for="message"></p>
+            </div>
+            <div class="visually-hidden" aria-hidden="true"><label for="f-website">Leave this field empty</label><input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+            <div class="form__foot">
+              <button class="btn" type="submit" data-submit><span data-submit-label>Send enquiry</span><span class="ap ap--inv" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span></button>
+              <p class="form__note">We’ll only use these details to reply to your enquiry.</p>
+            </div>
+            <div class="form__status" role="status" aria-live="polite" data-form-status hidden></div>
+          </form>
+        </div>
+      </section>
+    </main>
+<!-- @include footer -->
+  </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+        <article class="pslide" data-pslide>
+          <a class="pslide__media" href="{{url}}" aria-label="View {{name}}" data-pslide-media>
+            <img data-pic="{{cover}}" sizes="(orientation: portrait) 130vh, 100vw" alt="{{coverAlt}}">
+          </a>
+          <div class="pcap wrap grid" data-pcap>
+            <p class="pcap__count pcap__anim">{{n}} / {{total}}</p>
+            <div class="pcap__main">
+              <h3 class="pcap__name pcap__anim">{{name}}</h3>
+              <p class="pcap__specs pcap__anim">{{meta}}</p>
+              <a class="link-arrow pcap__link pcap__anim" href="{{url}}" tabindex="-1"><span class="link-arrow__t">View project</span><span class="ap" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span></a>
+            </div>
+            <p class="pcap__lead pcap__anim">{{lead}}</p>
+          </div>
+        </article>

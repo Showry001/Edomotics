@@ -1,0 +1,52 @@
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-arrow" viewBox="0 0 11 8"><path d="M6.6.6 10.2 4 6.6 7.4M10.2 4H.4" fill="none" stroke="currentColor" stroke-width="1.3"/></symbol>
+    <symbol id="i-down" viewBox="0 0 8 11"><path d="M.6 6.6 4 10.2l3.4-3.6M4 10.2V.4" fill="none" stroke="currentColor" stroke-width="1.3"/></symbol>
+  </svg>
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Persistent header: survives page transitions -->
+  <header class="hdr" data-hdr data-on="dark">
+    <div class="hdr__bar">
+      <div class="hdr__left" aria-hidden="true"></div>
+
+      <div class="hdr__center">
+        <div class="mbox" data-mbox>
+          <div class="mbox__bar">
+            <a class="mbox__logo" href="/" aria-label="Edomotics home">
+              <img src="/media/img/logo-ink.png" alt="Edomotics" width="388" height="104">
+            </a>
+            <a class="mbox__cta link-u" href="/contact/">Start a project</a>
+            <button class="mbox__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu" data-menu-toggle>
+              <span></span><span></span>
+            </button>
+          </div>
+          <div class="mbox__panel" id="menu" data-menu hidden>
+            <nav class="mbox__links" aria-label="Primary">
+              <a href="/automation/" data-nav="automation">Automation</a>
+              <a href="/home-theatre/" data-nav="theatre">Home theatre</a>
+              <a href="/projects/" data-nav="projects">Projects</a>
+              <a href="/#brands">Brands</a>
+              <a href="/about/" data-nav="about">About</a>
+              <a href="/contact/" data-nav="contact">Contact</a>
+            </nav>
+            <div class="mbox__lately">
+              <p class="mbox__label"><span class="dot" aria-hidden="true"></span>Recent projects</p>
+              <ul class="mbox__cards">
+<!-- @each projects partial="mcard" featured="true" limit="3" -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hdr__right">
+        <a class="link-arrow" href="/contact/"><span class="link-arrow__t">Start a project</span><span class="ap" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span></a>
+      </div>
+    </div>
+  </header>
+  <div class="veil" data-veil aria-hidden="true"></div>
+
+  <!-- Page transition layers and the route announcer for screen readers -->
+  <div class="tx-shade" data-tx-shade aria-hidden="true"></div>
+  <p class="visually-hidden" aria-live="polite" aria-atomic="true" data-announcer></p>

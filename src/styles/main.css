@@ -1,0 +1,7 @@
+/* Every stylesheet, linked from <head> so it blocks rendering: the page never paints unstyled. */
+@import '@fontsource/instrument-serif/400.css';
+@import '@fontsource/instrument-serif/400-italic.css';
+@import './base.css';
+@import './sections.css';
+@import './sections-2.css';
+@import './pages.css';

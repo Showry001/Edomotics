@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+
+# Local only: source media (camera originals, raw video, the original brief),
+# the first static prototype and editor settings. The generated media in
+# public/media/ is committed, so the site builds without these.
+_src/
+_archive/
+.claude/

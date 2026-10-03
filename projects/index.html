@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<!-- @include head -->
+  <title>Projects — Edomotics</title>
+  <meta name="description" content="Selected Edomotics projects: Akhil &amp; Sanjana Residence, Dr Akhil &amp; Sunitha Residence and Seshu &amp; Rajalakshmi Residence. Smart spaces, seamless experiences.">
+  <meta property="og:title" content="Projects — Edomotics">
+  <meta property="og:description" content="Smart spaces. Seamless experiences.">
+  <meta property="og:image" content="/media/img/project-ravi-prasad-md.webp">
+</head>
+<body>
+<!-- @include chrome -->
+
+  <div class="view" data-view data-page="projects">
+    <main id="main">
+
+      <!-- Title -->
+      <section class="projhead" data-theme="light" data-page-hero aria-labelledby="page-title">
+        <div class="wrap projhead__in">
+          <p class="phero__label" data-ph-label>Projects</p>
+          <h1 class="t-hero" id="page-title" data-ph-title>Featured <span class="serif-i">projects.</span></h1>
+          <p class="projhead__lede" data-ph-aside>Smart spaces, seamless experiences. A selection from more than 700 projects across five cities in South India.</p>
+        </div>
+      </section>
+
+      <!-- Index: every card and row comes from src/content/projects.json -->
+      <section class="pindex" data-theme="light" data-pindex aria-label="All projects">
+        <div class="pbar">
+          <div class="wrap pbar__in">
+            <p class="pbar__count">Showing <span data-pcount>all</span> projects</p>
+            <div class="pbar__toggle" role="group" aria-label="Layout">
+              <button type="button" class="is-active" aria-pressed="true" data-view-toggle="grid">Grid</button>
+              <span aria-hidden="true">/</span>
+              <button type="button" aria-pressed="false" data-view-toggle="list">List</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="wrap pindex__body">
+          <div class="pgrid" data-pgrid>
+<!-- @each projects partial="pcard" -->
+            <!-- Fills whatever the last row leaves open; stays as the grid grows. -->
+            <div class="pgrid__more">
+              <p class="pgrid__more-title">More than 700 homes <span class="serif-i">and spaces.</span></p>
+              <div class="pgrid__more-foot">
+                <p>A few are shown here. Ask us about projects like yours, or visit an experience centre.</p>
+                <a class="link-arrow" href="/contact/"><span class="link-arrow__t">Start a project</span><span class="ap" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span></a>
+              </div>
+            </div>
+          </div>
+
+          <ul class="plist" data-plist hidden>
+<!-- @each projects partial="prow" -->
+          </ul>
+          <div class="ppreview" aria-hidden="true" data-ppreview><img src="/media/img/project-ravi-prasad-md.webp" alt=""></div>
+        </div>
+      </section>
+
+<!-- @include cta id="projects" pic="living-curved" alt="A curved cream sofa in a dim stone-walled living room, a lit display niche in the wall behind it." -->
+    </main>
+<!-- @include footer -->
+  </div>
+</body>
+</html>

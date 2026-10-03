@@ -1,0 +1,1062 @@
+{
+  "dining-corridor": {
+    "width": 3200,
+    "height": 2134,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/dining-corridor-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/dining-corridor-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/dining-corridor-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/dining-corridor.webp"
+      }
+    ],
+    "avif": true
+  },
+  "living-marble": {
+    "width": 3200,
+    "height": 2134,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/living-marble-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/living-marble-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/living-marble-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/living-marble.webp"
+      }
+    ],
+    "avif": true
+  },
+  "living-hex": {
+    "width": 3200,
+    "height": 2134,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/living-hex-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/living-hex-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/living-hex-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/living-hex.webp"
+      }
+    ],
+    "avif": true
+  },
+  "living-amber-wide": {
+    "width": 2000,
+    "height": 1333,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/living-amber-wide-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/living-amber-wide-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/living-amber-wide-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "living-hex-dusk": {
+    "width": 2000,
+    "height": 1333,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/living-hex-dusk-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/living-hex-dusk-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/living-hex-dusk-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "cinema-recliners": {
+    "width": 3200,
+    "height": 2134,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/cinema-recliners-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/cinema-recliners-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/cinema-recliners-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/cinema-recliners.webp"
+      }
+    ],
+    "avif": true
+  },
+  "bedroom-pendant": {
+    "width": 2137,
+    "height": 3200,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/bedroom-pendant-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/bedroom-pendant-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/bedroom-pendant-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "bedroom-sculpted": {
+    "width": 3200,
+    "height": 2137,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/bedroom-sculpted-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/bedroom-sculpted-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/bedroom-sculpted-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/bedroom-sculpted.webp"
+      }
+    ],
+    "avif": true
+  },
+  "bedroom-lakeview": {
+    "width": 3200,
+    "height": 2133,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/bedroom-lakeview-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/bedroom-lakeview-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/bedroom-lakeview-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/bedroom-lakeview.webp"
+      }
+    ],
+    "avif": true
+  },
+  "living-curved": {
+    "width": 3200,
+    "height": 2134,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/living-curved-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/living-curved-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/living-curved-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/living-curved.webp"
+      }
+    ],
+    "avif": true
+  },
+  "living-media-wall": {
+    "width": 3200,
+    "height": 2133,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/living-media-wall-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/living-media-wall-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/living-media-wall-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/living-media-wall.webp"
+      }
+    ],
+    "avif": true
+  },
+  "lounge-amber": {
+    "width": 3200,
+    "height": 2137,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/lounge-amber-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/lounge-amber-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/lounge-amber-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/lounge-amber.webp"
+      }
+    ],
+    "avif": true
+  },
+  "bedroom-cove": {
+    "width": 2832,
+    "height": 4240,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/bedroom-cove-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/bedroom-cove-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/bedroom-cove-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/bedroom-cove.webp"
+      }
+    ],
+    "avif": true
+  },
+  "living-dining": {
+    "width": 4240,
+    "height": 2832,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/living-dining-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/living-dining-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/living-dining-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/living-dining.webp"
+      }
+    ],
+    "avif": true
+  },
+  "villa-dusk": {
+    "width": 1638,
+    "height": 2048,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/villa-dusk-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/villa-dusk-md.webp"
+      },
+      {
+        "w": 1638,
+        "file": "media/img/villa-dusk-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "lounge-tall": {
+    "width": 2832,
+    "height": 4240,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/lounge-tall-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/lounge-tall-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/lounge-tall-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/lounge-tall.webp"
+      }
+    ],
+    "avif": true
+  },
+  "project-ravi-prasad": {
+    "width": 2832,
+    "height": 2155,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/project-ravi-prasad-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/project-ravi-prasad-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/project-ravi-prasad-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/project-ravi-prasad.webp"
+      }
+    ],
+    "avif": true
+  },
+  "team-hyderabad": {
+    "width": 4000,
+    "height": 2168,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/team-hyderabad-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/team-hyderabad-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/team-hyderabad-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/team-hyderabad.webp"
+      }
+    ],
+    "avif": true
+  },
+  "team-bangalore": {
+    "width": 6000,
+    "height": 2920,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/team-bangalore-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/team-bangalore-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/team-bangalore-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/team-bangalore.webp"
+      }
+    ],
+    "avif": true
+  },
+  "akhil-sanjana-residence-01": {
+    "width": 3200,
+    "height": 2134,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/akhil-sanjana-residence-01-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/akhil-sanjana-residence-01-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/akhil-sanjana-residence-01-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/akhil-sanjana-residence-01.webp"
+      }
+    ],
+    "avif": true
+  },
+  "akhil-sanjana-residence-02": {
+    "width": 3200,
+    "height": 2134,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/akhil-sanjana-residence-02-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/akhil-sanjana-residence-02-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/akhil-sanjana-residence-02-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/akhil-sanjana-residence-02.webp"
+      }
+    ],
+    "avif": true
+  },
+  "akhil-sanjana-residence-03": {
+    "width": 3200,
+    "height": 2134,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/akhil-sanjana-residence-03-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/akhil-sanjana-residence-03-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/akhil-sanjana-residence-03-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/akhil-sanjana-residence-03.webp"
+      }
+    ],
+    "avif": true
+  },
+  "akhil-sanjana-residence-04": {
+    "width": 3200,
+    "height": 2133,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/akhil-sanjana-residence-04-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/akhil-sanjana-residence-04-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/akhil-sanjana-residence-04-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/akhil-sanjana-residence-04.webp"
+      }
+    ],
+    "avif": true
+  },
+  "akhil-sanjana-residence-05": {
+    "width": 3200,
+    "height": 2134,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/akhil-sanjana-residence-05-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/akhil-sanjana-residence-05-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/akhil-sanjana-residence-05-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/akhil-sanjana-residence-05.webp"
+      }
+    ],
+    "avif": true
+  },
+  "akhil-sanjana-residence-06": {
+    "width": 3200,
+    "height": 2134,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/akhil-sanjana-residence-06-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/akhil-sanjana-residence-06-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/akhil-sanjana-residence-06-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/akhil-sanjana-residence-06.webp"
+      }
+    ],
+    "avif": true
+  },
+  "akhil-sanjana-residence-07": {
+    "width": 3200,
+    "height": 2133,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/akhil-sanjana-residence-07-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/akhil-sanjana-residence-07-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/akhil-sanjana-residence-07-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/akhil-sanjana-residence-07.webp"
+      }
+    ],
+    "avif": true
+  },
+  "akhil-sanjana-residence-08": {
+    "width": 3200,
+    "height": 2134,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/akhil-sanjana-residence-08-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/akhil-sanjana-residence-08-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/akhil-sanjana-residence-08-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/akhil-sanjana-residence-08.webp"
+      }
+    ],
+    "avif": true
+  },
+  "akhil-sanjana-residence-09": {
+    "width": 2133,
+    "height": 3200,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/akhil-sanjana-residence-09-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/akhil-sanjana-residence-09-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/akhil-sanjana-residence-09-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "akhil-sanjana-residence-10": {
+    "width": 2134,
+    "height": 3200,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/akhil-sanjana-residence-10-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/akhil-sanjana-residence-10-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/akhil-sanjana-residence-10-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "akhil-sanjana-residence-11": {
+    "width": 2133,
+    "height": 3200,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/akhil-sanjana-residence-11-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/akhil-sanjana-residence-11-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/akhil-sanjana-residence-11-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "dr-akhil-sunitha-residence-01": {
+    "width": 3200,
+    "height": 2133,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/dr-akhil-sunitha-residence-01-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/dr-akhil-sunitha-residence-01-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/dr-akhil-sunitha-residence-01-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/dr-akhil-sunitha-residence-01.webp"
+      }
+    ],
+    "avif": true
+  },
+  "dr-akhil-sunitha-residence-02": {
+    "width": 3200,
+    "height": 2133,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/dr-akhil-sunitha-residence-02-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/dr-akhil-sunitha-residence-02-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/dr-akhil-sunitha-residence-02-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/dr-akhil-sunitha-residence-02.webp"
+      }
+    ],
+    "avif": true
+  },
+  "dr-akhil-sunitha-residence-03": {
+    "width": 3200,
+    "height": 2134,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/dr-akhil-sunitha-residence-03-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/dr-akhil-sunitha-residence-03-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/dr-akhil-sunitha-residence-03-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/dr-akhil-sunitha-residence-03.webp"
+      }
+    ],
+    "avif": true
+  },
+  "dr-akhil-sunitha-residence-04": {
+    "width": 2133,
+    "height": 3200,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/dr-akhil-sunitha-residence-04-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/dr-akhil-sunitha-residence-04-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/dr-akhil-sunitha-residence-04-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "dr-akhil-sunitha-residence-05": {
+    "width": 2133,
+    "height": 3200,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/dr-akhil-sunitha-residence-05-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/dr-akhil-sunitha-residence-05-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/dr-akhil-sunitha-residence-05-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "dr-akhil-sunitha-residence-06": {
+    "width": 2560,
+    "height": 3200,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/dr-akhil-sunitha-residence-06-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/dr-akhil-sunitha-residence-06-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/dr-akhil-sunitha-residence-06-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/dr-akhil-sunitha-residence-06.webp"
+      }
+    ],
+    "avif": true
+  },
+  "dr-akhil-sunitha-residence-07": {
+    "width": 2133,
+    "height": 3200,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/dr-akhil-sunitha-residence-07-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/dr-akhil-sunitha-residence-07-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/dr-akhil-sunitha-residence-07-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "dr-akhil-sunitha-residence-08": {
+    "width": 3200,
+    "height": 2133,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/dr-akhil-sunitha-residence-08-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/dr-akhil-sunitha-residence-08-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/dr-akhil-sunitha-residence-08-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/dr-akhil-sunitha-residence-08.webp"
+      }
+    ],
+    "avif": true
+  },
+  "seshu-rajalakshmi-residence-01": {
+    "width": 3200,
+    "height": 2137,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/seshu-rajalakshmi-residence-01-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/seshu-rajalakshmi-residence-01-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/seshu-rajalakshmi-residence-01-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/seshu-rajalakshmi-residence-01.webp"
+      }
+    ],
+    "avif": true
+  },
+  "seshu-rajalakshmi-residence-02": {
+    "width": 3200,
+    "height": 2137,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/seshu-rajalakshmi-residence-02-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/seshu-rajalakshmi-residence-02-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/seshu-rajalakshmi-residence-02-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/seshu-rajalakshmi-residence-02.webp"
+      }
+    ],
+    "avif": true
+  },
+  "seshu-rajalakshmi-residence-03": {
+    "width": 3200,
+    "height": 2137,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/seshu-rajalakshmi-residence-03-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/seshu-rajalakshmi-residence-03-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/seshu-rajalakshmi-residence-03-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/seshu-rajalakshmi-residence-03.webp"
+      }
+    ],
+    "avif": true
+  },
+  "seshu-rajalakshmi-residence-04": {
+    "width": 3200,
+    "height": 2137,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/seshu-rajalakshmi-residence-04-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/seshu-rajalakshmi-residence-04-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/seshu-rajalakshmi-residence-04-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/seshu-rajalakshmi-residence-04.webp"
+      }
+    ],
+    "avif": true
+  },
+  "seshu-rajalakshmi-residence-05": {
+    "width": 3200,
+    "height": 2137,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/seshu-rajalakshmi-residence-05-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/seshu-rajalakshmi-residence-05-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/seshu-rajalakshmi-residence-05-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/seshu-rajalakshmi-residence-05.webp"
+      }
+    ],
+    "avif": true
+  },
+  "seshu-rajalakshmi-residence-06": {
+    "width": 3200,
+    "height": 2137,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/seshu-rajalakshmi-residence-06-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/seshu-rajalakshmi-residence-06-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/seshu-rajalakshmi-residence-06-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/seshu-rajalakshmi-residence-06.webp"
+      }
+    ],
+    "avif": true
+  },
+  "seshu-rajalakshmi-residence-07": {
+    "width": 3200,
+    "height": 2137,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/seshu-rajalakshmi-residence-07-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/seshu-rajalakshmi-residence-07-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/seshu-rajalakshmi-residence-07-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/seshu-rajalakshmi-residence-07.webp"
+      }
+    ],
+    "avif": true
+  },
+  "seshu-rajalakshmi-residence-08": {
+    "width": 3200,
+    "height": 2137,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/seshu-rajalakshmi-residence-08-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/seshu-rajalakshmi-residence-08-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/seshu-rajalakshmi-residence-08-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/seshu-rajalakshmi-residence-08.webp"
+      }
+    ],
+    "avif": true
+  },
+  "seshu-rajalakshmi-residence-09": {
+    "width": 3200,
+    "height": 2137,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/seshu-rajalakshmi-residence-09-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/seshu-rajalakshmi-residence-09-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/seshu-rajalakshmi-residence-09-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/seshu-rajalakshmi-residence-09.webp"
+      }
+    ],
+    "avif": true
+  },
+  "seshu-rajalakshmi-residence-10": {
+    "width": 2137,
+    "height": 3200,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/seshu-rajalakshmi-residence-10-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/seshu-rajalakshmi-residence-10-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/seshu-rajalakshmi-residence-10-lg.webp"
+      }
+    ],
+    "avif": true
+  }
+}
