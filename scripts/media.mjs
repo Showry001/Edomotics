@@ -40,7 +40,9 @@ const PHOTOS = {
   'villa-dusk': `${framer}/rising-2.jpg`,
   'lounge-tall': `${framer}/rising-4.jpg`,
   'project-ravi-prasad': `${framer}/project-1.jpg`,
-  // Leadership portraits, from the Edomotics Framer site (365px originals: shown small, never upscaled).
+  // Leadership portraits, square. Ganesh and Keshava: studio portraits supplied by Edomotics
+  // (square crops; the full frames are in _src/founders/originals/). Manjunath: the 365px
+  // original from the Edomotics Framer site (shown small, never upscaled).
   'founder-ganesh-vudutha': '_src/founders/ganesh-vudutha.jpg',
   'founder-keshava-varma': '_src/founders/keshava-varma.jpg',
   'founder-manjunath-n-m': '_src/founders/manjunath-n-m.jpg',

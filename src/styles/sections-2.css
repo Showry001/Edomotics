@@ -30,8 +30,8 @@
 .cinema__frame img, .cinema__frame video { width: 100%; height: 100%; object-fit: cover; }
 .cinema__shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to bottom, rgb(18 17 14 / 0) 35%, rgb(18 17 14 / 0.72) 100%); }
 .cinema__head { position: absolute; left: 0; right: 0; bottom: 0; padding-bottom: clamp(36px, 6vh, 64px); display: grid; gap: 24px; justify-items: start; color: var(--paper); }
-.cinema-body { padding-block: clamp(56px, 7vw, 112px) clamp(40px, 4vw, 72px); } /* the projects heading below brings its own space */
-.cinema__body { row-gap: 40px; align-items: start; }
+.cinema-body { padding-block: clamp(56px, 7vw, 112px) clamp(40px, 4vw, 72px); } /* the principles below bring their own space */
+.cinema__body { row-gap: 40px; align-items: start; margin-bottom: clamp(48px, 6.5vw, 104px); } /* as a split head above its cards */
 .cinema__lead { grid-column: 1 / span 7; max-width: 26ch; }
 .cinema__svc { grid-column: 9 / span 4; }
 
@@ -159,23 +159,15 @@
 .tile:hover { background: var(--stone-2); }
 .tile:hover img { transform: scale(1.06); }
 .tile--text { grid-column: span 2; aspect-ratio: auto; place-items: end start; padding: 24px; }
-.clients { align-items: center; row-gap: 40px; margin-bottom: clamp(96px, 10vw, 168px); }
-.clients__head { grid-column: 1 / span 5; display: grid; gap: 24px; justify-items: start; }
+/* Commercial clients: the partner tiles beside a sticky head, as in the brands layout. */
+.clients { align-items: start; row-gap: 40px; margin-bottom: clamp(96px, 10vw, 168px); }
+.clients__head { grid-column: 1 / span 5; position: sticky; top: calc(var(--hdr) + 24px); display: grid; gap: 24px; justify-items: start; }
 .clients__head > p:not(.count) { font-size: 0.9375rem; max-width: 40ch; }
-.clients__head > .clients__more { font-size: 0.8125rem; color: var(--muted); }
-.clients__wall {
-  grid-column: 7 / span 6; height: clamp(440px, 46vw, 700px); overflow: hidden;
-  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; align-items: start;
-  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
-  mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
-}
-.clients__col { display: grid; gap: 12px; will-change: transform; }
-.client { container-type: size; aspect-ratio: 1; display: grid; place-items: center; background: rgb(18 17 14 / 0.045); border-radius: 2px; }
-/* Optical sizing: each logo carries --s (1 / sqrt(aspect ratio)) so wide and compact marks read at a similar weight. */
-.client img {
-  height: calc(var(--s, 0.7) * 40cqh); width: auto; max-width: 70cqw; object-fit: contain;
-  -webkit-user-select: none; user-select: none; -webkit-user-drag: none;
-}
+.clients__more { font-size: 0.8125rem; color: var(--muted); }
+/* Optical sizing: each logo carries --s (1 / sqrt(aspect ratio)) so wide and compact marks read at a similar
+   weight; capped so the widest mark stays at the partner logos' 46px. */
+.clients .tile:not(.tile--text) { container-type: size; }
+.clients .tile img { height: calc(var(--s, 0.7) * min(72cqh, 86px)); max-height: none; object-fit: contain; }
 
 /* ---------- Voices ---------- */
 .voices__grid { row-gap: 32px; align-items: start; }
@@ -290,9 +282,9 @@ a.centre:hover { padding-left: 10px; }
 
 /* ---------- Footer ---------- */
 .ftr { position: relative; z-index: 2; display: grid; grid-template-columns: clamp(120px, 15vw, 260px) 1fr; min-height: 100vh; min-height: 100svh; }
-/* --k is the wordmark's length in ems ("Edomotics", General Sans 500, -0.06em tracking).
+/* --k is the wordmark's length in ems ("EDOMOTICS", General Sans 500, -0.06em tracking).
    The word takes the smaller of: what the column's width allows, and what its height allows. */
-.ftr__mark { position: relative; border-right: 1px solid var(--line); overflow: hidden; container-type: size; --k: 4.5; }
+.ftr__mark { position: relative; border-right: 1px solid var(--line); overflow: hidden; container-type: size; --k: 5.6; }
 .ftr__word {
   position: absolute; left: 50%; bottom: var(--pad); transform: translateX(-50%) rotate(180deg);
   writing-mode: vertical-rl; white-space: nowrap;
@@ -391,9 +383,7 @@ a.centre:hover { padding-left: 10px; }
 }
 
 @media (max-width: 860px) {
-  .clients__head, .clients__wall { grid-column: 1 / -1; }
-  .clients__wall { height: clamp(380px, 90vw, 560px); gap: 8px; }
-  .clients__col { gap: 8px; }
+  .clients__head { grid-column: 1 / -1; position: static; }
 }
 
 @media (max-width: 560px) {

@@ -375,23 +375,31 @@
     "avif": true
   },
   "founder-ganesh-vudutha": {
-    "width": 365,
-    "height": 365,
+    "width": 1336,
+    "height": 1336,
     "widths": [
       {
-        "w": 365,
+        "w": 640,
         "file": "media/img/founder-ganesh-vudutha-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/founder-ganesh-vudutha-md.webp"
       }
     ],
     "avif": true
   },
   "founder-keshava-varma": {
-    "width": 365,
-    "height": 365,
+    "width": 1336,
+    "height": 1336,
     "widths": [
       {
-        "w": 365,
+        "w": 640,
         "file": "media/img/founder-keshava-varma-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/founder-keshava-varma-md.webp"
       }
     ],
     "avif": true

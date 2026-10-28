@@ -15,10 +15,14 @@ const pad = (n) => String(n).padStart(2, '0');
    takes over from FILM_END → 1, so the change is pixel-aligned and can't ghost.
    Pressing a key tweens u, so a change can be reversed mid-way and the keys, captions,
    meter and picture can never disagree.
+   Every [data-room] section mounts on its own: data-room names its film, and its keys run
+   from the first scene (u = 0) to the last (u = 1), so another room only needs its markup.
    ===================================================================== */
 export function initRoom(view, bag) {
-  const room = $('[data-room]', view);
-  if (!room) return;
+  $$('[data-room]', view).forEach((room) => mountRoom(room, bag));
+}
+
+function mountRoom(room, bag) {
   const media = $('[data-room-media]', room);
   const photoDay = $('[data-room-day]', room);
   const photoNight = $('[data-room-night]', room);
@@ -29,21 +33,23 @@ export function initRoom(view, bag) {
   const pulse = $('[data-key-pulse]', room);
   const consoleEl = $('[data-console]', room);
 
-  const TARGET = { relax: 0, night: 1 };
-  const LABEL = { relax: 'Relax', night: 'Night' };
+  const modes = keys.map((k) => k.dataset.mode);
+  const TARGET = Object.fromEntries(modes.map((m, i) => [m, i / Math.max(1, modes.length - 1)]));
+  const LABEL = Object.fromEntries(keys.map((k) => [k.dataset.mode, $('.key__name', k)?.textContent || k.dataset.mode]));
+  const film = room.dataset.room;
   const FILM_START = 0.35; // seconds: a settled daylight frame
   const FILM_END = 0.8;    // share of u spent on the film; the night grade completes the rest
   const FULL = 3.4;        // seconds for a full Relax ⇄ Night change
 
   const state = { u: 0 };
-  let mode = 'relax';
+  let mode = modes[0];
   let tween = null;
   let capTl = null;
 
   // The film and its night frame, over the photographs (which remain the no-film fallback).
   let video = null, night = null, scrub = null, ready = false;
   const showPhotos = (on) => { photoDay.hidden = !on; photoNight.hidden = !on; };
-  if (videos['one-room']) {
+  if (videos[film]) {
     const sm = isSmall() ? '-sm' : '';
     video = Object.assign(document.createElement('video'), { className: 'room__video', muted: true, playsInline: true, preload: 'none' });
     video.setAttribute('aria-hidden', 'true');
@@ -57,10 +63,10 @@ export function initRoom(view, bag) {
     const io = new IntersectionObserver(([entry]) => {
       if (!entry.isIntersecting) return;
       io.disconnect();
-      video.poster = `${BASE}media/video/one-room-poster${sm}.webp`;
-      night.src = `${BASE}media/video/one-room-night${sm}.webp`;
+      video.poster = `${BASE}media/video/${film}-poster${sm}.webp`;
+      night.src = `${BASE}media/video/${film}-night${sm}.webp`;
       video.preload = 'auto';
-      video.src = `${BASE}media/video/one-room${sm}.mp4`;
+      video.src = `${BASE}media/video/${film}${sm}.mp4`;
     }, { rootMargin: '150% 0px 150% 0px' });
     io.observe(room);
     bag.add(() => io.disconnect());
@@ -134,8 +140,8 @@ export function initRoom(view, bag) {
   });
   const enter = gsap.timeline({ paused: true })
     .from(consoleEl, { y: 48, autoAlpha: 0, duration: DUR.slow, ease: EASE.out })
-    .from($$('.mask > span', capFor('relax')), { yPercent: 105, duration: DUR.base, ease: EASE.out }, 0.1)
-    .from($('p', capFor('relax')), { autoAlpha: 0, duration: DUR.base, ease: EASE.out }, 0.25);
+    .from($$('.mask > span', capFor(modes[0])), { yPercent: 105, duration: DUR.base, ease: EASE.out }, 0.1)
+    .from($('p', capFor(modes[0])), { autoAlpha: 0, duration: DUR.base, ease: EASE.out }, 0.25);
   ScrollTrigger.create({ trigger: room, start: 'top 55%', once: true, onEnter: () => enter.play() });
   // Ambience: the room breathes slowly while it's on screen.
   const breathe = gsap.to($$('img, video', media), { scale: 1.035, duration: 9, ease: 'sine.inOut', yoyo: true, repeat: -1, paused: true });

@@ -4,7 +4,7 @@ import { gsap, ScrollTrigger, reduced, createBag } from './core.js';
 import { initHeaderTheme, setActiveNav } from './header.js';
 import { initHeroVideo, heroEntrance, pageHero, initFill } from './hero.js';
 import { initRoom, initCinema, initProjects, initApproach, initSteps } from './chapters.js';
-import { initReveals, initCounters, initCarousel, initQuotes, initForm, initFooter, initProjectIndex, initLogoWall } from './interactions.js';
+import { initReveals, initCounters, initCarousel, initQuotes, initForm, initFooter, initProjectIndex } from './interactions.js';
 import { initField } from './field.js';
 
 function safely(name, fn) {
@@ -23,7 +23,6 @@ export function mountPage(view, { first = false } = {}) {
   safely('form', () => initForm(view, bag));
   safely('footer', () => initFooter(view, bag));
   safely('index', () => initProjectIndex(view, bag));
-  safely('logos', () => initLogoWall(view, bag));
 
   if (reduced) {
     safely('field', () => initField(view, bag, { first }));

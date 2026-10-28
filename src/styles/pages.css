@@ -239,7 +239,9 @@
 .phero__media--framed { max-width: 1000px; margin-inline: auto; aspect-ratio: 16 / 10; }
 .phero__media--framed img { height: 100%; margin-top: 0; }
 @media (max-width: 1064px) { .phero__media--framed { margin-inline: var(--pad); } }
-.centres--side { grid-column: 7 / span 6; margin-top: 0; }
+.centres--side { grid-column: 7 / span 6; }
+.centres--side > .centres:first-child { margin-top: 0; }
+.centres__also { margin-top: clamp(40px, 4vw, 64px); }
 
 /* ---------- Contact ---------- */
 .contact-direct { gap: 8px; justify-items: start; }

@@ -65,50 +65,6 @@ export function initCounters(view) {
   });
 }
 
-/* ---------------- Client logos: columns that drift upward ----------------
-   Each column carries a hidden copy of its tiles so it loops without a seam. Columns move at
-   slightly different speeds and start at different points, so the wall never lines up. */
-export function initLogoWall(view, bag) {
-  $$('[data-logo-wall]', view).forEach((wall) => {
-    const cols = $$('.clients__col', wall);
-    if (reduced || !cols.length) return;
-    cols.forEach((col) => [...col.children].forEach((li) => {
-      const copy = li.cloneNode(true);
-      copy.setAttribute('aria-hidden', 'true');
-      $('img', copy).alt = '';
-      col.append(copy);
-    }));
-    const SPEEDS = [24, 31, 20]; // px per second
-    const START = [0, 0.45, 0.2]; // share of a loop already travelled
-    const state = cols.map((col, i) => ({ col, y: 0, loop: 0, speed: SPEEDS[i % 3], start: START[i % 3] }));
-    const measure = () => state.forEach((c) => {
-      const gap = parseFloat(getComputedStyle(c.col).rowGap) || 0;
-      c.loop = (c.col.scrollHeight + gap) / 2;
-      c.y = -c.loop * c.start;
-      c.col.style.transform = `translate3d(0, ${c.y}px, 0)`;
-    });
-    measure();
-    let visible = false;
-    const tick = (time, dt) => {
-      if (!visible) return;
-      const step = Math.min(dt, 100) / 1000;
-      state.forEach((c) => {
-        if (!c.loop) return;
-        c.y -= c.speed * step;
-        if (c.y <= -c.loop) c.y += c.loop;
-        c.col.style.transform = `translate3d(0, ${c.y}px, 0)`;
-      });
-    };
-    gsap.ticker.add(tick);
-    const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; }, { rootMargin: '100px 0px' });
-    io.observe(wall);
-    let t = 0;
-    bag.on(window, 'resize', () => { clearTimeout(t); t = setTimeout(measure, 200); });
-    $$('img', wall).forEach((img) => { if (!img.complete) bag.on(img, 'load', measure, { once: true }); });
-    bag.add(() => { gsap.ticker.remove(tick); io.disconnect(); clearTimeout(t); });
-  });
-}
-
 /* ---------------- Carousel: mouse/pen drag, arrows, native touch swipe ---------------- */
 export function initCarousel(view, bag) {
   $$('[data-carousel]', view).forEach((wrap) => {

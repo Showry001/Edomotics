@@ -120,17 +120,8 @@
       </div>
     </section>
 
-    <!-- ============================== STATEMENT ============================== -->
-    <section class="statement block" data-theme="light" aria-label="Edomotics in numbers">
-      <div class="wrap statement__in">
-        <p class="statement__sans t-l"><span data-count-to="700">700</span>+ projects across five&nbsp;cities.</p>
-        <p class="statement__serif">Built by a team of <span data-count-to="60">60</span>+, over fifteen years of&nbsp;practice.</p>
-      </div>
-    </section>
-
-
     <!-- ============================== ONE ROOM, ONE DAY: the console ============================== -->
-    <section class="room" id="one-room" data-theme="dark" data-room aria-labelledby="room-title">
+    <section class="room" id="one-room" data-theme="dark" data-room="one-room" aria-labelledby="room-title">
       <div class="room__media" data-room-media>
         <!-- Photo fallback. When the room film is available (npm run media), JS layers it and its night frame on top. -->
         <img class="room__img" data-pic="living-hex" sizes="100vw" alt="A long living room in daylight: tan sofas, a hexagonal ring pendant and a polished stone floor." data-room-day>
@@ -176,6 +167,68 @@
       </div>
     </section>
 
+    <!-- ============================== HOME THEATRE ============================== -->
+    <section class="cinema" id="cinema" data-theme="light" data-cinema aria-labelledby="cinema-title">
+      <div class="cinema__stage">
+        <div class="cinema__frame" data-cinema-frame>
+          <!-- Drop clean footage at _src/videos/cinema.mp4 and run `npm run media` to enable the scroll-scrubbed video. -->
+          <img data-pic="cinema-recliners" sizes="100vw" alt="A private cinema: two tiers of grey leather recliners inside a fabric-lined room, outlined by a warm perimeter light cove." data-cinema-img>
+        </div>
+        <div class="cinema__shade" aria-hidden="true" data-cinema-shade></div>
+        <div class="cinema__head wrap">
+          <p class="count" data-cinema-count>Home theatre</p>
+          <h2 class="t-hero" id="cinema-title" data-cinema-title><span class="mask"><span>The cinema</span></span><br><span class="mask"><span class="serif-i">at home.</span></span></h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="cinema-body block" data-theme="light" aria-label="Home theatre">
+      <div class="wrap grid cinema__body">
+        <p class="t-lead cinema__lead">Dedicated home theatres, media rooms and sound through the whole house, designed for the room they live&nbsp;in.</p>
+        <ul class="svc cinema__svc">
+          <li>Dedicated home theatres</li><li>Media rooms</li><li>Multi-room audio</li><li>Integrated control</li>
+        </ul>
+        <a class="link-arrow cinema__more" href="/home-theatre/"><span class="link-arrow__t">Explore home theatre</span><span class="ap" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span></a>
+      </div>
+
+      <div class="wrap carousel-bar">
+        <p class="count">Drag, swipe or use the arrows</p>
+        <div class="carousel-nav">
+          <button type="button" class="round" aria-label="Previous" data-car-prev><svg style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></button>
+          <button type="button" class="round" aria-label="Next" data-car-next><svg><use href="#i-arrow"/></svg></button>
+        </div>
+      </div>
+
+      <div class="carousel" data-carousel>
+        <ul class="carousel__track" data-car-track aria-label="Home theatre capabilities">
+          <li class="scard">
+            <figure class="scard__img"><img data-pic="cinema-recliners" sizes="(min-width: 768px) 26vw, 76vw" alt="A private cinema: two tiers of grey leather recliners inside a fabric-lined room, outlined by a warm perimeter light cove." draggable="false"></figure>
+            <p class="scard__name">Cinema rooms</p>
+            <p class="scard__line">A room built around sightlines, sound and darkness, for films the way they were&nbsp;made.</p>
+          </li>
+          <li class="scard">
+            <figure class="scard__img"><img data-pic="akhil-sanjana-residence-03" sizes="(min-width: 768px) 26vw, 76vw" alt="A listening room: floor-standing speakers either side of an AV console and turntable." draggable="false"></figure>
+            <p class="scard__name">Sound &amp; acoustics</p>
+            <p class="scard__line">Object-based audio moves naturally through the room, measured and balanced around&nbsp;you.</p>
+          </li>
+          <li class="scard">
+            <figure class="scard__img"><img data-pic="seshu-rajalakshmi-residence-02" sizes="(min-width: 768px) 26vw, 76vw" alt="From the sofa to the media wall: a woven cream sectional, a timber wall unit and glass-leaf chandeliers." draggable="false"></figure>
+            <p class="scard__name">Picture &amp; screens</p>
+            <p class="scard__line">The picture comes&nbsp;alive.</p>
+          </li>
+          <li class="scard">
+            <figure class="scard__img"><img data-pic="living-media-wall" sizes="(min-width: 768px) 26vw, 76vw" alt="A formal living room with a white media wall and a linear chandelier, lit low for the evening." draggable="false"></figure>
+            <p class="scard__name">Lighting &amp; control</p>
+            <p class="scard__line">Picture, sound and light arrive together in one effortless&nbsp;command.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Planned: an interactive home theatre block, like "One room, one day", goes here as its own
+         section. Reuse the room markup (data-room="<film>", one key per scene): initRoom() mounts
+         every [data-room] section; add the film's name to the video list in scripts/media.mjs. -->
+
     <!-- ============================== APPROACH ============================== -->
     <section class="approach block" id="approach" data-theme="light" aria-labelledby="approach-title">
       <div class="wrap grid split-head">
@@ -217,28 +270,11 @@
       </div>
     </section>
 
-    <!-- ============================== HOME THEATRE ============================== -->
-    <section class="cinema" id="cinema" data-theme="light" data-cinema aria-labelledby="cinema-title">
-      <div class="cinema__stage">
-        <div class="cinema__frame" data-cinema-frame>
-          <!-- Drop clean footage at _src/videos/cinema.mp4 and run `npm run media` to enable the scroll-scrubbed video. -->
-          <img data-pic="cinema-recliners" sizes="100vw" alt="A private cinema: two tiers of grey leather recliners inside a fabric-lined room, outlined by a warm perimeter light cove." data-cinema-img>
-        </div>
-        <div class="cinema__shade" aria-hidden="true" data-cinema-shade></div>
-        <div class="cinema__head wrap">
-          <p class="count" data-cinema-count>Home theatre</p>
-          <h2 class="t-hero" id="cinema-title" data-cinema-title><span class="mask"><span>The cinema</span></span><br><span class="mask"><span class="serif-i">at home.</span></span></h2>
-        </div>
-      </div>
-    </section>
-
-    <section class="cinema-body block" data-theme="light" aria-label="Home theatre">
-      <div class="wrap grid cinema__body">
-        <p class="t-lead cinema__lead">Dedicated home theatres, media rooms and sound through the whole house, designed for the room they live&nbsp;in.</p>
-        <ul class="svc cinema__svc">
-          <li>Dedicated home theatres</li><li>Media rooms</li><li>Multi-room audio</li><li>Integrated control</li>
-        </ul>
-        <a class="link-arrow cinema__more" href="/home-theatre/"><span class="link-arrow__t">Explore home theatre</span><span class="ap" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span></a>
+    <!-- ============================== STATEMENT ============================== -->
+    <section class="statement block" data-theme="light" aria-label="Edomotics in numbers">
+      <div class="wrap statement__in">
+        <p class="statement__sans t-l"><span data-count-to="700">700</span>+ projects across five&nbsp;cities.</p>
+        <p class="statement__serif">Built by a team of <span data-count-to="60">60</span>+, over fifteen years of&nbsp;practice.</p>
       </div>
     </section>
 
@@ -299,7 +335,7 @@
     <!-- ============================== FOUNDERS ============================== -->
     <!-- Portrait cards in the homepage carousel: the name sits on the photograph and a short
          line opens beneath it on hover; on phones each card becomes a panel with the portrait
-         beside the name. Portraits are the 365px originals from the Edomotics Framer site. -->
+         beside the name. Portraits are square; see scripts/media.mjs for their sources. -->
     <section class="founders block" data-theme="light" aria-labelledby="founders-title" style="padding-top: 0;">
       <div class="wrap grid split-head founders__head">
         <div class="split-head__title">
@@ -322,14 +358,14 @@
       <div class="carousel" data-carousel>
         <ul class="carousel__track founders__track" data-car-track aria-label="Founders and leadership">
           <li class="fcard">
-            <figure class="fcard__img"><img data-pic="founder-ganesh-vudutha" sizes="(min-width: 861px) 24vw, 24vw" style="--x: 60%" alt="Ganesh Vudutha, Co-Founder and CEO of Edomotics, at his desk." draggable="false"></figure>
+            <figure class="fcard__img"><img data-pic="founder-ganesh-vudutha" sizes="(min-width: 861px) 24vw, 24vw" style="--x: 50%" alt="Ganesh Vudutha, Co-Founder and CEO of Edomotics, in a navy checked blazer." draggable="false"></figure>
             <div class="fcard__body">
               <h3 class="fcard__title"><span class="fcard__role">Co-Founder &amp; CEO</span> <span class="fcard__name">Ganesh Vudutha</span></h3>
               <div class="fcard__more"><div><p>Co-founded Edomotics in 2011 and leads the company as its Chief Executive.</p></div></div>
             </div>
           </li>
           <li class="fcard">
-            <figure class="fcard__img"><img data-pic="founder-keshava-varma" sizes="(min-width: 861px) 24vw, 24vw" style="--x: 40%" alt="Keshava Varma, Co-Founder and CTO of Edomotics." draggable="false"></figure>
+            <figure class="fcard__img"><img data-pic="founder-keshava-varma" sizes="(min-width: 861px) 24vw, 24vw" style="--x: 50%" alt="Keshava Varma, Co-Founder and CTO of Edomotics, in a charcoal blazer." draggable="false"></figure>
             <div class="fcard__body">
               <h3 class="fcard__title"><span class="fcard__role">Co-Founder &amp; CTO</span> <span class="fcard__name">Keshava Varma</span></h3>
               <div class="fcard__more"><div><p>Co-founded Edomotics in 2011 and leads its technology as Chief Technology Officer.</p></div></div>
@@ -344,34 +380,6 @@
           </li>
         </ul>
       </div>
-    </section>
-
-    <!-- ============================== BRANDS ============================== -->
-    <section class="brands block" id="brands" data-theme="light" aria-labelledby="brands-title">
-      <div class="wrap grid brands__grid">
-        <div class="brands__head">
-          <p class="count">Technology partners</p>
-          <h2 class="t-xl" id="brands-title" data-lines>In good company.</h2>
-          <p>Alliances with world-class product and technology providers, specified and integrated as one&nbsp;system.</p>
-        </div>
-        <ul class="tiles" data-tiles>
-          <li class="tile"><img src="/media/logos/basalte.png" alt="Basalte" loading="lazy"></li>
-          <li class="tile"><img src="/media/logos/control4.png" alt="Control4" loading="lazy"></li>
-          <li class="tile"><img src="/media/logos/schneider-electric.png" alt="Schneider Electric" loading="lazy"></li>
-          <li class="tile"><img src="/media/logos/legrand.png" alt="Legrand" loading="lazy"></li>
-          <li class="tile"><img src="/media/logos/honeywell.png" alt="Honeywell" loading="lazy"></li>
-          <li class="tile"><img src="/media/logos/somfy.png" alt="Somfy" loading="lazy"></li>
-          <li class="tile"><img src="/media/logos/hunter-douglas.png" alt="Hunter Douglas" loading="lazy"></li>
-          <li class="tile"><img src="/media/logos/yale.png" alt="Yale" loading="lazy"></li>
-          <li class="tile"><img src="/media/logos/assa-abloy.png" alt="ASSA ABLOY" loading="lazy"></li>
-          <li class="tile"><img src="/media/logos/grandstream.png" alt="Grandstream" loading="lazy"></li>
-          <li class="tile"><img src="/media/logos/intesis.png" alt="Intesis" loading="lazy"></li>
-          <li class="tile"><img src="/media/logos/steinel.png" alt="Steinel" loading="lazy"></li>
-          <li class="tile"><img src="/media/logos/wiim.png" alt="WiiM" loading="lazy"></li>
-          <li class="tile tile--text"><a class="link-arrow" href="/contact/"><span class="link-arrow__t">Ask which partners suit your project</span><span class="ap" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span></a></li>
-        </ul>
-      </div>
-
     </section>
 
     <!-- ============================== VOICES ============================== -->
