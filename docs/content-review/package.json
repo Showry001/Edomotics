@@ -1,0 +1,12 @@
+{
+  "name": "edomotics-content-review",
+  "private": true,
+  "type": "module",
+  "description": "Generates the Website Content Sitemap & Review document from the built site.",
+  "scripts": {
+    "build": "sh scripts/build.sh"
+  },
+  "dependencies": {
+    "docx": "^9.5.0"
+  }
+}

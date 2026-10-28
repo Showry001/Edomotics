@@ -1,0 +1,3877 @@
+{
+  "site": {
+    "name": "Edomotics",
+    "liveUrl": "https://showry001.github.io/Edomotics/",
+    "commit": "b2dcb48",
+    "extractedAt": "2026-10-27",
+    "base": ""
+  },
+  "hiddenProjects": [
+    "Ravi Prasad Residence"
+  ],
+  "globals": [
+    {
+      "id": "G1",
+      "name": "Header and menu",
+      "type": "Navigation",
+      "appearsOn": "Every page",
+      "blocks": [
+        {
+          "kind": "text",
+          "rows": [
+            {
+              "element": "Link / button",
+              "text": "Skip to content",
+              "link": "Main content of the current page",
+              "note": "Hidden until a keyboard user presses Tab; jumps past the menu."
+            },
+            {
+              "element": "Logo",
+              "text": "Edomotics",
+              "link": "Home page",
+              "note": "Image description of the logo."
+            },
+            {
+              "element": "Link / button",
+              "text": "Start a project",
+              "link": "Contact page",
+              "note": "Top right on larger screens; inside the logo bar on phones."
+            },
+            {
+              "element": "Menu button",
+              "text": "Opens and closes the menu (icon only; read aloud as “Open menu” / “Close menu”).",
+              "link": null,
+              "note": null
+            }
+          ]
+        },
+        {
+          "kind": "cards",
+          "title": "Menu links",
+          "columns": [
+            "#",
+            "Menu label",
+            "Goes to"
+          ],
+          "rows": [
+            [
+              "1",
+              "Automation",
+              "Home Automation page"
+            ],
+            [
+              "2",
+              "Home theatre",
+              "Home Theatre page"
+            ],
+            [
+              "3",
+              "Projects",
+              "Projects page"
+            ],
+            [
+              "4",
+              "Brands",
+              "Home page, Technology partners section"
+            ],
+            [
+              "5",
+              "About",
+              "About page"
+            ],
+            [
+              "6",
+              "Contact",
+              "Contact page"
+            ]
+          ],
+          "note": null
+        },
+        {
+          "kind": "text",
+          "rows": [
+            {
+              "element": "Label",
+              "text": "Recent projects",
+              "link": null,
+              "note": null
+            }
+          ]
+        },
+        {
+          "kind": "cards",
+          "title": "Recent projects (in the menu)",
+          "columns": [
+            "#",
+            "Project",
+            "Link"
+          ],
+          "rows": [
+            [
+              "1",
+              "Akhil & Sanjana Residence",
+              "Akhil & Sanjana Residence page"
+            ],
+            [
+              "2",
+              "Dr Akhil & Sunitha Residence",
+              "Dr Akhil & Sunitha Residence page"
+            ],
+            [
+              "3",
+              "Seshu & Rajalakshmi Residence",
+              "Seshu & Rajalakshmi Residence page"
+            ]
+          ],
+          "note": null
+        }
+      ],
+      "flags": []
+    },
+    {
+      "id": "G2",
+      "name": "Footer",
+      "type": "Footer",
+      "appearsOn": "Every page",
+      "blocks": [
+        {
+          "kind": "text",
+          "rows": [
+            {
+              "element": "Supporting text",
+              "text": "Edomotics",
+              "link": null,
+              "note": null
+            },
+            {
+              "element": "Label",
+              "text": "Find us",
+              "link": null,
+              "note": null
+            },
+            {
+              "element": "Body text",
+              "text": "Plot No. 126, 3rd Floor, Above SBI, Road No. 11, Jubilee Hills, Hyderabad 500033",
+              "link": null,
+              "note": null
+            },
+            {
+              "element": "Label",
+              "text": "Talk to us",
+              "link": null,
+              "note": null
+            },
+            {
+              "element": "Body text",
+              "text": "+91 910 044 4648 info@edomotics.com",
+              "link": "“+91 910 044 4648” → Phone call: +919100444648; “info@edomotics.com” → Email: info@edomotics.com",
+              "note": null
+            },
+            {
+              "element": "Label",
+              "text": "Follow",
+              "link": null,
+              "note": null
+            },
+            {
+              "element": "Body text",
+              "text": "LinkedIn Facebook Twitter",
+              "link": "“LinkedIn” → External: https://www.linkedin.com/company/edomotics-smart-systems-p-ltd/; “Facebook” → External: https://www.facebook.com/Edomotics-Smart-Systems-Pvt-Ltd-483276208548445/; “Twitter” → External: https://twitter.com/edomotics",
+              "note": null
+            },
+            {
+              "element": "Label",
+              "text": "Explore",
+              "link": null,
+              "note": null
+            },
+            {
+              "element": "Link / button",
+              "text": "Automation",
+              "link": "Home Automation page",
+              "note": null
+            },
+            {
+              "element": "Link / button",
+              "text": "Home theatre",
+              "link": "Home Theatre page",
+              "note": null
+            },
+            {
+              "element": "Link / button",
+              "text": "Projects",
+              "link": "Projects page",
+              "note": null
+            },
+            {
+              "element": "Link / button",
+              "text": "About",
+              "link": "About page",
+              "note": null
+            },
+            {
+              "element": "Link / button",
+              "text": "Brands",
+              "link": "Home page, Technology partners section",
+              "note": null
+            },
+            {
+              "element": "Link / button",
+              "text": "Contact",
+              "link": "Contact page",
+              "note": null
+            },
+            {
+              "element": "Body text",
+              "text": "© 2026 Edomotics Smart Systems Pvt Ltd",
+              "link": null,
+              "note": "The year updates automatically each year."
+            },
+            {
+              "element": "Link / button",
+              "text": "Support portal",
+              "link": "External: https://edomotics.freshdesk.com/support/login",
+              "note": null
+            },
+            {
+              "element": "Link / button",
+              "text": "Back to top",
+              "link": "This page, back to the top",
+              "note": null
+            }
+          ]
+        }
+      ],
+      "flags": []
+    },
+    {
+      "id": "G3",
+      "name": "Call to action band",
+      "type": "Call to action",
+      "appearsOn": "Home, Home Automation, Home Theatre, Projects, About",
+      "blocks": [
+        {
+          "kind": "text",
+          "rows": [
+            {
+              "element": "Section headline",
+              "text": "If you’re planning a home worth getting right, let’s talk.",
+              "link": "“let’s talk.” → Contact page",
+              "note": null
+            }
+          ]
+        },
+        {
+          "kind": "cards",
+          "title": "Photograph behind the card, by page",
+          "columns": [
+            "Page",
+            "Image description"
+          ],
+          "rows": [
+            [
+              "Home",
+              "A curved cream sofa in a dim stone-walled living room, a lit display niche in the wall behind it."
+            ],
+            [
+              "Home Automation",
+              "A curved cream sofa in a dim stone-walled living room, a lit display niche in the wall behind it."
+            ],
+            [
+              "Home Theatre",
+              "A formal living room with a white media wall and a linear chandelier."
+            ],
+            [
+              "Projects",
+              "A curved cream sofa in a dim stone-walled living room, a lit display niche in the wall behind it."
+            ],
+            [
+              "About",
+              "A contemporary villa at dusk, its terraces and windows glowing above a garden."
+            ]
+          ],
+          "note": null
+        }
+      ],
+      "flags": []
+    },
+    {
+      "id": "G4",
+      "name": "Commercial clients",
+      "type": "Client logos",
+      "appearsOn": "Home, About",
+      "blocks": [
+        {
+          "kind": "text",
+          "rows": [
+            {
+              "element": "Label",
+              "text": "Commercial clients",
+              "link": null,
+              "note": null
+            },
+            {
+              "element": "Section headline",
+              "text": "Trusted beyond the home.",
+              "link": null,
+              "note": null
+            },
+            {
+              "element": "Body text",
+              "text": "Integrated automation and audio-video systems for commercial spaces too: hotels, banks, campuses, retail and the developers who build them.",
+              "link": null,
+              "note": null
+            },
+            {
+              "element": "Body text",
+              "text": "Also Annapurna Builders & Developers, Vivantis by Honor and The India Cements Ltd.",
+              "link": null,
+              "note": null
+            }
+          ]
+        },
+        {
+          "kind": "logos",
+          "title": "Client logos (three columns drifting slowly upwards)",
+          "columns": [
+            "#",
+            "Client (logo)"
+          ],
+          "rows": [
+            [
+              "1",
+              "Godrej"
+            ],
+            [
+              "2",
+              "ITC Hotels (ITC Kakatiya, Hyderabad)"
+            ],
+            [
+              "3",
+              "Preston Prime Mall & Multiplex"
+            ],
+            [
+              "4",
+              "Spero"
+            ],
+            [
+              "5",
+              "DBS Bank"
+            ],
+            [
+              "6",
+              "Westin Hotels & Resorts"
+            ],
+            [
+              "7",
+              "JK Fenner"
+            ],
+            [
+              "8",
+              "IKEA"
+            ],
+            [
+              "9",
+              "ISB, Indian School of Business"
+            ],
+            [
+              "10",
+              "Salarpuria Sattva"
+            ]
+          ],
+          "note": null
+        }
+      ],
+      "flags": []
+    },
+    {
+      "id": "G5",
+      "name": "Experience centres",
+      "type": "Locations",
+      "appearsOn": "About, Contact",
+      "blocks": [
+        {
+          "kind": "cards",
+          "title": "Experience centres",
+          "columns": [
+            "City",
+            "Role",
+            "Address",
+            "Link"
+          ],
+          "rows": [
+            [
+              "Hyderabad",
+              "Headquarters and experience centre",
+              "Plot No. 126, 3rd Floor, Above SBI, Road No. 11, Jubilee Hills, Hyderabad 500033",
+              "Opens the address in Google Maps"
+            ],
+            [
+              "Bengaluru",
+              "Experience centre",
+              "2nd Floor, Sri Kala Complex, 2073, 24th Main Road, Opposite Lotus Hospital, 1st Sector, HSR Layout, Bengaluru 560102",
+              "Opens the address in Google Maps"
+            ]
+          ],
+          "note": null
+        }
+      ],
+      "flags": []
+    }
+  ],
+  "pages": [
+    {
+      "id": "P1",
+      "name": "Home",
+      "route": "/",
+      "url": "https://showry001.github.io/Edomotics/",
+      "parent": null,
+      "purpose": "Introduces Edomotics and leads visitors to its services, projects, leadership and clients.",
+      "meta": {
+        "title": "Edomotics — Home automation and home theatre",
+        "description": "Edomotics creates smart, connected spaces where technology, comfort and design work seamlessly together. Home automation and home theatre across five cities in South India, since 2011.",
+        "ogTitle": "Edomotics — Home automation and home theatre",
+        "ogDescription": "Smart, connected spaces where technology, comfort and design work seamlessly together."
+      },
+      "globalsUsed": [
+        "G1",
+        "G2",
+        "G4",
+        "G3"
+      ],
+      "sections": [
+        {
+          "num": 1,
+          "name": "Hero",
+          "type": "Hero (full-screen film)",
+          "blocks": [
+            {
+              "kind": "note",
+              "text": "Background: a looping film of a living room (no text)."
+            },
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Page headline",
+                  "text": "Set the light. The house follows.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Link / button",
+                  "text": "Scroll",
+                  "link": "This page, Hero section",
+                  "note": null
+                },
+                {
+                  "element": "Lead paragraph",
+                  "text": "Edomotics creates smart, connected spaces where technology, comfort and design work seamlessly together. Home automation and home theatre for homes across South India, since 2011.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Link / button",
+                  "text": "Our approach",
+                  "link": "This page, Principles section",
+                  "note": null
+                }
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 2,
+          "name": "Home automation",
+          "type": "Feature cards (sideways carousel)",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Home automation",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Section headline",
+                  "text": "Light, climate, curtains, music and security. As one.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "Designed as one system and run from a keypad, a phone or the time of day, so every part of the home answers to a single, quiet interface.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Link / button",
+                  "text": "Explore home automation",
+                  "link": "Home Automation page",
+                  "note": null
+                },
+                {
+                  "element": "Label",
+                  "text": "Drag, swipe or use the arrows",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "cards",
+              "title": "Cards (scroll sideways)",
+              "columns": [
+                "#",
+                "Title",
+                "Description",
+                "Image description"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Lighting",
+                  "Scenes, dimming and schedules for every room, from a bright afternoon to a low evening glow.",
+                  "A library of floor-to-ceiling shelves, lit from within."
+                ],
+                [
+                  "2",
+                  "Climate",
+                  "Comfort that follows the time of day and the rooms in use.",
+                  "A bedroom with a sculpted plaster wall, softly lit from a ceiling cove."
+                ],
+                [
+                  "3",
+                  "Curtains & shades",
+                  "Motorised drapes and blinds that open and close with the light outside.",
+                  "A bedroom with floor-to-ceiling glass and long curtains drawn back to a lake view."
+                ],
+                [
+                  "4",
+                  "Music",
+                  "Sound in the rooms you choose, started from the same keypad as the lights.",
+                  "A listening room: floor-standing speakers either side of an AV console and turntable."
+                ],
+                [
+                  "5",
+                  "Security",
+                  "The house arms itself with a single press, as you leave or as you turn in for the night.",
+                  "A contemporary villa at dusk, its terraces and windows glowing."
+                ],
+                [
+                  "6",
+                  "Access & intercom",
+                  "See who is at the door and let them in from inside the house.",
+                  "The entrance to a house: broad stone steps under a timber-lined canopy."
+                ]
+              ],
+              "note": null
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 3,
+          "name": "Edomotics in numbers",
+          "type": "Statement (figures)",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Statement",
+                  "text": "700+ projects across five cities.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "Built by a team of 60+, over fifteen years of practice.",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 4,
+          "name": "One room, one day",
+          "type": "Interactive scene control",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "One room, one day",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Section headline",
+                  "text": "One room, one press.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Lead paragraph",
+                  "text": "Choose a scene. The same living room answers.",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "cards",
+              "title": "Scene captions (change with the selected button)",
+              "columns": [
+                "Scene",
+                "Caption"
+              ],
+              "rows": [
+                [
+                  "Relax",
+                  "Daylight does the work. Fixtures hold back and the curtains stay open to the view."
+                ],
+                [
+                  "Night",
+                  "One press by the door. Curtains close, the house arms itself and settles to a glow."
+                ]
+              ],
+              "note": "The Relax caption shows first; the Night caption replaces it when a visitor presses Night."
+            },
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Control panel label",
+                  "text": "Living room",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Selected scene indicator",
+                  "text": "Relax",
+                  "link": null,
+                  "note": "Changes between the two button names."
+                },
+                {
+                  "element": "Button",
+                  "text": "Relax",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Button",
+                  "text": "Night",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "images",
+              "title": "Image descriptions (read aloud by screen readers)",
+              "columns": [
+                "#",
+                "Image description"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "A long living room in daylight: tan sofas, a hexagonal ring pendant and a polished stone floor."
+                ],
+                [
+                  "2",
+                  "The same living room at night, lit only by the pendant rings and a low glow."
+                ]
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 5,
+          "name": "Principles",
+          "type": "Principles",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Principles",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Section headline",
+                  "text": "What we hold to.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "Started by people who wanted integrated automation in their own homes and could not find it done credibly in India. Four ideas have held since.",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "cards",
+              "title": "Principles",
+              "columns": [
+                "No.",
+                "Title",
+                "Description"
+              ],
+              "rows": [
+                [
+                  "01",
+                  "Technical depth",
+                  "Continuous innovation, backed by our own investment in technical research, so the systems we design are ones we understand completely."
+                ],
+                [
+                  "02",
+                  "Service, first",
+                  "Easy to install, easy to use and easy to do business with. If any one of the three fails, the job isn’t finished."
+                ],
+                [
+                  "03",
+                  "Holistic, not piecemeal",
+                  "Not a point solution bolted on, but a fundamental change to the comfort, convenience, security and safety of the whole home."
+                ],
+                [
+                  "04",
+                  "Credible partners",
+                  "Alliances with world-class product and technology providers, so what goes into the walls is something we would live with ourselves."
+                ]
+              ],
+              "note": null
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 6,
+          "name": "Home theatre (full-screen opening)",
+          "type": "Full-screen image with headline",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Home theatre",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Section headline",
+                  "text": "The cinema at home.",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "images",
+              "title": "Image descriptions (read aloud by screen readers)",
+              "columns": [
+                "#",
+                "Image description"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "A private cinema: two tiers of grey leather recliners inside a fabric-lined room, outlined by a warm perimeter light cove."
+                ]
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 7,
+          "name": "Home theatre (introduction)",
+          "type": "Introduction",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Lead paragraph",
+                  "text": "Dedicated home theatres, media rooms and sound through the whole house, designed for the room they live in.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "List item",
+                  "text": "Dedicated home theatres",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "List item",
+                  "text": "Media rooms",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "List item",
+                  "text": "Multi-room audio",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "List item",
+                  "text": "Integrated control",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Link / button",
+                  "text": "Explore home theatre",
+                  "link": "Home Theatre page",
+                  "note": null
+                }
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 8,
+          "name": "Projects (heading)",
+          "type": "Section heading",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Projects",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Section headline",
+                  "text": "Smart spaces. Seamless experiences.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Link / button",
+                  "text": "All projects",
+                  "link": "Projects page",
+                  "note": null
+                }
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 9,
+          "name": "Featured projects (full-screen slides)",
+          "type": "Featured projects (full-screen slides)",
+          "blocks": [
+            {
+              "kind": "cards",
+              "title": "Project slides (each fills the screen in turn)",
+              "columns": [
+                "Counter",
+                "Project",
+                "Type",
+                "Description",
+                "Link",
+                "Image description"
+              ],
+              "rows": [
+                [
+                  "01 / 03",
+                  "Akhil & Sanjana Residence",
+                  "Residence",
+                  "A home full of colour and books, looking out over the city: a library wall lit from within, a listening room with floor-standing speakers, and a balcony that glows after dark.",
+                  "“View project” → Akhil & Sanjana Residence page",
+                  "The living room at dusk: rounded grey sofas around two timber coffee tables, and glass doors open to the city beyond."
+                ],
+                [
+                  "02 / 03",
+                  "Dr Akhil & Sunitha Residence",
+                  "Residence",
+                  "A house in a landscaped garden, with a dedicated home theatre, a living room under a hexagonal ring pendant and a bedroom that looks out over the water.",
+                  "“View project” → Dr Akhil & Sunitha Residence page",
+                  "The house from its forecourt: white volumes under deep timber-lined eaves, a cantilevered porch and a sculpted bonsai beside the steps."
+                ],
+                [
+                  "03 / 03",
+                  "Seshu & Rajalakshmi Residence",
+                  "Residence",
+                  "A home drawn in warm, layered light: stepped ceiling coves throughout, a backlit stone wall behind the main bed and a glowing stone splashback in the kitchen.",
+                  "“View project” → Seshu & Rajalakshmi Residence page",
+                  "The living room at night: a glass-leaf chandelier in a stepped ceiling cove above cream sofas and a polished marble floor."
+                ]
+              ],
+              "note": "On desktop a “View project” label follows the pointer over the photograph; phones show the “View project” link. The description is hidden on phones."
+            },
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Pointer label (desktop)",
+                  "text": "View project",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 10,
+          "name": "Teams",
+          "type": "Teams",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Teams",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Section headline",
+                  "text": "Five cities. One standard.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "Edomotics began in 2011 with people who wanted integrated automation in their own homes and couldn’t find a credible way to get it in India. So they built the practice instead. Today it is a team of more than sixty, based in Hyderabad and Bengaluru, with projects across Hyderabad, Bengaluru, Chennai, Vijayawada and Visakhapatnam.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Link / button",
+                  "text": "About Edomotics",
+                  "link": "About page",
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "cards",
+              "title": "Team panels (photograph with a card)",
+              "columns": [
+                "Label",
+                "Heading",
+                "Text",
+                "Image description"
+              ],
+              "rows": [
+                [
+                  "Our Hyderabad team",
+                  "The people behind the experience.",
+                  "Our Hyderabad team brings together expertise across automation, AV, design and project execution. Working closely with clients and partners, they turn ideas into thoughtfully integrated spaces.",
+                  "The Edomotics Hyderabad team, more than forty people in matching rose-coloured shirts, posed in three rows."
+                ],
+                [
+                  "Our Bangalore team",
+                  "Bringing ideas to life.",
+                  "Our Bangalore team brings together expertise in automation, AV and technology to create seamless, intelligent spaces. From planning to execution, we work together to deliver solutions tailored to every project.",
+                  "The Edomotics Bangalore team in matching rose-coloured shirts, standing in a line on a rooftop terrace."
+                ]
+              ],
+              "note": null
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 11,
+          "name": "Leadership",
+          "type": "Leadership cards",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Section headline",
+                  "text": "Founders and leadership.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "Edomotics is led by its co-founders, with a managing partner heading the Bangalore practice.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Link / button",
+                  "text": "Meet the leadership",
+                  "link": "About page",
+                  "note": null
+                },
+                {
+                  "element": "Label",
+                  "text": "Leadership",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "cards",
+              "title": "Leadership cards",
+              "columns": [
+                "#",
+                "Role",
+                "Name",
+                "Line shown on hover",
+                "Image description"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Co-Founder & CEO",
+                  "Ganesh Vudutha",
+                  "Co-founded Edomotics in 2011 and leads the company as its Chief Executive.",
+                  "Ganesh Vudutha, Co-Founder and CEO of Edomotics, at his desk."
+                ],
+                [
+                  "2",
+                  "Co-Founder & CTO",
+                  "Keshava Varma",
+                  "Co-founded Edomotics in 2011 and leads its technology as Chief Technology Officer.",
+                  "Keshava Varma, Co-Founder and CTO of Edomotics."
+                ],
+                [
+                  "3",
+                  "Managing Partner",
+                  "Manjunath N M",
+                  "Leads the Bangalore practice as Managing Partner.",
+                  "Manjunath N M, Managing Partner of Edomotics in Bangalore."
+                ]
+              ],
+              "note": "On phones and tablets each card shows the portrait beside the name, with the line always visible."
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 12,
+          "name": "Technology partners",
+          "type": "Partner logos",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Technology partners",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Section headline",
+                  "text": "In good company.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "Alliances with world-class product and technology providers, specified and integrated as one system.",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "logos",
+              "title": "Partner logos",
+              "columns": [
+                "#",
+                "Partner (logo)"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Basalte"
+                ],
+                [
+                  "2",
+                  "Control4"
+                ],
+                [
+                  "3",
+                  "Schneider Electric"
+                ],
+                [
+                  "4",
+                  "Legrand"
+                ],
+                [
+                  "5",
+                  "Honeywell"
+                ],
+                [
+                  "6",
+                  "Somfy"
+                ],
+                [
+                  "7",
+                  "Hunter Douglas"
+                ],
+                [
+                  "8",
+                  "Yale"
+                ],
+                [
+                  "9",
+                  "ASSA ABLOY"
+                ],
+                [
+                  "10",
+                  "Grandstream"
+                ],
+                [
+                  "11",
+                  "Intesis"
+                ],
+                [
+                  "12",
+                  "Steinel"
+                ],
+                [
+                  "13",
+                  "WiiM"
+                ]
+              ],
+              "note": null
+            },
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Link / button",
+                  "text": "Ask which partners suit your project",
+                  "link": "Contact page",
+                  "note": null
+                }
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 13,
+          "name": "Clients, testimonials and press",
+          "type": "Clients, testimonials and press",
+          "blocks": [
+            {
+              "kind": "ref",
+              "global": "G4",
+              "note": null
+            },
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Clients, in their words",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "testimonials",
+              "title": "Testimonials (visitors choose a name to read each review)",
+              "columns": [
+                "#",
+                "Quote",
+                "Name",
+                "Organisation"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "The service provided by Edomotics has been professional, punctual and excellent. I recommend Edomotics to anyone looking to automate their home.",
+                  "Dr. Narmada Katakam",
+                  "Genesis Fertility and Laparoscopy Centre"
+                ],
+                [
+                  "2",
+                  "We are very pleased with our home theatre. It was worth the investment.",
+                  "Dr. L. Venkatesh",
+                  "Omni RK Hospitals"
+                ],
+                [
+                  "3",
+                  "The team at Edomotics was professional and attentive. They patiently explained the options, completed the installation on time and provided excellent support.",
+                  "Navya Kommareddy",
+                  "Navya Constructions Pvt Ltd"
+                ],
+                [
+                  "4",
+                  "The team did a good job on our home automation. We are satisfied with the work.",
+                  "Pratima",
+                  "Laurus Labs"
+                ]
+              ],
+              "note": "The first review is shown when the page opens; the others appear when a visitor selects a name."
+            },
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "In the press",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "cards",
+              "title": "Press mentions",
+              "columns": [
+                "#",
+                "Publication",
+                "Link"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "YourStory, 2013",
+                  "External: https://yourstory.com/2013/06/how-a-lazy-afternoon-with-friends-led-to-a-startup-on-home-automation-solutions-story-of-edomotics/"
+                ],
+                [
+                  "2",
+                  "BW Disrupt, 2016",
+                  "External: https://bwdisrupt.businessworld.in/article/10-Promising-Home-Automation-Startups-in-India/11-08-2016-104303/"
+                ],
+                [
+                  "3",
+                  "TV9",
+                  "External: https://youtu.be/Cj8IsAqXWnk"
+                ],
+                [
+                  "4",
+                  "Hybiz TV",
+                  "External: https://youtu.be/7W1I0PdKlNA"
+                ],
+                [
+                  "5",
+                  "Doordarshan",
+                  "No link"
+                ],
+                [
+                  "6",
+                  "WOW! magazine, 2012",
+                  "No link"
+                ],
+                [
+                  "7",
+                  "APREDA",
+                  "No link"
+                ]
+              ],
+              "note": null
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 14,
+          "name": "Call to action",
+          "type": "Call to action",
+          "blocks": [
+            {
+              "kind": "ref",
+              "global": "G3",
+              "note": "Photograph on this page: A curved cream sofa in a dim stone-walled living room, a lit display niche in the wall behind it."
+            }
+          ],
+          "flags": []
+        }
+      ]
+    },
+    {
+      "id": "P2",
+      "name": "Home Automation",
+      "route": "/automation/",
+      "url": "https://showry001.github.io/Edomotics/automation/",
+      "parent": "/",
+      "purpose": "Explains the home automation service: how it works, what it controls, scenes and technology partners.",
+      "meta": {
+        "title": "Home automation — Edomotics",
+        "description": "Lighting, climate, curtains, music and security designed as one system by Edomotics, and run from a keypad, a phone or the time of day.",
+        "ogTitle": "Home automation — Edomotics",
+        "ogDescription": "Lighting, climate, curtains, music and security, designed as one system."
+      },
+      "globalsUsed": [
+        "G1",
+        "G2",
+        "G3"
+      ],
+      "sections": [
+        {
+          "num": 1,
+          "name": "Hero",
+          "type": "Hero",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Home automation",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Page headline",
+                  "text": "Every system, one quiet interface.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "Lighting, climate, curtains, music and security, designed as one system and run from a keypad, a phone or the time of day.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Link / button",
+                  "text": "Arrange a demonstration",
+                  "link": "Contact page",
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "images",
+              "title": "Image descriptions (read aloud by screen readers)",
+              "columns": [
+                "#",
+                "Image description"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "A long living room in the evening, a hexagonal ring pendant glowing above tan sofas and the walls washed in warm light."
+                ]
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 2,
+          "name": "Holistic, not piecemeal",
+          "type": "Statement",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Holistic, not piecemeal",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Statement",
+                  "text": "Not a point solution bolted on, but a fundamental change to the comfort, convenience, security and safety of the whole home.",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 3,
+          "name": "Walk through intelligence",
+          "type": "Step-by-step story",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Section headline",
+                  "text": "Walk through intelligence.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Label",
+                  "text": "Scroll",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "cards",
+              "title": "Steps (revealed one at a time while scrolling)",
+              "columns": [
+                "Step",
+                "Title",
+                "Subtitle",
+                "Text"
+              ],
+              "rows": [
+                [
+                  "01",
+                  "Entrance",
+                  "The residence recognises you and wakes.",
+                  ""
+                ],
+                [
+                  "02",
+                  "Living room",
+                  "Ambient lighting fades on to 70%.",
+                  ""
+                ],
+                [
+                  "03",
+                  "Curtains",
+                  "Motorised drapes glide open.",
+                  ""
+                ]
+              ],
+              "note": null
+            },
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Link / button",
+                  "text": "See the scenes",
+                  "link": "This page, Scenes section",
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "images",
+              "title": "Image descriptions (read aloud by screen readers)",
+              "columns": [
+                "#",
+                "Image description"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "A long dining hall under a crystal chandelier, daylight falling into a courtyard at the far end."
+                ],
+                [
+                  "2",
+                  "An open living and dining room under a stepped ceiling cove, its lights warmed for the evening."
+                ],
+                [
+                  "3",
+                  "A bedroom with floor-to-ceiling glass and long curtains drawn back to a view of trees and a lake."
+                ]
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 4,
+          "name": "Capabilities",
+          "type": "Capabilities list",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Capabilities",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Section headline",
+                  "text": "One system. Six ways in.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "Each part of the home is designed to work with the others, so a single scene can set the light, draw the curtains, settle the climate and start the music together.",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "cards",
+              "title": "Capability rows",
+              "columns": [
+                "No.",
+                "Title",
+                "Description"
+              ],
+              "rows": [
+                [
+                  "01",
+                  "Lighting",
+                  "Scenes, dimming and schedules for every room, from a bright afternoon to a low evening glow."
+                ],
+                [
+                  "02",
+                  "Climate",
+                  "Comfort that follows the time of day and the rooms in use."
+                ],
+                [
+                  "03",
+                  "Curtains & shades",
+                  "Motorised drapes and blinds that open and close with the light outside."
+                ],
+                [
+                  "04",
+                  "Music",
+                  "Sound in the rooms you choose, started from the same keypad as the lights."
+                ],
+                [
+                  "05",
+                  "Security",
+                  "The house arms itself with a single press, as you leave or as you turn in for the night."
+                ],
+                [
+                  "06",
+                  "Access & intercom",
+                  "See who is at the door and let them in from inside the house."
+                ]
+              ],
+              "note": null
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 5,
+          "name": "Scenes",
+          "type": "Feature cards (sideways carousel)",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Scenes",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Section headline",
+                  "text": "Scenes, not switches.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "Every room keeps a few moods. One press sets the light, curtains, climate and music together, so the house is ready before you are.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Label",
+                  "text": "Drag, swipe or use the arrows",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "cards",
+              "title": "Cards (scroll sideways)",
+              "columns": [
+                "#",
+                "Title",
+                "Description",
+                "Image description"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Arrive",
+                  "The hall and living room come up before you reach the door.",
+                  "A formal living room with a white media wall and a linear chandelier, lit low for the evening."
+                ],
+                [
+                  "2",
+                  "Dinner",
+                  "Pendants over the table. Everything else held low.",
+                  "A long dining table in the evening, a glass chandelier lit above it and the rest of the room held low."
+                ],
+                [
+                  "3",
+                  "Unwind",
+                  "Cove light only. Curtains drawn. Music, quietly, in the next room too.",
+                  "A lounge with copper-panelled walls and a glowing ceiling cove."
+                ],
+                [
+                  "4",
+                  "Read",
+                  "One warm pendant, close. The rest of the room asleep.",
+                  "A bedroom with a single onyx pendant beside the bed."
+                ],
+                [
+                  "5",
+                  "Sleep",
+                  "A single press at the bedside, and the whole house goes dark.",
+                  "A bedroom with a sculpted plaster wall behind the bed, softly lit from a ceiling cove."
+                ],
+                [
+                  "6",
+                  "Wake",
+                  "Curtains open slowly, at the pace of the light outside.",
+                  "A bedroom with floor-to-ceiling glass looking out over trees and a lake."
+                ]
+              ],
+              "note": null
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 6,
+          "name": "Technology partners",
+          "type": "Partner logos",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Technology partners",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Section headline",
+                  "text": "Credible partners.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "Alliances with world-class product and technology providers, specified and integrated as one system.",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "logos",
+              "title": "Partner logos",
+              "columns": [
+                "#",
+                "Partner (logo)"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Basalte"
+                ],
+                [
+                  "2",
+                  "Control4"
+                ],
+                [
+                  "3",
+                  "Schneider Electric"
+                ],
+                [
+                  "4",
+                  "Legrand"
+                ],
+                [
+                  "5",
+                  "Honeywell"
+                ],
+                [
+                  "6",
+                  "Somfy"
+                ],
+                [
+                  "7",
+                  "Hunter Douglas"
+                ],
+                [
+                  "8",
+                  "Yale"
+                ],
+                [
+                  "9",
+                  "ASSA ABLOY"
+                ],
+                [
+                  "10",
+                  "Grandstream"
+                ],
+                [
+                  "11",
+                  "Intesis"
+                ],
+                [
+                  "12",
+                  "Steinel"
+                ],
+                [
+                  "13",
+                  "WiiM"
+                ]
+              ],
+              "note": null
+            },
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Link / button",
+                  "text": "Ask which partners suit your project",
+                  "link": "Contact page",
+                  "note": null
+                }
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 7,
+          "name": "Client testimonial",
+          "type": "Testimonial",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Quote",
+                  "text": "“The service provided by Edomotics has been professional, punctual and excellent. I recommend Edomotics to anyone looking to automate their home.”",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Attribution",
+                  "text": "Dr. Narmada Katakam · Genesis Fertility and Laparoscopy Centre",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 8,
+          "name": "Call to action",
+          "type": "Call to action",
+          "blocks": [
+            {
+              "kind": "ref",
+              "global": "G3",
+              "note": "Photograph on this page: A curved cream sofa in a dim stone-walled living room, a lit display niche in the wall behind it."
+            }
+          ],
+          "flags": []
+        }
+      ]
+    },
+    {
+      "id": "P3",
+      "name": "Home Theatre",
+      "route": "/home-theatre/",
+      "url": "https://showry001.github.io/Edomotics/home-theatre/",
+      "parent": "/",
+      "purpose": "Explains the home theatre and media room service.",
+      "meta": {
+        "title": "Home theatre — Edomotics",
+        "description": "Dedicated home theatres, media rooms and sound through the whole house by Edomotics. The cinema starts before the film.",
+        "ogTitle": "Home theatre — Edomotics",
+        "ogDescription": "The cinema starts before the film."
+      },
+      "globalsUsed": [
+        "G1",
+        "G2",
+        "G3"
+      ],
+      "sections": [
+        {
+          "num": 1,
+          "name": "Hero",
+          "type": "Hero",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Home theatre",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Page headline",
+                  "text": "The cinema starts before the film.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "Dedicated home theatres, media rooms and sound through the whole house, designed for the room they live in.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Link / button",
+                  "text": "Arrange a screening",
+                  "link": "Contact page",
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "images",
+              "title": "Image descriptions (read aloud by screen readers)",
+              "columns": [
+                "#",
+                "Image description"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "A private cinema: two tiers of grey leather recliners inside a fabric-lined room, outlined by a warm perimeter light cove."
+                ]
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 2,
+          "name": "Seven moments, one room",
+          "type": "Step-by-step story",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Section headline",
+                  "text": "Seven moments, one room.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Label",
+                  "text": "Scroll",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "cards",
+              "title": "Steps (revealed one at a time while scrolling)",
+              "columns": [
+                "Step",
+                "Title",
+                "Subtitle",
+                "Text"
+              ],
+              "rows": [
+                [
+                  "01",
+                  "Space",
+                  "Architecture sets the stage.",
+                  ""
+                ],
+                [
+                  "02",
+                  "Lighting",
+                  "The room finds its glow.",
+                  "Cove, step and star-ceiling circuits settle into a precise cinematic scene."
+                ],
+                [
+                  "03",
+                  "Screen",
+                  "The picture comes alive.",
+                  ""
+                ],
+                [
+                  "04",
+                  "Sound",
+                  "Every seat is the centre.",
+                  "Object-based audio moves naturally through the room, measured and balanced around you."
+                ],
+                [
+                  "05",
+                  "Acoustics",
+                  "The room becomes silent.",
+                  ""
+                ],
+                [
+                  "06",
+                  "Control",
+                  "One touch. Every detail.",
+                  "Picture, sound and light arrive together in one effortless command."
+                ],
+                [
+                  "07",
+                  "Cinema",
+                  "Picture. Sound. Light.",
+                  "Perfectly in sync."
+                ]
+              ],
+              "note": null
+            },
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Link / button",
+                  "text": "Plan a home theatre",
+                  "link": "Contact page",
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "images",
+              "title": "Image descriptions (read aloud by screen readers)",
+              "columns": [
+                "#",
+                "Image description"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "The private cinema seen from the front: recliners in two tiers, sconces on the back wall and a projector port in the ceiling."
+                ]
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 3,
+          "name": "What we design",
+          "type": "Capabilities list",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "What we design",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Section headline",
+                  "text": "Picture, sound and the dark between.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "From a dedicated cinema to music in every room, each system is designed for the room it lives in and brought under the same control as the rest of the house.",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "cards",
+              "title": "Capability rows",
+              "columns": [
+                "No.",
+                "Title",
+                "Description"
+              ],
+              "rows": [
+                [
+                  "01",
+                  "Dedicated home theatres",
+                  "A room built around sightlines, sound and darkness, for films the way they were made."
+                ],
+                [
+                  "02",
+                  "Media rooms",
+                  "Cinema-grade picture and sound in a room the family uses every day."
+                ],
+                [
+                  "03",
+                  "Multi-room audio",
+                  "Music that follows you through the house, room by room."
+                ],
+                [
+                  "04",
+                  "Integrated control",
+                  "Picture, sound and light from one touch, alongside the rest of the home automation."
+                ]
+              ],
+              "note": null
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 4,
+          "name": "From our projects",
+          "type": "Featured project",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "From our projects",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Section headline",
+                  "text": "Akhil & Sanjana Residence",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "A listening room: floor-standing speakers either side of the console, a turntable and a deep leather recliner.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Link / button",
+                  "text": "View project",
+                  "link": "Akhil & Sanjana Residence page",
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "images",
+              "title": "Image descriptions (read aloud by screen readers)",
+              "columns": [
+                "#",
+                "Image description"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "A listening room in the Akhil & Sanjana Residence: floor-standing speakers either side of an AV console and turntable, a large painting above and a leather recliner."
+                ]
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 5,
+          "name": "Client testimonial",
+          "type": "Testimonial",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Quote",
+                  "text": "“We are very pleased with our home theatre. It was worth the investment.”",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Attribution",
+                  "text": "Dr. L. Venkatesh · Omni RK Hospitals",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 6,
+          "name": "Call to action",
+          "type": "Call to action",
+          "blocks": [
+            {
+              "kind": "ref",
+              "global": "G3",
+              "note": "Photograph on this page: A formal living room with a white media wall and a linear chandelier."
+            }
+          ],
+          "flags": []
+        }
+      ]
+    },
+    {
+      "id": "P4",
+      "name": "Projects",
+      "route": "/projects/",
+      "url": "https://showry001.github.io/Edomotics/projects/",
+      "parent": "/",
+      "purpose": "Lists the featured projects, in a grid view and a list view.",
+      "meta": {
+        "title": "Projects — Edomotics",
+        "description": "Selected Edomotics projects: Akhil & Sanjana Residence, Dr Akhil & Sunitha Residence and Seshu & Rajalakshmi Residence. Smart spaces, seamless experiences.",
+        "ogTitle": "Projects — Edomotics",
+        "ogDescription": "Smart spaces. Seamless experiences."
+      },
+      "globalsUsed": [
+        "G1",
+        "G2",
+        "G3"
+      ],
+      "sections": [
+        {
+          "num": 1,
+          "name": "Hero",
+          "type": "Hero",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Projects",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Page headline",
+                  "text": "Featured projects.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Lead paragraph",
+                  "text": "Smart spaces, seamless experiences. A selection from more than 700 projects across five cities in South India.",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 2,
+          "name": "Project index",
+          "type": "Project index (grid and list views)",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Showing 3 projects",
+                  "link": null,
+                  "note": "The number is filled in automatically from the projects listed (the page code holds the word “all” until it loads)."
+                },
+                {
+                  "element": "Button",
+                  "text": "Grid",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Button",
+                  "text": "List",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "cards",
+              "title": "Project cards (grid view)",
+              "columns": [
+                "#",
+                "Project",
+                "Number and type",
+                "Link",
+                "Image description"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Akhil & Sanjana Residence",
+                  "01 · Residence",
+                  "“View project” → Akhil & Sanjana Residence page",
+                  "The living room at dusk: rounded grey sofas around two timber coffee tables, and glass doors open to the city beyond."
+                ],
+                [
+                  "2",
+                  "Dr Akhil & Sunitha Residence",
+                  "02 · Residence",
+                  "“View project” → Dr Akhil & Sunitha Residence page",
+                  "The house from its forecourt: white volumes under deep timber-lined eaves, a cantilevered porch and a sculpted bonsai beside the steps."
+                ],
+                [
+                  "3",
+                  "Seshu & Rajalakshmi Residence",
+                  "03 · Residence",
+                  "“View project” → Seshu & Rajalakshmi Residence page",
+                  "The living room at night: a glass-leaf chandelier in a stepped ceiling cove above cream sofas and a polished marble floor."
+                ]
+              ],
+              "note": null
+            },
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Closing card:",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "More than 700 homes and spaces.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "A few are shown here. Ask us about projects like yours, or visit an experience centre.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Link / button",
+                  "text": "Start a project",
+                  "link": "Contact page",
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "cards",
+              "title": "Project rows (list view; a photograph follows the pointer)",
+              "columns": [
+                "No.",
+                "Project",
+                "Type",
+                "Link"
+              ],
+              "rows": [
+                [
+                  "01",
+                  "Akhil & Sanjana Residence",
+                  "Residence",
+                  "Akhil & Sanjana Residence page"
+                ],
+                [
+                  "02",
+                  "Dr Akhil & Sunitha Residence",
+                  "Residence",
+                  "Dr Akhil & Sunitha Residence page"
+                ],
+                [
+                  "03",
+                  "Seshu & Rajalakshmi Residence",
+                  "Residence",
+                  "Seshu & Rajalakshmi Residence page"
+                ]
+              ],
+              "note": null
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 3,
+          "name": "Call to action",
+          "type": "Call to action",
+          "blocks": [
+            {
+              "kind": "ref",
+              "global": "G3",
+              "note": "Photograph on this page: A curved cream sofa in a dim stone-walled living room, a lit display niche in the wall behind it."
+            }
+          ],
+          "flags": []
+        }
+      ]
+    },
+    {
+      "id": "P5",
+      "name": "Akhil & Sanjana Residence",
+      "route": "/projects/akhil-sanjana-residence/",
+      "url": "https://showry001.github.io/Edomotics/projects/akhil-sanjana-residence/",
+      "parent": "/projects/",
+      "purpose": "Presents the Akhil & Sanjana Residence: photographs and project details.",
+      "meta": {
+        "title": "Akhil & Sanjana Residence — Edomotics",
+        "description": "Akhil & Sanjana Residence, a residence by Edomotics. A home full of colour and books, looking out over the city: a library wall lit from within, a listening room with floor-standing speakers, and a balcony that glows after dark.",
+        "ogTitle": "Akhil & Sanjana Residence — Edomotics",
+        "ogDescription": "Akhil & Sanjana Residence, a residence by Edomotics."
+      },
+      "globalsUsed": [
+        "G1",
+        "G2"
+      ],
+      "sections": [
+        {
+          "num": 1,
+          "name": "Hero",
+          "type": "Hero",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "01 / 03 · Residence",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Page headline",
+                  "text": "Akhil & Sanjana Residence",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "[NEEDS COPY: a one-line summary of the project]",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "images",
+              "title": "Image descriptions (read aloud by screen readers)",
+              "columns": [
+                "#",
+                "Image description"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "The living room at dusk: rounded grey sofas around two timber coffee tables, and glass doors open to the city beyond."
+                ]
+              ]
+            }
+          ],
+          "flags": [
+            "Placeholder text awaiting client content: “[NEEDS COPY: a one-line summary of the project]”"
+          ]
+        },
+        {
+          "num": 2,
+          "name": "Project details",
+          "type": "Project details",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Lead paragraph",
+                  "text": "A home full of colour and books, looking out over the city: a library wall lit from within, a listening room with floor-standing speakers, and a balcony that glows after dark.",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "cards",
+              "title": "Project details",
+              "columns": [
+                "Detail",
+                "Value"
+              ],
+              "rows": [
+                [
+                  "Type",
+                  "Residence"
+                ],
+                [
+                  "Location",
+                  "[NEEDS COPY: city]"
+                ],
+                [
+                  "Systems",
+                  "[NEEDS COPY: what was installed]"
+                ],
+                [
+                  "Year",
+                  "[NEEDS COPY: completion year]"
+                ],
+                [
+                  "Architect & interiors",
+                  "[NEEDS COPY: credits]"
+                ],
+                [
+                  "Photography",
+                  "[NEEDS COPY: photographer credit]"
+                ]
+              ],
+              "note": null
+            }
+          ],
+          "flags": [
+            "Placeholder text awaiting client content: “[NEEDS COPY: city]”",
+            "Placeholder text awaiting client content: “[NEEDS COPY: what was installed]”",
+            "Placeholder text awaiting client content: “[NEEDS COPY: completion year]”",
+            "Placeholder text awaiting client content: “[NEEDS COPY: credits]”",
+            "Placeholder text awaiting client content: “[NEEDS COPY: photographer credit]”"
+          ]
+        },
+        {
+          "num": 3,
+          "name": "Photographs",
+          "type": "Photo gallery",
+          "blocks": [
+            {
+              "kind": "images",
+              "title": "Image descriptions (read aloud by screen readers)",
+              "columns": [
+                "#",
+                "Image description"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "The family room: orange velvet seats around a low table, a curved sofa and a wall-mounted screen beneath a timber ceiling."
+                ],
+                [
+                  "2",
+                  "A bar corner papered in a botanical print, with a yellow refrigerator and coral bar stools under black pendants."
+                ],
+                [
+                  "3",
+                  "Across the living room to the bar: a large floral painting, a bronze sculpture and the coral bar counter beyond."
+                ],
+                [
+                  "4",
+                  "A listening room: floor-standing speakers either side of an AV console and turntable, a large painting above and a leather recliner."
+                ],
+                [
+                  "5",
+                  "A cluster of woven pendant lights hanging in the stairwell."
+                ],
+                [
+                  "6",
+                  "The upper landing, its pendant cluster lighting the stair below."
+                ],
+                [
+                  "7",
+                  "A library of floor-to-ceiling shelves, lit from within, around a sofa with a pink arm."
+                ],
+                [
+                  "8",
+                  "The dining room: a pink still-life painting above the table and a ring of light overhead."
+                ],
+                [
+                  "9",
+                  "The balcony by day: a striped two-seater, planters and the city skyline."
+                ],
+                [
+                  "10",
+                  "The same balcony at night, its wall lights on and the city lit up below."
+                ]
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 4,
+          "name": "All projects",
+          "type": "Navigation link",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Link / button",
+                  "text": "All projects",
+                  "link": "Projects page",
+                  "note": null
+                }
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 5,
+          "name": "Next project",
+          "type": "Next project",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Next project",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Heading",
+                  "text": "Dr Akhil & Sunitha Residence",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Link / button",
+                  "text": "View project",
+                  "link": "Dr Akhil & Sunitha Residence page",
+                  "note": null
+                }
+              ]
+            }
+          ],
+          "flags": []
+        }
+      ]
+    },
+    {
+      "id": "P6",
+      "name": "Dr Akhil & Sunitha Residence",
+      "route": "/projects/dr-akhil-sunitha-residence/",
+      "url": "https://showry001.github.io/Edomotics/projects/dr-akhil-sunitha-residence/",
+      "parent": "/projects/",
+      "purpose": "Presents the Dr Akhil & Sunitha Residence: photographs and project details.",
+      "meta": {
+        "title": "Dr Akhil & Sunitha Residence — Edomotics",
+        "description": "Dr Akhil & Sunitha Residence, a residence by Edomotics. A house in a landscaped garden, with a dedicated home theatre, a living room under a hexagonal ring pendant and a bedroom that looks out over the water.",
+        "ogTitle": "Dr Akhil & Sunitha Residence — Edomotics",
+        "ogDescription": "Dr Akhil & Sunitha Residence, a residence by Edomotics."
+      },
+      "globalsUsed": [
+        "G1",
+        "G2"
+      ],
+      "sections": [
+        {
+          "num": 1,
+          "name": "Hero",
+          "type": "Hero",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "02 / 03 · Residence",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Page headline",
+                  "text": "Dr Akhil & Sunitha Residence",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "[NEEDS COPY: a one-line summary of the project]",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "images",
+              "title": "Image descriptions (read aloud by screen readers)",
+              "columns": [
+                "#",
+                "Image description"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "The house from its forecourt: white volumes under deep timber-lined eaves, a cantilevered porch and a sculpted bonsai beside the steps."
+                ]
+              ]
+            }
+          ],
+          "flags": [
+            "Placeholder text awaiting client content: “[NEEDS COPY: a one-line summary of the project]”"
+          ]
+        },
+        {
+          "num": 2,
+          "name": "Project details",
+          "type": "Project details",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Lead paragraph",
+                  "text": "A house in a landscaped garden, with a dedicated home theatre, a living room under a hexagonal ring pendant and a bedroom that looks out over the water.",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "cards",
+              "title": "Project details",
+              "columns": [
+                "Detail",
+                "Value"
+              ],
+              "rows": [
+                [
+                  "Type",
+                  "Residence"
+                ],
+                [
+                  "Location",
+                  "[NEEDS COPY: city]"
+                ],
+                [
+                  "Systems",
+                  "[NEEDS COPY: what was installed]"
+                ],
+                [
+                  "Year",
+                  "[NEEDS COPY: completion year]"
+                ],
+                [
+                  "Architect & interiors",
+                  "[NEEDS COPY: credits]"
+                ],
+                [
+                  "Photography",
+                  "[NEEDS COPY: photographer credit]"
+                ]
+              ],
+              "note": null
+            }
+          ],
+          "flags": [
+            "Placeholder text awaiting client content: “[NEEDS COPY: city]”",
+            "Placeholder text awaiting client content: “[NEEDS COPY: what was installed]”",
+            "Placeholder text awaiting client content: “[NEEDS COPY: completion year]”",
+            "Placeholder text awaiting client content: “[NEEDS COPY: credits]”",
+            "Placeholder text awaiting client content: “[NEEDS COPY: photographer credit]”"
+          ]
+        },
+        {
+          "num": 3,
+          "name": "Photographs",
+          "type": "Photo gallery",
+          "blocks": [
+            {
+              "kind": "images",
+              "title": "Image descriptions (read aloud by screen readers)",
+              "columns": [
+                "#",
+                "Image description"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "The entrance: broad stone steps under a timber-lined canopy on slender columns."
+                ],
+                [
+                  "2",
+                  "A floating timber-and-glass staircase against a stone wall, traced by a single line of light."
+                ],
+                [
+                  "3",
+                  "The living room by day: tan leather sofas, a marble feature wall and the hexagonal pendant overhead."
+                ],
+                [
+                  "4",
+                  "The living room under its hexagonal ring pendant, with the stairwell and a large painting beyond."
+                ],
+                [
+                  "5",
+                  "The hexagonal pendant above a leather sofa and a round backlit mirror."
+                ],
+                [
+                  "6",
+                  "The family lounge: a white media wall, a linear chandelier and soft seating around a round table."
+                ],
+                [
+                  "7",
+                  "The dedicated home theatre: two rows of leather recliners in a fabric-lined room edged with a warm cove of light."
+                ],
+                [
+                  "8",
+                  "Wire pendants hanging in the double-height stairwell, sheer curtains behind."
+                ],
+                [
+                  "9",
+                  "The long dining table by day, a crystal chandelier above and the courtyard beyond."
+                ],
+                [
+                  "10",
+                  "The dining room in the evening, its ceiling cove and chandelier lit."
+                ],
+                [
+                  "11",
+                  "A round backlit mirror reflecting the hexagonal pendant, beside a leather sofa."
+                ],
+                [
+                  "12",
+                  "A lounge with a curved cream sofa and a lit display niche."
+                ],
+                [
+                  "13",
+                  "A bedroom with floor-to-ceiling glass looking out over trees and the lake."
+                ],
+                [
+                  "14",
+                  "The garden: a deep porch canopy, flowering shrubs and a stepping-stone path across the lawn."
+                ]
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 4,
+          "name": "Related expertise",
+          "type": "Related service",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Section headline",
+                  "text": "A room for picture and sound.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "[NEEDS COPY: what was designed and installed here, and how it is used]",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Link / button",
+                  "text": "Home theatre at Edomotics",
+                  "link": "Home Theatre page",
+                  "note": null
+                }
+              ]
+            }
+          ],
+          "flags": [
+            "Placeholder text awaiting client content: “[NEEDS COPY: what was designed and installed here, and how it is used]”"
+          ]
+        },
+        {
+          "num": 5,
+          "name": "All projects",
+          "type": "Navigation link",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Link / button",
+                  "text": "All projects",
+                  "link": "Projects page",
+                  "note": null
+                }
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 6,
+          "name": "Next project",
+          "type": "Next project",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Next project",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Heading",
+                  "text": "Seshu & Rajalakshmi Residence",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Link / button",
+                  "text": "View project",
+                  "link": "Seshu & Rajalakshmi Residence page",
+                  "note": null
+                }
+              ]
+            }
+          ],
+          "flags": []
+        }
+      ]
+    },
+    {
+      "id": "P7",
+      "name": "Seshu & Rajalakshmi Residence",
+      "route": "/projects/seshu-rajalakshmi-residence/",
+      "url": "https://showry001.github.io/Edomotics/projects/seshu-rajalakshmi-residence/",
+      "parent": "/projects/",
+      "purpose": "Presents the Seshu & Rajalakshmi Residence: photographs and project details.",
+      "meta": {
+        "title": "Seshu & Rajalakshmi Residence — Edomotics",
+        "description": "Seshu & Rajalakshmi Residence, a residence by Edomotics. A home drawn in warm, layered light: stepped ceiling coves throughout, a backlit stone wall behind the main bed and a glowing stone splashback in the kitchen.",
+        "ogTitle": "Seshu & Rajalakshmi Residence — Edomotics",
+        "ogDescription": "Seshu & Rajalakshmi Residence, a residence by Edomotics."
+      },
+      "globalsUsed": [
+        "G1",
+        "G2"
+      ],
+      "sections": [
+        {
+          "num": 1,
+          "name": "Hero",
+          "type": "Hero",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "03 / 03 · Residence",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Page headline",
+                  "text": "Seshu & Rajalakshmi Residence",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "[NEEDS COPY: a one-line summary of the project]",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "images",
+              "title": "Image descriptions (read aloud by screen readers)",
+              "columns": [
+                "#",
+                "Image description"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "The living room at night: a glass-leaf chandelier in a stepped ceiling cove above cream sofas and a polished marble floor."
+                ]
+              ]
+            }
+          ],
+          "flags": [
+            "Placeholder text awaiting client content: “[NEEDS COPY: a one-line summary of the project]”"
+          ]
+        },
+        {
+          "num": 2,
+          "name": "Project details",
+          "type": "Project details",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Lead paragraph",
+                  "text": "A home drawn in warm, layered light: stepped ceiling coves throughout, a backlit stone wall behind the main bed and a glowing stone splashback in the kitchen.",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "cards",
+              "title": "Project details",
+              "columns": [
+                "Detail",
+                "Value"
+              ],
+              "rows": [
+                [
+                  "Type",
+                  "Residence"
+                ],
+                [
+                  "Location",
+                  "[NEEDS COPY: city]"
+                ],
+                [
+                  "Systems",
+                  "[NEEDS COPY: what was installed]"
+                ],
+                [
+                  "Year",
+                  "[NEEDS COPY: completion year]"
+                ],
+                [
+                  "Architect & interiors",
+                  "[NEEDS COPY: credits]"
+                ],
+                [
+                  "Photography",
+                  "[NEEDS COPY: photographer credit]"
+                ]
+              ],
+              "note": null
+            }
+          ],
+          "flags": [
+            "Placeholder text awaiting client content: “[NEEDS COPY: city]”",
+            "Placeholder text awaiting client content: “[NEEDS COPY: what was installed]”",
+            "Placeholder text awaiting client content: “[NEEDS COPY: completion year]”",
+            "Placeholder text awaiting client content: “[NEEDS COPY: credits]”",
+            "Placeholder text awaiting client content: “[NEEDS COPY: photographer credit]”"
+          ]
+        },
+        {
+          "num": 3,
+          "name": "Photographs",
+          "type": "Photo gallery",
+          "blocks": [
+            {
+              "kind": "images",
+              "title": "Image descriptions (read aloud by screen readers)",
+              "columns": [
+                "#",
+                "Image description"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "From the sofa to the media wall: a woven cream sectional, a timber wall unit and glass-leaf chandeliers."
+                ],
+                [
+                  "2",
+                  "The living room in portrait: the chandelier in its cove above a cream sofa and the media wall."
+                ],
+                [
+                  "3",
+                  "The dining table in front of the media wall, a cluster of pendants overhead."
+                ],
+                [
+                  "4",
+                  "The kitchen: a backlit stone splashback, light beneath the cabinets and timber joinery."
+                ],
+                [
+                  "5",
+                  "A passage with a lit display cabinet."
+                ],
+                [
+                  "6",
+                  "The hob against the glowing stone splashback, the dining area beyond."
+                ],
+                [
+                  "7",
+                  "The lounge seen across the room, warm cove light washing the curtains and walls."
+                ],
+                [
+                  "8",
+                  "The lounge in portrait: the ceiling cove glowing above the curtains and the chandelier."
+                ],
+                [
+                  "9",
+                  "The lounge from its far end, a pendant of glass spheres above the sofa."
+                ],
+                [
+                  "10",
+                  "The main bedroom: a backlit stone wall behind the bed, a ceiling cove and a timber floor."
+                ],
+                [
+                  "11",
+                  "A bedroom with a single pendant beside the bed and curtains lit from above."
+                ],
+                [
+                  "12",
+                  "A bedroom with a study desk, panelled walls and curtains washed with light."
+                ],
+                [
+                  "13",
+                  "A bedroom with a sculpted plaster wall behind the bed, softly lit from a ceiling cove."
+                ],
+                [
+                  "14",
+                  "A bedroom with a fluted headboard, a pendant light and a mirrored wardrobe."
+                ]
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 4,
+          "name": "All projects",
+          "type": "Navigation link",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Link / button",
+                  "text": "All projects",
+                  "link": "Projects page",
+                  "note": null
+                }
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 5,
+          "name": "Next project",
+          "type": "Next project",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Next project",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Heading",
+                  "text": "Akhil & Sanjana Residence",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Link / button",
+                  "text": "View project",
+                  "link": "Akhil & Sanjana Residence page",
+                  "note": null
+                }
+              ]
+            }
+          ],
+          "flags": []
+        }
+      ]
+    },
+    {
+      "id": "P8",
+      "name": "About",
+      "route": "/about/",
+      "url": "https://showry001.github.io/Edomotics/about/",
+      "parent": "/",
+      "purpose": "Company story, numbers, principles, leadership, teams, experience centres and clients.",
+      "meta": {
+        "title": "About — Edomotics",
+        "description": "Edomotics Smart Systems Pvt Ltd: integrated automation and audio-video systems for residential and commercial spaces, since 2011. 700+ projects, 60+ people, five cities.",
+        "ogTitle": "About — Edomotics",
+        "ogDescription": "Built by people who wanted it at home."
+      },
+      "globalsUsed": [
+        "G1",
+        "G2",
+        "G5",
+        "G4",
+        "G3"
+      ],
+      "sections": [
+        {
+          "num": 1,
+          "name": "Hero",
+          "type": "Hero (moving team portraits)",
+          "blocks": [
+            {
+              "kind": "note",
+              "text": "Background: 12 floating portrait photographs. These are temporary stock photographs, not Edomotics staff. Hovering a portrait shows a label that currently reads “[NEEDS COPY: name]” and “[NEEDS COPY: role]”. Needs verification: real team photographs, names and roles are required."
+            },
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "About Edomotics",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Page headline",
+                  "text": "The people behind the experience.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Supporting text",
+                  "text": "60+",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "More than sixty people in Hyderabad and Bengaluru, bringing together automation, AV, design and project execution to turn ideas into thoughtfully integrated spaces across five cities.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Link / button",
+                  "text": "Scroll",
+                  "link": "This page, Our story section",
+                  "note": null
+                }
+              ]
+            }
+          ],
+          "flags": [
+            "About hero portraits are temporary stock photographs with placeholder names and roles."
+          ]
+        },
+        {
+          "num": 2,
+          "name": "Our story",
+          "type": "Story",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Our story",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Section headline",
+                  "text": "Edomotics was started by people who wanted integrated automation in their own homes and could not find high-quality, credible brands in the Indian market. So they built the practice instead.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "The aim has stayed the same since 2011: to be innovative, passionate and nimble, to delight the people we work for, and to deliver a better way of living at home.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "Today Edomotics designs integrated automation and audio-video systems for residential and commercial spaces, with a team of more than sixty based in Hyderabad and Bengaluru, and projects across Hyderabad, Bengaluru, Chennai, Vijayawada and Visakhapatnam.",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 3,
+          "name": "In numbers",
+          "type": "Statistics",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "In numbers",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Section headline",
+                  "text": "Fifteen years, five cities.",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "stats",
+              "title": "Statistics",
+              "columns": [
+                "Figure",
+                "Label"
+              ],
+              "rows": [
+                [
+                  "700+",
+                  "Projects & happy clients"
+                ],
+                [
+                  "60+",
+                  "Team members"
+                ],
+                [
+                  "5",
+                  "Cities"
+                ],
+                [
+                  "15+",
+                  "Years of experience"
+                ]
+              ],
+              "note": "Figures count up from zero when they come into view."
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 4,
+          "name": "Principles",
+          "type": "Principles",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Principles",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Section headline",
+                  "text": "What we hold to.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "Four ideas have shaped every project since the first.",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "cards",
+              "title": "Principles",
+              "columns": [
+                "No.",
+                "Title",
+                "Description"
+              ],
+              "rows": [
+                [
+                  "01",
+                  "Technical depth",
+                  "Continuous innovation, backed by our own investment in technical research, so the systems we design are ones we understand completely."
+                ],
+                [
+                  "02",
+                  "Service, first",
+                  "Easy to install, easy to use and easy to do business with. If any one of the three fails, the job isn’t finished."
+                ],
+                [
+                  "03",
+                  "Holistic, not piecemeal",
+                  "Not a point solution bolted on, but a fundamental change to the comfort, convenience, security and safety of the whole home."
+                ],
+                [
+                  "04",
+                  "Credible partners",
+                  "Alliances with world-class product and technology providers, so what goes into the walls is something we would live with ourselves."
+                ]
+              ],
+              "note": null
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 5,
+          "name": "Leadership",
+          "type": "Leadership",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Leadership",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Section headline",
+                  "text": "Founders and leadership.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "Edomotics is led by its co-founders, with a managing partner heading the Bangalore practice.",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "cards",
+              "title": "Leadership cards",
+              "columns": [
+                "#",
+                "Role",
+                "Name",
+                "Image description"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "Co-Founder & CEO",
+                  "Ganesh Vudutha",
+                  "Ganesh Vudutha, Co-Founder and CEO of Edomotics, at his desk."
+                ],
+                [
+                  "2",
+                  "Co-Founder & CTO",
+                  "Keshava Varma",
+                  "Keshava Varma, Co-Founder and CTO of Edomotics."
+                ],
+                [
+                  "3",
+                  "Managing Partner, Bangalore",
+                  "Manjunath N M",
+                  "Manjunath N M, Managing Partner of Edomotics in Bangalore."
+                ]
+              ],
+              "note": null
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 6,
+          "name": "Teams",
+          "type": "Teams",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Teams",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Section headline",
+                  "text": "The people behind the experience.",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "cards",
+              "title": "Team panels (photograph with a card)",
+              "columns": [
+                "Label",
+                "Heading",
+                "Text",
+                "Image description"
+              ],
+              "rows": [
+                [
+                  "Our Hyderabad team",
+                  "The people behind the experience.",
+                  "Our Hyderabad team brings together expertise across automation, AV, design and project execution. Working closely with clients and partners, they turn ideas into thoughtfully integrated spaces.",
+                  "The Edomotics Hyderabad team, more than forty people in matching rose-coloured shirts, posed in three rows."
+                ],
+                [
+                  "Our Bangalore team",
+                  "Bringing ideas to life.",
+                  "Our Bangalore team brings together expertise in automation, AV and technology to create seamless, intelligent spaces. From planning to execution, we work together to deliver solutions tailored to every project.",
+                  "The Edomotics Bangalore team in matching rose-coloured shirts, standing in a line on a rooftop terrace."
+                ]
+              ],
+              "note": null
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 7,
+          "name": "Experience centres",
+          "type": "Experience centres",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Experience centres",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Section headline",
+                  "text": "Sit in the room before you build it.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "See, hear and use a finished system in a real room. Bring your architect.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Link / button",
+                  "text": "Book a visit",
+                  "link": "Contact page",
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "ref",
+              "global": "G5",
+              "note": null
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 8,
+          "name": "Clients, testimonials and press",
+          "type": "Clients, testimonials and press",
+          "blocks": [
+            {
+              "kind": "ref",
+              "global": "G4",
+              "note": null
+            },
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "In the press",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "cards",
+              "title": "Press mentions",
+              "columns": [
+                "#",
+                "Publication",
+                "Link"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "YourStory, 2013",
+                  "External: https://yourstory.com/2013/06/how-a-lazy-afternoon-with-friends-led-to-a-startup-on-home-automation-solutions-story-of-edomotics/"
+                ],
+                [
+                  "2",
+                  "BW Disrupt, 2016",
+                  "External: https://bwdisrupt.businessworld.in/article/10-Promising-Home-Automation-Startups-in-India/11-08-2016-104303/"
+                ],
+                [
+                  "3",
+                  "TV9",
+                  "External: https://youtu.be/Cj8IsAqXWnk"
+                ],
+                [
+                  "4",
+                  "Hybiz TV",
+                  "External: https://youtu.be/7W1I0PdKlNA"
+                ],
+                [
+                  "5",
+                  "Doordarshan",
+                  "No link"
+                ],
+                [
+                  "6",
+                  "WOW! magazine, 2012",
+                  "No link"
+                ],
+                [
+                  "7",
+                  "APREDA",
+                  "No link"
+                ]
+              ],
+              "note": null
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 9,
+          "name": "Call to action",
+          "type": "Call to action",
+          "blocks": [
+            {
+              "kind": "ref",
+              "global": "G3",
+              "note": "Photograph on this page: A contemporary villa at dusk, its terraces and windows glowing above a garden."
+            }
+          ],
+          "flags": []
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "name": "Contact",
+      "route": "/contact/",
+      "url": "https://showry001.github.io/Edomotics/contact/",
+      "parent": "/",
+      "purpose": "Enquiry form and direct contact details.",
+      "meta": {
+        "title": "Contact — Edomotics",
+        "description": "Start a project with Edomotics. Call +91 910 044 4648, email info@edomotics.com or send an enquiry. Experience centres in Hyderabad and Bengaluru.",
+        "ogTitle": "Contact — Edomotics",
+        "ogDescription": "Start a project with Edomotics."
+      },
+      "globalsUsed": [
+        "G1",
+        "G2",
+        "G5"
+      ],
+      "sections": [
+        {
+          "num": 1,
+          "name": "Hero",
+          "type": "Hero",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Contact",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Page headline",
+                  "text": "Start a project. Let’s talk.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Link / button",
+                  "text": "+91 910 044 4648",
+                  "link": "Phone call: +919100444648",
+                  "note": null
+                },
+                {
+                  "element": "Link / button",
+                  "text": "info@edomotics.com",
+                  "link": "Email: info@edomotics.com",
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "images",
+              "title": "Image descriptions (read aloud by screen readers)",
+              "columns": [
+                "#",
+                "Image description"
+              ],
+              "rows": [
+                [
+                  "1",
+                  "An open living and dining room under a stepped ceiling cove, a glass-leaf chandelier above the table."
+                ]
+              ]
+            }
+          ],
+          "flags": []
+        },
+        {
+          "num": 2,
+          "name": "Enquiry",
+          "type": "Enquiry form",
+          "blocks": [
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Label",
+                  "text": "Enquiry",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Section headline",
+                  "text": "Tell us about the home.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Body text",
+                  "text": "A few details are enough to begin. We’ll reply to arrange a conversation, or a visit to the experience centre nearest you. Bring your architect.",
+                  "link": null,
+                  "note": null
+                },
+                {
+                  "element": "Label",
+                  "text": "Experience centres",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "ref",
+              "global": "G5",
+              "note": null
+            },
+            {
+              "kind": "cards",
+              "title": "Further contact details",
+              "columns": [
+                "Label",
+                "Text",
+                "Links"
+              ],
+              "rows": [
+                [
+                  "Support for existing clients",
+                  "Support portal",
+                  "“Support portal” → External: https://edomotics.freshdesk.com/support/login"
+                ],
+                [
+                  "Follow",
+                  "LinkedIn, Facebook, Twitter",
+                  "“LinkedIn” → External: https://www.linkedin.com/company/edomotics-smart-systems-p-ltd/; “Facebook” → External: https://www.facebook.com/Edomotics-Smart-Systems-Pvt-Ltd-483276208548445/; “Twitter” → External: https://twitter.com/edomotics"
+                ]
+              ],
+              "note": null
+            },
+            {
+              "kind": "form",
+              "title": "Enquiry form fields",
+              "fields": [
+                {
+                  "label": "Name",
+                  "name": "name",
+                  "type": "Text",
+                  "required": "Yes",
+                  "options": [],
+                  "placeholder": "None",
+                  "errors": [
+                    "Please tell us your name."
+                  ]
+                },
+                {
+                  "label": "Phone",
+                  "name": "phone",
+                  "type": "Phone number",
+                  "required": "No",
+                  "options": [],
+                  "placeholder": "None",
+                  "errors": [
+                    "Please check the number: digits, spaces and a leading + only."
+                  ]
+                },
+                {
+                  "label": "Email",
+                  "name": "email",
+                  "type": "Email address",
+                  "required": "Yes",
+                  "options": [],
+                  "placeholder": "None",
+                  "errors": [
+                    "Please add an email address, so we can reply.",
+                    "That email address doesn’t look complete."
+                  ]
+                },
+                {
+                  "label": "Service of interest",
+                  "name": "interest",
+                  "type": "Tick one or more",
+                  "required": "Yes",
+                  "options": [
+                    "Home automation",
+                    "Home theatre",
+                    "Not sure yet"
+                  ],
+                  "placeholder": "None",
+                  "errors": [
+                    "Please choose at least one, or “Not sure yet”."
+                  ]
+                },
+                {
+                  "label": "Nearest experience centre",
+                  "name": "centre",
+                  "type": "Choice from a list",
+                  "required": "No",
+                  "options": [
+                    "Hyderabad",
+                    "Bengaluru",
+                    "Neither is close"
+                  ],
+                  "placeholder": "None",
+                  "errors": []
+                },
+                {
+                  "label": "Project stage",
+                  "name": "stage",
+                  "type": "Choice from a list",
+                  "required": "No",
+                  "options": [
+                    "At drawing stage",
+                    "Under construction",
+                    "Interiors under way",
+                    "Already living in it"
+                  ],
+                  "placeholder": "None",
+                  "errors": []
+                },
+                {
+                  "label": "Message",
+                  "name": "message",
+                  "type": "Long text",
+                  "required": "No",
+                  "options": [],
+                  "placeholder": "None",
+                  "errors": [
+                    "Please keep the message under 2,000 characters."
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "rows": [
+                {
+                  "element": "Button",
+                  "text": "Send enquiry",
+                  "link": null,
+                  "note": "While sending, the button reads “Sending…”."
+                },
+                {
+                  "element": "Supporting text",
+                  "text": "We’ll only use these details to reply to your enquiry.",
+                  "link": null,
+                  "note": null
+                }
+              ]
+            },
+            {
+              "kind": "messages",
+              "title": "Messages shown after pressing the button",
+              "columns": [
+                "When",
+                "Message"
+              ],
+              "rows": [
+                [
+                  "One field needs attention",
+                  "Please check the highlighted field."
+                ],
+                [
+                  "Several fields need attention",
+                  "Please check the [number] highlighted fields."
+                ],
+                [
+                  "Online submission not yet connected (current behaviour)",
+                  "Online enquiries aren’t connected yet, so nothing has been sent. Send this enquiry from your email app, or call +91 910 044 4648 or write to info@edomotics.com."
+                ],
+                [
+                  "While the enquiry is being sent",
+                  "Sending your enquiry…"
+                ],
+                [
+                  "The enquiry was sent successfully",
+                  "Thank you. Your enquiry has been sent. We’ll be in touch to arrange a conversation, or a visit to the experience centre."
+                ],
+                [
+                  "Sending failed",
+                  "Your enquiry couldn’t be sent. Please try again in a moment, or call +91 910 044 4648 or write to info@edomotics.com."
+                ]
+              ],
+              "note": "These messages appear only after the visitor presses the button. Online submission is not connected yet, so visitors currently see the “not connected” message."
+            }
+          ],
+          "flags": []
+        }
+      ]
+    }
+  ],
+  "consistency": [
+    {
+      "global": "G3",
+      "pages": [
+        "/",
+        "/automation/",
+        "/home-theatre/",
+        "/projects/",
+        "/about/"
+      ],
+      "identical": true
+    },
+    {
+      "global": "G4",
+      "pages": [
+        "/",
+        "/about/"
+      ],
+      "identical": true
+    },
+    {
+      "global": "G5",
+      "pages": [
+        "/about/",
+        "/contact/"
+      ],
+      "identical": true
+    },
+    {
+      "global": "G2",
+      "pages": [
+        "/",
+        "/automation/",
+        "/home-theatre/",
+        "/projects/",
+        "/projects/akhil-sanjana-residence/",
+        "/projects/dr-akhil-sunitha-residence/",
+        "/projects/seshu-rajalakshmi-residence/",
+        "/about/",
+        "/contact/"
+      ],
+      "identical": true
+    }
+  ]
+}
