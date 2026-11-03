@@ -6,6 +6,7 @@ import { initHeroVideo, heroEntrance, pageHero, initFill } from './hero.js';
 import { initRoom, initCinema, initProjects, initApproach, initSteps } from './chapters.js';
 import { initReveals, initCounters, initCarousel, initQuotes, initForm, initFooter, initProjectIndex } from './interactions.js';
 import { initField } from './field.js';
+import { initDesigner } from './designer/index.js';
 
 function safely(name, fn) {
   try { return fn(); } catch (err) { console.error('[edomotics]', name, err); return undefined; }
@@ -23,6 +24,7 @@ export function mountPage(view, { first = false } = {}) {
   safely('form', () => initForm(view, bag));
   safely('footer', () => initFooter(view, bag));
   safely('index', () => initProjectIndex(view, bag));
+  safely('designer', () => initDesigner(view, bag));
 
   if (reduced) {
     safely('field', () => initField(view, bag, { first }));

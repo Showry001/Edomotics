@@ -272,7 +272,21 @@ async function clients() {
   }
 }
 
+// The picture on the 3D cinema screen (Design your cinema): the Edomotics logo as supplied,
+// centred on a dark title card. 16:9; the screen crops it to 2.35:1, so the logo sits inside both.
+async function designer() {
+  const src = '_src/designer/edomotics-logo.webp';
+  if (!existsSync(src)) return;
+  mkdirSync(`${OUT}/designer`, { recursive: true });
+  const [W, H] = [2048, 1152];
+  const logo = await sharp(src).trim({ threshold: 2 }).resize({ width: Math.round(W * 0.46) }).toBuffer();
+  const glow = Buffer.from(`<svg width="${W}" height="${H}"><defs><radialGradient id="g" cx="50%" cy="50%" r="60%"><stop offset="0" stop-color="#1d1c18"/><stop offset="1" stop-color="#0c0b09"/></radialGradient></defs><rect width="100%" height="100%" fill="url(#g)"/></svg>`);
+  await sharp(glow).composite([{ input: logo, gravity: 'center' }]).webp({ quality: 82 }).toFile(`${OUT}/designer/screen.webp`);
+  console.log('designer screen');
+}
+
 const only = process.argv[2];
+if (!only || only === 'designer') await designer();
 if (!only || only === 'photos') await photos();
 if (!only || only === 'brand') await brandLogo();
 if (!only || only === 'logos') await logos();

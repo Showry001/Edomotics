@@ -132,6 +132,9 @@ export default defineConfig({
   build: {
     target: 'es2020',
     assetsInlineLimit: 2048,
+    // The Design your cinema room (three.js, ~570 kB, ~145 kB gzipped) is its own chunk, fetched
+    // only on the Home theatre page when the room is needed.
+    chunkSizeWarningLimit: 600,
     rollupOptions: { input: Object.fromEntries(Object.entries(PAGES).map(([k, v]) => [k, resolve(root, v)])) },
   },
 });
