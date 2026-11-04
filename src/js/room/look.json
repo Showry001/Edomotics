@@ -1,0 +1,11 @@
+{
+  "exposure": 0.0,
+  "balance": [0.84, 0.95, 1.16],
+  "day": [0.08, 0.095, 0.15],
+  "adapt": { "strength": 0.38, "max": 2.6 },
+  "lights": {
+    "on": { "cove": 1, "down": 1, "lamp": 1 },
+    "twilight": { "cove": 0.25, "down": 0, "lamp": 1 },
+    "off": { "cove": 0, "down": 0, "lamp": 0 }
+  }
+}

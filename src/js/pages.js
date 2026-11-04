@@ -3,7 +3,8 @@
 import { gsap, ScrollTrigger, reduced, createBag } from './core.js';
 import { initHeaderTheme, setActiveNav } from './header.js';
 import { initHeroVideo, heroEntrance, pageHero, initFill } from './hero.js';
-import { initRoom, initCinema, initProjects, initApproach, initSteps } from './chapters.js';
+import { initCinema, initProjects, initApproach, initSteps } from './chapters.js';
+import { initRoom } from './room/index.js';
 import { initReveals, initCounters, initCarousel, initQuotes, initForm, initFooter, initProjectIndex } from './interactions.js';
 import { initField } from './field.js';
 import { initDesigner } from './designer/index.js';

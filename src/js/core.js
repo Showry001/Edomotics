@@ -58,19 +58,3 @@ export function createBag() {
   };
 }
 
-// Scroll-scrubbed video: seeks to the requested progress without queueing seeks,
-// so scrubbing stays frame-accurate in both directions.
-export function videoScrubber(video) {
-  let target = 0;
-  let busy = false;
-  const seek = () => { busy = true; video.currentTime = target; };
-  video.addEventListener('seeked', () => {
-    busy = false;
-    if (Math.abs(video.currentTime - target) > 1 / 48) seek();
-  });
-  return (progress) => {
-    if (!video.duration || video.readyState < 1) return;
-    target = Math.max(0, Math.min(video.duration - 0.05, progress * video.duration));
-    if (!busy) seek();
-  };
-}

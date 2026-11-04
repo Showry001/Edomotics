@@ -3,7 +3,7 @@
 import sharp from 'sharp';
 import ffmpeg from 'ffmpeg-static';
 import { execFileSync } from 'node:child_process';
-import { mkdirSync, existsSync, readdirSync, writeFileSync, unlinkSync, copyFileSync, statSync } from 'node:fs';
+import { mkdirSync, existsSync, readdirSync, readFileSync, writeFileSync, unlinkSync, copyFileSync, statSync } from 'node:fs';
 import path from 'node:path';
 
 const OUT = 'public/media';
@@ -27,7 +27,6 @@ const PHOTOS = {
   'living-marble': `${masters}/living-marble.jpg`,
   'living-hex': `${masters}/living-hex.jpg`,
   'living-amber-wide': `${brief}/living-amber-wide.webp`,
-  'living-hex-dusk': `${brief}/living-hex-dusk.webp`,
   'cinema-recliners': `${masters}/cinema-recliners.jpg`,
   'bedroom-pendant': `${masters}/bedroom-pendant.jpg`,
   'bedroom-sculpted': `${masters}/bedroom-sculpted.jpg`,
@@ -48,6 +47,9 @@ const PHOTOS = {
   'founder-manjunath-n-m': '_src/founders/manjunath-n-m.jpg',
   'team-hyderabad': `${framer}/team-hyderabad.jpg`,
   'team-bangalore': `${framer}/team-bangalore.jpg`,
+  // One room: the rendered bedroom with every light on (scripts/room/), landscape and portrait.
+  'room-wide': '_src/room/web/still-wide-on-open.png',
+  'room-tall': '_src/room/web/still-tall-on-open.png',
 };
 
 // The manifest records each photo's real widths and aspect so the Vite plugin can write
@@ -183,35 +185,8 @@ function encode(src, out, { scrub = false, width = 1280, crf = 25, gop = 2 } = {
   console.log('video', out);
 }
 
-function frame(src, out, { last = false } = {}) {
-  const pre = last ? ['-sseof', '-0.08'] : [];
-  execFileSync(ffmpeg, ['-y', '-loglevel', 'error', ...pre, '-i', src, '-frames:v', '1', '-update', '1', out]);
-}
-
-// Night: the last evening frame, regraded. Mid-tones fall away, the fixtures keep their
-// strength and bloom softly — the same frame, so the crossfade can never ghost.
-async function nightGrade(src, out, width) {
-  const { data, info } = await sharp(src).removeAlpha().raw().toBuffer({ resolveWithObject: true });
-  const n = info.width * info.height;
-  const base = Buffer.alloc(n * 3);
-  const hi = Buffer.alloc(n * 3);
-  const smooth = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
-  for (let i = 0; i < n; i++) {
-    const r = data[i * 3] / 255, g = data[i * 3 + 1] / 255, b = data[i * 3 + 2] / 255;
-    const L = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-    const m = smooth(0.62, 0.9, L);
-    const k = 0.32 + 0.18 * L; // darker overall, with enough mid-tone to keep the room legible
-    const nr = r * k * 1.06, ng = g * k * 0.95, nb = b * k * 0.9;
-    base[i * 3] = Math.round(255 * (nr * (1 - m) + r * m));
-    base[i * 3 + 1] = Math.round(255 * (ng * (1 - m) + g * 0.96 * m));
-    base[i * 3 + 2] = Math.round(255 * (nb * (1 - m) + b * 0.86 * m));
-    hi[i * 3] = Math.round(255 * r * m); hi[i * 3 + 1] = Math.round(255 * g * m * 0.9); hi[i * 3 + 2] = Math.round(255 * b * m * 0.7);
-  }
-  const raw = { raw: { width: info.width, height: info.height, channels: 3 } };
-  const glow = await sharp(hi, raw).blur(Math.max(6, info.width / 70)).linear(0.75, 0).png().toBuffer();
-  // sharp resizes before compositing, so composite at full size first, then resize.
-  const full = await sharp(base, raw).composite([{ input: glow, blend: 'screen' }]).png().toBuffer();
-  await sharp(full).resize({ width, withoutEnlargement: true }).webp({ quality: 78 }).toFile(out);
+function frame(src, out) {
+  execFileSync(ffmpeg, ['-y', '-loglevel', 'error', '-i', src, '-frames:v', '1', '-update', '1', out]);
 }
 
 function poster(src, out) {
@@ -225,26 +200,19 @@ async function videos() {
   poster(`${OUT}/video/hero.mp4`, `${OUT}/video/hero-poster.jpg`);
   await sharp(`${OUT}/video/hero-poster.jpg`).webp({ quality: 72 }).toFile(`${OUT}/video/hero-poster.webp`);
 
-  // Scroll-scrubbed chapters: drop footage into _src/videos/ with these names.
-  // The site switches from the photo crossfade to the scrubbed video automatically.
-  const available = {};
-  for (const name of ['one-room', 'cinema']) {
+  // Scroll-scrubbed footage: drop it into _src/videos/ with these names.
+  for (const name of ['cinema']) {
     const src = `_src/videos/${name}.mp4`;
-    available[name] = existsSync(src);
-    if (!available[name]) continue;
+    if (!existsSync(src)) continue;
     encode(src, `${OUT}/video/${name}.mp4`, { scrub: true, width: 1280, crf: 23, gop: 2 });
     encode(src, `${OUT}/video/${name}-sm.mp4`, { scrub: true, width: 720, crf: 25, gop: 2 });
     const tmp = `${OUT}/video/.${name}`;
     frame(src, `${tmp}-first.png`);
-    frame(src, `${tmp}-last.png`, { last: true });
     for (const [suffix, w] of [['', 1280], ['-sm', 720]]) {
       await sharp(`${tmp}-first.png`).resize({ width: w }).webp({ quality: 74 }).toFile(`${OUT}/video/${name}-poster${suffix}.webp`);
-      if (name === 'one-room') await nightGrade(`${tmp}-last.png`, `${OUT}/video/${name}-night${suffix}.webp`, w);
     }
     unlinkSync(`${tmp}-first.png`);
-    unlinkSync(`${tmp}-last.png`);
   }
-  writeFileSync('src/media-videos.json', JSON.stringify(available, null, 2));
 }
 
 // Client logos: the official artwork as supplied, which is the reversed (white) version.
@@ -285,7 +253,42 @@ async function designer() {
   console.log('designer screen');
 }
 
+// One room: the bedroom's light layers and movement frames, rendered in Blender and exported by
+// scripts/room/ (scene.py, render.py, export.py). Layers carry data, not pictures, so they're
+// kept at a high quality; the stills are the no-WebGL fallback, one per lighting and curtain state.
+async function room() {
+  const dir = '_src/room/web';
+  if (!existsSync(`${dir}/room.json`)) return;
+  mkdirSync(`${OUT}/room`, { recursive: true });
+  const data = JSON.parse(readFileSync(`${dir}/room.json`, 'utf8'));
+  const keep = new Set();
+  const webp = async (file, opts) => {
+    const name = file.replace(/\.png$/, '.webp');
+    const out = `${OUT}/room/${name}`;
+    keep.add(out);
+    if (!fresh(out, `${dir}/${file}`)) await sharp(`${dir}/${file}`).webp(opts).toFile(out);
+    return name;
+  };
+  const LAYER = { quality: 90, smartSubsample: true, effort: 6 };
+  for (const framing of ['wide', 'tall']) {
+    const set = data[framing];
+    if (!set) continue;
+    set.full = await Promise.all(set.full.map((f) => webp(f, LAYER)));
+    for (const seq of ['curtain', 'fan']) if (set[seq]) set[seq].atlas = await Promise.all(set[seq].atlas.map((f) => webp(f, LAYER)));
+    set.stills = {};
+    for (const lights of ['on', 'twilight', 'off']) {
+      for (const curtain of ['open', 'closed']) {
+        set.stills[`${lights}-${curtain}`] = await webp(`still-${framing}-${lights}-${curtain}.png`, { quality: 76, effort: 5 });
+      }
+    }
+  }
+  for (const f of readdirSync(`${OUT}/room`)) if (!keep.has(`${OUT}/room/${f}`)) unlinkSync(`${OUT}/room/${f}`);
+  writeFileSync('src/media-room.json', JSON.stringify(data));
+  console.log('room', [...keep].length, 'files');
+}
+
 const only = process.argv[2];
+if (!only || only === 'room') await room();
 if (!only || only === 'designer') await designer();
 if (!only || only === 'photos') await photos();
 if (!only || only === 'brand') await brandLogo();

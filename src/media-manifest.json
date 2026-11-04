@@ -87,25 +87,6 @@
     ],
     "avif": true
   },
-  "living-hex-dusk": {
-    "width": 2000,
-    "height": 1333,
-    "widths": [
-      {
-        "w": 640,
-        "file": "media/img/living-hex-dusk-sm.webp"
-      },
-      {
-        "w": 1280,
-        "file": "media/img/living-hex-dusk-md.webp"
-      },
-      {
-        "w": 1920,
-        "file": "media/img/living-hex-dusk-lg.webp"
-      }
-    ],
-    "avif": true
-  },
   "cinema-recliners": {
     "width": 3200,
     "height": 2134,
@@ -457,6 +438,40 @@
       {
         "w": 2400,
         "file": "media/img/team-bangalore.webp"
+      }
+    ],
+    "avif": true
+  },
+  "room-wide": {
+    "width": 1920,
+    "height": 1080,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/room-wide-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/room-wide-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/room-wide-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "room-tall": {
+    "width": 900,
+    "height": 1600,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/room-tall-sm.webp"
+      },
+      {
+        "w": 900,
+        "file": "media/img/room-tall-md.webp"
       }
     ],
     "avif": true

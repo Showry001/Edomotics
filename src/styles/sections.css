@@ -125,13 +125,20 @@
 .svc { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--gutter); border-top: 1px solid var(--line); }
 .svc li { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 0.9375rem; font-weight: 500; }
 
-/* ---------- One room, one day: the console ----------
-   A full-bleed living room with a two-key wall console. Relax and Night drive one shared
-   state; the film, the night frame and the captions all read from it. */
+/* ---------- One room, one day: the keypad ----------
+   A full-bleed bedroom with a six-key wall keypad. The room is mixed live on a canvas over its
+   still (src/js/room/); portrait screens get the portrait render. */
 .room { position: relative; height: 100vh; height: 100svh; min-height: 640px; overflow: hidden; background: var(--ink); isolation: isolate; }
 .room__media { position: absolute; inset: 0; z-index: 0; transform-origin: 50% 60%; }
-.room__img, .room__video, .room__night { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.room__img--night, .room__night { opacity: 0; }
+.room__frame { position: absolute; inset: 0; transform-origin: 50% 60%; }
+.room__img, .room__canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.room__img--tall { display: none; object-position: 62% 42%; }
+@media (max-aspect-ratio: 1/1) {
+  .room__img--wide { display: none; }
+  .room__img--tall { display: block; }
+}
+.room__canvas { opacity: 0; transition: opacity 0.6s var(--ease-out); }
+.room__canvas.is-live { opacity: 1; }
 .room__shade {
   position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background: linear-gradient(to bottom, rgb(18 17 14 / 0.6) 0%, rgb(18 17 14 / 0.12) 30%, rgb(18 17 14 / 0) 50%, rgb(18 17 14 / 0.74) 100%);
@@ -144,6 +151,40 @@
 .room__cap p { color: rgb(243 238 230 / 0.74); font-size: 0.9375rem; max-width: 36ch; }
 .js .room__cap:not(.is-active) { visibility: hidden; }
 
+/* The wall keypad, after the plates Edomotics fits: black glass keys with backlit icons in a
+   champagne metal frame; devices in the left column, scenes in the right. A key that's on glows
+   warm. */
+.keypad { flex: none; width: clamp(236px, 17vw, 272px); display: grid; gap: 10px; }
+.keypad__label { display: flex; align-items: center; gap: 8px; padding: 0 2px; font-size: 0.75rem; font-weight: 500; color: rgb(243 238 230 / 0.72); }
+.keypad__state { margin-left: auto; font-family: var(--font-serif); font-size: 0.9375rem; color: var(--paper); }
+.keypad__plate {
+  display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, auto); grid-auto-flow: column;
+  column-gap: 9px; padding: 11px; border-radius: 9px;
+  background:
+    repeating-linear-gradient(90deg, rgb(255 255 255 / 0.035) 0 1px, transparent 1px 3px),
+    linear-gradient(145deg, #d6bf9c 0%, #bb9c74 38%, #cfb48f 62%, #a98962 100%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.45), inset 0 -1px 0 rgb(0 0 0 / 0.25), 0 30px 60px -28px rgb(0 0 0 / 0.75);
+}
+.pkey {
+  position: relative; display: grid; place-items: center; align-content: center; gap: 8px;
+  aspect-ratio: 1.42; padding: 8px 6px; color: #dce6f4;
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.07), rgb(255 255 255 / 0) 42%), #0e0e0d;
+  border-top: 1px solid rgb(255 255 255 / 0.06);
+  -webkit-tap-highlight-color: transparent; touch-action: manipulation; -webkit-user-select: none; user-select: none;
+  transition: color 0.5s var(--ease-out), background-color 0.3s var(--ease-out);
+}
+.pkey:nth-child(3n + 1) { border-radius: 4px 4px 0 0; border-top-color: rgb(255 255 255 / 0.12); }
+.pkey:nth-child(3n) { border-radius: 0 0 4px 4px; }
+.pkey__icon { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.pkey__name { font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.01em; line-height: 1; }
+.pkey__icon, .pkey__name { opacity: 0.6; filter: drop-shadow(0 0 5px rgb(170 200 255 / 0.35)); transition: opacity 0.5s var(--ease-out), filter 0.5s var(--ease-out); }
+.pkey:hover .pkey__icon, .pkey:hover .pkey__name { opacity: 0.85; }
+.pkey:active { background: linear-gradient(180deg, rgb(255 255 255 / 0.03), rgb(255 255 255 / 0) 42%), #080807; }
+.pkey:focus-visible { outline: 2px solid var(--filament); outline-offset: -3px; }
+.pkey.is-on { color: #f4cf98; }
+.pkey.is-on .pkey__icon, .pkey.is-on .pkey__name { opacity: 1; filter: drop-shadow(0 0 6px rgb(217 146 43 / 0.7)); }
+
+/* The scene console (Design your cinema reuses it). */
 .console {
   flex: none; width: clamp(280px, 24vw, 360px); display: grid; gap: 12px; padding: 12px;
   border-radius: 16px; color: var(--paper);

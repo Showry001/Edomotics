@@ -121,48 +121,79 @@
     </section>
 
     <!-- ============================== ONE ROOM, ONE DAY: the console ============================== -->
-    <section class="room" id="one-room" data-theme="dark" data-room="one-room" aria-labelledby="room-title">
+    <section class="room" id="one-room" data-theme="dark" data-room aria-labelledby="room-title">
       <div class="room__media" data-room-media>
-        <!-- Photo fallback. When the room film is available (npm run media), JS layers it and its night frame on top. -->
-        <img class="room__img" data-pic="living-hex" sizes="100vw" alt="A long living room in daylight: tan sofas, a hexagonal ring pendant and a polished stone floor." data-room-day>
-        <img class="room__img room__img--night" data-pic="living-hex-dusk" sizes="100vw" alt="The same living room at night, lit only by the pendant rings and a low glow." data-room-night>
+        <div class="room__frame" data-room-frame>
+          <!-- The bedroom with every light on, landscape and portrait (one shows). JS mixes the live room over it (src/js/room/); without WebGL the keys swap between stills. -->
+          <img class="room__img room__img--wide" data-pic="room-wide" sizes="100vw" alt="A bedroom at dusk: a wood-panelled wall washed by a ceiling light, glass pendants beside the bed, a ceiling fan, and a garden and pool beyond floor-to-ceiling glass.">
+          <img class="room__img room__img--tall" data-pic="room-tall" sizes="100vw" alt="A bedroom at dusk: a wood-panelled wall washed by a ceiling light, glass pendants beside the bed, a ceiling fan, and a garden and pool beyond floor-to-ceiling glass.">
+        </div>
       </div>
       <div class="room__shade" aria-hidden="true"></div>
 
       <div class="room__head wrap">
         <p class="count">One room, one day</p>
         <h2 class="t-xl" id="room-title" data-lines>One room,<br> <span class="serif-i">one press.</span></h2>
-        <p class="room__lede">Choose a scene. The same living room answers.</p>
+        <p class="room__lede">Choose a scene. The same bedroom answers.</p>
       </div>
 
       <div class="room__bottom wrap">
         <div class="room__caps" aria-live="polite">
-          <div class="room__cap is-active" data-room-cap="relax">
-            <h3 class="t-m"><span class="mask"><span>Relax</span></span></h3>
-            <p>Daylight does the work. Fixtures hold back and the curtains stay open to the&nbsp;view.</p>
+          <div class="room__cap is-active" data-room-cap="welcome">
+            <h3 class="t-m"><span class="mask"><span>Welcome</span></span></h3>
+            <p>Lights up and curtains open, ready the moment you walk&nbsp;in.</p>
           </div>
-          <div class="room__cap" data-room-cap="night">
-            <h3 class="t-m"><span class="mask"><span>Night</span></span></h3>
-            <p>One press by the door. Curtains close, the house arms itself and settles to a&nbsp;glow.</p>
+          <div class="room__cap" data-room-cap="lights">
+            <h3 class="t-m"><span class="mask"><span>Lights</span></span></h3>
+            <p>Every light in the room, on or off from one&nbsp;key.</p>
+          </div>
+          <div class="room__cap" data-room-cap="fan">
+            <h3 class="t-m"><span class="mask"><span>Fan</span></span></h3>
+            <p>The fan starts with a touch. No remote to&nbsp;find.</p>
+          </div>
+          <div class="room__cap" data-room-cap="curtains">
+            <h3 class="t-m"><span class="mask"><span>Curtains</span></span></h3>
+            <p>Open to the garden, or drawn for the&nbsp;night.</p>
+          </div>
+          <div class="room__cap" data-room-cap="twilight">
+            <h3 class="t-m"><span class="mask"><span>Twilight</span></span></h3>
+            <p>Soft light by the bed, the rest of the room at&nbsp;rest.</p>
+          </div>
+          <div class="room__cap" data-room-cap="away">
+            <h3 class="t-m"><span class="mask"><span>Away</span></span></h3>
+            <p>Everything off and the curtains drawn, from one key by the&nbsp;door.</p>
           </div>
         </div>
 
-        <div class="console" role="group" aria-label="Living room scenes" data-console>
-          <p class="console__label"><span class="console__dot" aria-hidden="true"></span>Living room<span class="console__state" data-console-state>Relax</span></p>
-          <div class="console__keys">
-            <button type="button" class="key is-active" aria-pressed="true" data-mode="relax">
-              <span class="key__led" aria-hidden="true"></span>
-              <svg class="key__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg>
-              <span class="key__name">Relax</span>
+        <!-- A wall keypad: devices on the left, scenes on the right. -->
+        <div class="keypad" role="group" aria-label="Bedroom keypad" data-keypad>
+          <p class="keypad__label"><span class="console__dot" aria-hidden="true"></span>Bedroom<span class="keypad__state" data-keypad-state>Welcome</span></p>
+          <div class="keypad__plate">
+            <button type="button" class="pkey" aria-pressed="true" data-key="lights">
+              <svg class="pkey__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.3 17.3h5.4M10.1 20.4h3.8M12 3.6a5.7 5.7 0 0 0-3.4 10.3c.6.5.9 1.1.9 1.8v1.6h5v-1.6c0-.7.3-1.3.9-1.8A5.7 5.7 0 0 0 12 3.6Z"/></svg>
+              <span class="pkey__name">lights</span>
             </button>
-            <button type="button" class="key" aria-pressed="false" data-mode="night">
-              <span class="key__led" aria-hidden="true"></span>
-              <svg class="key__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 14.6A7.8 7.8 0 0 1 9.4 4.5a7.8 7.8 0 1 0 10.1 10.1Z"/></svg>
-              <span class="key__name">Night</span>
-              <span class="key__pulse" aria-hidden="true" data-key-pulse></span>
+            <button type="button" class="pkey" aria-pressed="false" data-key="fan">
+              <svg class="pkey__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="1.7"/><path d="M12.6 10.4c.3-2.8 1.5-5.3 3.4-6 1.5-.5 2.6.8 1.9 2.1-.8 1.4-2.7 2.8-5.3 3.9Z"/><path d="M12.6 10.4c.3-2.8 1.5-5.3 3.4-6 1.5-.5 2.6.8 1.9 2.1-.8 1.4-2.7 2.8-5.3 3.9Z" transform="rotate(120 12 12)"/><path d="M12.6 10.4c.3-2.8 1.5-5.3 3.4-6 1.5-.5 2.6.8 1.9 2.1-.8 1.4-2.7 2.8-5.3 3.9Z" transform="rotate(240 12 12)"/></svg>
+              <span class="pkey__name">fan</span>
+            </button>
+            <button type="button" class="pkey" aria-pressed="false" data-key="curtains">
+              <svg class="pkey__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.2 4h17.6M5.2 4v16.2h3.4c-.7-3.1 0-5.8 1.5-7.6C8.4 10.3 7.4 7.4 7.4 4M18.8 4v16.2h-3.4c.7-3.1 0-5.8-1.5-7.6 1.7-2.3 2.7-5.2 2.7-8.6"/></svg>
+              <span class="pkey__name">curtains</span>
+            </button>
+            <button type="button" class="pkey" aria-pressed="true" data-key="welcome">
+              <svg class="pkey__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.4 10.6 12 4.2l7.6 6.4M6.4 9.2v10.6h11.2V9.2M10.1 19.8v-4.9h3.8v4.9"/></svg>
+              <span class="pkey__name">welcome</span>
+            </button>
+            <button type="button" class="pkey" aria-pressed="false" data-key="twilight">
+              <svg class="pkey__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.4 17h17.2M7 20.2h10M7.6 17a4.4 4.4 0 0 1 8.8 0M12 7.4v2.2M6.1 10.2l1.4 1.4M17.9 10.2l-1.4 1.4M3.8 14.1h1.9M18.3 14.1h1.9"/></svg>
+              <span class="pkey__name">twilight</span>
+            </button>
+            <button type="button" class="pkey" aria-pressed="false" data-key="away">
+              <svg class="pkey__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6v7.6M7.2 6.5a7.1 7.1 0 1 0 9.6 0"/></svg>
+              <span class="pkey__name">away</span>
             </button>
           </div>
-          <div class="console__meter" aria-hidden="true"><span data-console-meter></span></div>
         </div>
       </div>
     </section>
@@ -226,8 +257,8 @@
     </section>
 
     <!-- Planned: an interactive home theatre block, like "One room, one day", goes here as its own
-         section. Reuse the room markup (data-room="<film>", one key per scene): initRoom() mounts
-         every [data-room] section; add the film's name to the video list in scripts/media.mjs. -->
+         section: the same approach (light layers and movement frames rendered in Blender, see
+         scripts/room/, mixed live by src/js/room/) with a theatre scene and its own keys. -->
 
     <!-- ============================== APPROACH ============================== -->
     <section class="approach block" id="approach" data-theme="light" aria-labelledby="approach-title">
