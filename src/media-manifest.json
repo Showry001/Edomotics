@@ -476,6 +476,40 @@
     ],
     "avif": true
   },
+  "theatre-wide": {
+    "width": 1920,
+    "height": 1080,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/theatre-wide-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/theatre-wide-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/theatre-wide-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "theatre-tall": {
+    "width": 900,
+    "height": 1600,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/theatre-tall-sm.webp"
+      },
+      {
+        "w": 900,
+        "file": "media/img/theatre-tall-md.webp"
+      }
+    ],
+    "avif": true
+  },
   "akhil-sanjana-residence-01": {
     "width": 3200,
     "height": 2134,

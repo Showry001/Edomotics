@@ -138,36 +138,8 @@
       </div>
 
       <div class="room__bottom wrap">
-        <div class="room__caps" aria-live="polite">
-          <div class="room__cap is-active" data-room-cap="welcome">
-            <h3 class="t-m"><span class="mask"><span>Welcome</span></span></h3>
-            <p>Lights up and curtains open, ready the moment you walk&nbsp;in.</p>
-          </div>
-          <div class="room__cap" data-room-cap="lights">
-            <h3 class="t-m"><span class="mask"><span>Lights</span></span></h3>
-            <p>Every light in the room, on or off from one&nbsp;key.</p>
-          </div>
-          <div class="room__cap" data-room-cap="fan">
-            <h3 class="t-m"><span class="mask"><span>Fan</span></span></h3>
-            <p>The fan starts with a touch. No remote to&nbsp;find.</p>
-          </div>
-          <div class="room__cap" data-room-cap="curtains">
-            <h3 class="t-m"><span class="mask"><span>Curtains</span></span></h3>
-            <p>Open to the garden, or drawn for the&nbsp;night.</p>
-          </div>
-          <div class="room__cap" data-room-cap="twilight">
-            <h3 class="t-m"><span class="mask"><span>Twilight</span></span></h3>
-            <p>Soft light by the bed, the rest of the room at&nbsp;rest.</p>
-          </div>
-          <div class="room__cap" data-room-cap="away">
-            <h3 class="t-m"><span class="mask"><span>Away</span></span></h3>
-            <p>Everything off and the curtains drawn, from one key by the&nbsp;door.</p>
-          </div>
-        </div>
-
         <!-- A wall keypad: devices on the left, scenes on the right. -->
         <div class="keypad" role="group" aria-label="Bedroom keypad" data-keypad>
-          <p class="keypad__label"><span class="console__dot" aria-hidden="true"></span>Bedroom<span class="keypad__state" data-keypad-state>Welcome</span></p>
           <div class="keypad__plate">
             <button type="button" class="pkey" aria-pressed="true" data-key="lights">
               <svg class="pkey__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.3 17.3h5.4M10.1 20.4h3.8M12 3.6a5.7 5.7 0 0 0-3.4 10.3c.6.5.9 1.1.9 1.8v1.6h5v-1.6c0-.7.3-1.3.9-1.8A5.7 5.7 0 0 0 12 3.6Z"/></svg>
@@ -182,7 +154,7 @@
               <span class="pkey__name">curtains</span>
             </button>
             <button type="button" class="pkey" aria-pressed="true" data-key="welcome">
-              <svg class="pkey__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.4 10.6 12 4.2l7.6 6.4M6.4 9.2v10.6h11.2V9.2M10.1 19.8v-4.9h3.8v4.9"/></svg>
+              <svg class="pkey__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.8 9.2 4.6 7l4 6.6-2.7 2Z"/><path d="M22.2 9.2 19.4 7l-4 6.6 2.7 2Z"/><path d="M5.6 8.6c1.9-1.3 4-1.7 6-.9"/><path d="M18.4 8.6c-1.7-1.2-3.8-1.5-5.6-.6L9.9 9.8c-.8.5-.9 1.5-.3 2 .6.6 1.5.5 2.1 0l1.4-1.1 3.4 3.2"/><path d="M16.5 13.9c.5.5.4 1.3-.1 1.7-.5.5-1.3.4-1.7-.1l-1.2-1.1"/><path d="M14.7 15.5c.4.5.4 1.2-.1 1.6-.5.5-1.2.4-1.6 0l-1.1-1"/><path d="M12.9 17.1c.4.5.3 1.1-.2 1.5-.4.4-1.1.3-1.5-.1l-3-2.6"/></svg>
               <span class="pkey__name">welcome</span>
             </button>
             <button type="button" class="pkey" aria-pressed="false" data-key="twilight">
@@ -256,9 +228,55 @@
       </div>
     </section>
 
-    <!-- Planned: an interactive home theatre block, like "One room, one day", goes here as its own
-         section: the same approach (light layers and movement frames rendered in Blender, see
-         scripts/room/, mixed live by src/js/room/) with a theatre scene and its own keys. -->
+    <!-- ============================== ONE THEATRE: the cinema keypad ============================== -->
+    <section class="room room--theatre" id="theatre-room" data-theme="dark" data-theatre aria-labelledby="theatre-room-title">
+      <div class="room__media" data-theatre-media>
+        <div class="room__frame" data-theatre-frame>
+          <!-- The home theatre in its lounge scene, landscape and portrait (one shows). JS mixes the live room over it (src/js/theatre/); without WebGL the keys swap between stills. -->
+          <img class="room__img room__img--wide" data-pic="theatre-wide" sizes="100vw" alt="A home theatre lit for the evening: three leather recliners facing a wall of oak slats and tall speakers, under a ceiling of fibre-optic stars.">
+          <img class="room__img room__img--tall" data-pic="theatre-tall" sizes="100vw" alt="A home theatre lit for the evening: three leather recliners facing a wall of oak slats and tall speakers, under a ceiling of fibre-optic stars.">
+        </div>
+      </div>
+      <div class="room__shade" aria-hidden="true"></div>
+
+      <div class="room__head wrap">
+        <p class="count">One theatre, one evening</p>
+        <h2 class="t-xl" id="theatre-room-title" data-lines>Lights down,<br> <span class="serif-i">screen down.</span></h2>
+        <p class="room__lede">Choose a scene. The screen, the lights and the projector answer together.</p>
+      </div>
+
+      <div class="room__bottom wrap">
+        <!-- A wall keypad of six scenes: the film on the left, the room on the right. -->
+        <div class="keypad keypad--theatre" role="group" aria-label="Home theatre keypad" data-keypad>
+          <div class="keypad__plate">
+            <button type="button" class="pkey" aria-pressed="false" data-scene="preshow">
+              <svg class="pkey__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.4 7.2h17.2v3.1a1.7 1.7 0 0 0 0 3.4v3.1H3.4v-3.1a1.7 1.7 0 0 0 0-3.4Z"/><path d="M14.6 7.2v1.9M14.6 11.1v1.8M14.6 14.9v1.9"/></svg>
+              <span class="pkey__name">pre-show</span>
+            </button>
+            <button type="button" class="pkey" aria-pressed="false" data-scene="cinema">
+              <svg class="pkey__icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.6" width="18" height="11.6" rx="1.2"/><path d="M10.4 7.9v5l4.3-2.5Z"/><path d="M8 19.6h8M12 16.2v3.4"/></svg>
+              <span class="pkey__name">cinema</span>
+            </button>
+            <button type="button" class="pkey" aria-pressed="false" data-scene="intermission">
+              <svg class="pkey__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.4"/><path d="M10 8.9v6.2M14 8.9v6.2"/></svg>
+              <span class="pkey__name">intermission</span>
+            </button>
+            <button type="button" class="pkey" aria-pressed="true" data-scene="lounge">
+              <svg class="pkey__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.2 4.4c.5 3.4 1.9 4.8 5.3 5.3-3.4.5-4.8 1.9-5.3 5.3-.5-3.4-1.9-4.8-5.3-5.3 3.4-.5 4.8-1.9 5.3-5.3Z"/><path d="M17.4 13.6c.2 1.5.9 2.2 2.4 2.4-1.5.2-2.2.9-2.4 2.4-.2-1.5-.9-2.2-2.4-2.4 1.5-.2 2.2-.9 2.4-2.4Z"/></svg>
+              <span class="pkey__name">lounge</span>
+            </button>
+            <button type="button" class="pkey" aria-pressed="false" data-scene="lights">
+              <svg class="pkey__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.3 17.3h5.4M10.1 20.4h3.8M12 3.6a5.7 5.7 0 0 0-3.4 10.3c.6.5.9 1.1.9 1.8v1.6h5v-1.6c0-.7.3-1.3.9-1.8A5.7 5.7 0 0 0 12 3.6Z"/></svg>
+              <span class="pkey__name">lights on</span>
+            </button>
+            <button type="button" class="pkey" aria-pressed="false" data-scene="off">
+              <svg class="pkey__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6v7.6M7.2 6.5a7.1 7.1 0 1 0 9.6 0"/></svg>
+              <span class="pkey__name">off</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ============================== APPROACH ============================== -->
     <section class="approach block" id="approach" data-theme="light" aria-labelledby="approach-title">

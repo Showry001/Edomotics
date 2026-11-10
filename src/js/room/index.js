@@ -1,7 +1,7 @@
 // One room, one day: a wall keypad drives the bedroom. Three keys work one thing each (lights,
 // fan, curtains); three set a scene (welcome, twilight, away). One state is the only truth and
-// every key, caption and pixel reads from it, so a press can be reversed mid-way without the
-// room and the keypad ever disagreeing. The room itself is mixed live from rendered light
+// every key and pixel reads from it, so a press can be reversed mid-way without the room and
+// the keypad ever disagreeing. The room itself is mixed live from rendered light
 // layers (gl.js); without WebGL2 the keys swap between finished stills instead.
 import { gsap, ScrollTrigger, $, $$, EASE, DUR, reduced } from '../core.js';
 import ROOM from '../../media-room.json';
@@ -14,29 +14,18 @@ const LIGHTS = ['cove', 'down', 'lamp'];
 const FAN_TURNS = 4;                            // thirds of a turn per press (the blades repeat every 120°)
 const LUMA = [0.2126, 0.7152, 0.0722];
 
-const NAMES = {
-  welcome: 'Welcome', twilight: 'Twilight', away: 'Away',
-  'lights-on': 'Lights on', 'lights-off': 'Lights off', fan: 'Fan on', 'fan-done': 'Fan off',
-  'curtains-closing': 'Curtains closing', 'curtains-opening': 'Curtains opening',
-  'curtains-closed': 'Curtains closed', 'curtains-open': 'Curtains open',
-};
-
 export function initRoom(view, bag) {
   const room = $('[data-room]', view);
   if (!room) return;
   const media = $('[data-room-media]', room);
   const layers = $('[data-room-frame]', room);
   const keys = $$('[data-key]', room);
-  const caps = $$('[data-room-cap]', room);
-  const stateEl = $('[data-keypad-state]', room);
   const keypad = $('[data-keypad]', room);
 
   // What the keys asked for, and where the room is on its way there.
   const target = { lights: 'on', c: 0 };
   const live = { cove: 1, down: 1, lamp: 1, c: 0, curtOn: 0, fanOn: 0, fanPos: 0, fanBlur: 0 };
   let spinning = false;
-  let lastCap = 'welcome';
-  let lastKey = 'welcome';
 
   /* ---------------- the picture ---------------- */
   let gl = null, canvas = null, set = null, dirty = true, alive = true;
@@ -149,16 +138,16 @@ export function initRoom(view, bag) {
     curtainTween = gsap.to(live, {
       c: to, duration: motion ? Math.max(0.6, 2.4 * Math.abs(to - live.c)) : 0.3, ease: 'sine.inOut',
       onUpdate: request,
-      onComplete: () => { live.curtOn = 0; request(); if (lastKey === 'curtains') say(to ? 'curtains-closed' : 'curtains-open'); },
+      onComplete: () => { live.curtOn = 0; request(); },
     });
   }
   let fanTween = null;
   function spin() {
     if (reduced) {
-      // No turning blades for reduced motion: the key and the state line still answer.
+      // No turning blades for reduced motion: the key still answers.
       spinning = true;
       fanTween?.kill();
-      fanTween = gsap.delayedCall(1.2, () => { spinning = false; indicate(); if (lastKey === 'fan') say('fan-done'); });
+      fanTween = gsap.delayedCall(1.2, () => { spinning = false; indicate(); });
       return;
     }
     const n = set?.fan?.frames || 24;
@@ -185,12 +174,11 @@ export function initRoom(view, bag) {
         spinning = false;
         request();
         indicate();
-        if (lastKey === 'fan') say('fan-done');
       },
     });
   }
 
-  /* ---------------- keys, captions, the state line ---------------- */
+  /* ---------------- keys ---------------- */
   const ON = {
     lights: () => target.lights !== 'off',
     fan: () => spinning,
@@ -206,40 +194,16 @@ export function initRoom(view, bag) {
       k.setAttribute('aria-pressed', String(on));
     });
   }
-  const say = (key) => { if (stateEl) stateEl.textContent = NAMES[key]; };
-
-  let capTl = null;
-  const capFor = (k) => caps.find((c) => c.dataset.roomCap === k);
-  function showCap(nextKey) {
-    if (nextKey === lastCap) return;
-    const prev = capFor(lastCap), next = capFor(nextKey);
-    lastCap = nextKey;
-    caps.forEach((c) => c.classList.toggle('is-active', c === next));
-    capTl?.progress(1).kill();
-    if (reduced || !prev || !next) return;
-    const out = [$('.mask > span', prev), $('p', prev)];
-    capTl = gsap.timeline()
-      .set(prev, { visibility: 'visible' })
-      .to(out[0], { yPercent: -105, duration: 0.55, ease: EASE.io }, 0)
-      .to(out[1], { autoAlpha: 0, duration: 0.4, ease: EASE.io }, 0)
-      .set(prev, { clearProps: 'visibility' })
-      .set(out, { clearProps: 'all' })
-      .fromTo($('.mask > span', next), { yPercent: 105 }, { yPercent: 0, duration: 0.9, ease: EASE.out }, 0.35)
-      .fromTo($('p', next), { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.8, ease: EASE.out }, 0.5);
-  }
-
   const ACTIONS = {
-    lights: () => { const on = target.lights === 'off'; setLights(on ? 'on' : 'off'); say(on ? 'lights-on' : 'lights-off'); },
-    fan: () => { spin(); say('fan'); },
-    curtains: () => { const close = target.c === 0; setCurtain(close ? 1 : 0); say(close ? 'curtains-closing' : 'curtains-opening'); },
-    welcome: () => { setLights('on'); setCurtain(0); say('welcome'); },
-    twilight: () => { setLights('twilight'); say('twilight'); },
-    away: () => { setLights('off'); setCurtain(1); say('away'); },
+    lights: () => setLights(target.lights === 'off' ? 'on' : 'off'),
+    fan: () => spin(),
+    curtains: () => setCurtain(target.c === 0 ? 1 : 0),
+    welcome: () => { setLights('on'); setCurtain(0); },
+    twilight: () => setLights('twilight'),
+    away: () => { setLights('off'); setCurtain(1); },
   };
   keys.forEach((k) => bag.on(k, 'click', () => {
-    lastKey = k.dataset.key;
-    ACTIONS[lastKey]();
-    showCap(k.dataset.key);
+    ACTIONS[k.dataset.key]();
     indicate();
     showStill();
     request();
@@ -277,26 +241,13 @@ export function initRoom(view, bag) {
   bag.on(mq, 'change', swap);
   bag.add(() => {
     alive = false;
-    capTl?.kill(); curtainTween?.kill(); fanTween?.kill();
+    curtainTween?.kill(); fanTween?.kill();
     gsap.killTweensOf(live);
     unmountGL();
   });
 
   if (reduced) return;
-  // Arrival: the room settles from a slight push as it scrolls in; the keypad follows.
-  gsap.fromTo(media, { scale: 1.12 }, {
-    scale: 1, ease: 'none',
-    scrollTrigger: { trigger: room, start: 'top bottom', end: 'top top', scrub: true },
-  });
-  const enter = gsap.timeline({ paused: true })
-    .from(keypad, { y: 48, autoAlpha: 0, duration: DUR.slow, ease: EASE.out })
-    .from($$('.mask > span', capFor('welcome')), { yPercent: 105, duration: DUR.base, ease: EASE.out }, 0.1)
-    .from($('p', capFor('welcome')), { autoAlpha: 0, duration: DUR.base, ease: EASE.out }, 0.25);
+  // The room holds still; only a key press changes it. The keypad rises in once.
+  const enter = gsap.from(keypad, { y: 48, autoAlpha: 0, duration: DUR.slow, ease: EASE.out, paused: true });
   ScrollTrigger.create({ trigger: room, start: 'top 55%', once: true, onEnter: () => enter.play() });
-  // Ambience: the room breathes slowly while it's on screen.
-  const breathe = gsap.to(layers, { scale: 1.035, duration: 9, ease: 'sine.inOut', yoyo: true, repeat: -1, paused: true });
-  ScrollTrigger.create({
-    trigger: room, start: 'top bottom', end: 'bottom top',
-    onToggle: (self) => (self.isActive ? breathe.resume() : breathe.pause()),
-  });
 }

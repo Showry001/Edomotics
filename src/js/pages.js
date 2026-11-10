@@ -5,6 +5,7 @@ import { initHeaderTheme, setActiveNav } from './header.js';
 import { initHeroVideo, heroEntrance, pageHero, initFill } from './hero.js';
 import { initCinema, initProjects, initApproach, initSteps } from './chapters.js';
 import { initRoom } from './room/index.js';
+import { initTheatre } from './theatre/index.js';
 import { initReveals, initCounters, initCarousel, initQuotes, initForm, initFooter, initProjectIndex } from './interactions.js';
 import { initField } from './field.js';
 import { initDesigner } from './designer/index.js';
@@ -30,6 +31,7 @@ export function mountPage(view, { first = false } = {}) {
   if (reduced) {
     safely('field', () => initField(view, bag, { first }));
     safely('room', () => initRoom(view, bag));
+    safely('theatre', () => initTheatre(view, bag));
     return () => bag.empty();
   }
 
@@ -40,6 +42,7 @@ export function mountPage(view, { first = false } = {}) {
     safely('field', () => initField(view, bag, { first }));
     safely('fill', () => initFill(view));
     safely('room', () => initRoom(view, bag));
+    safely('theatre', () => initTheatre(view, bag));
     safely('steps', () => keep(initSteps(view)));
     safely('approach', () => initApproach(view));
     safely('cinema', () => keep(initCinema(view)));

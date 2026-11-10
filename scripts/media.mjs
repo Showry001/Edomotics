@@ -50,6 +50,9 @@ const PHOTOS = {
   // One room: the rendered bedroom with every light on (scripts/room/), landscape and portrait.
   'room-wide': '_src/room/web/still-wide-on-open.png',
   'room-tall': '_src/room/web/still-tall-on-open.png',
+  // One theatre: the rendered home theatre in its lounge scene (scripts/theatre/), landscape and portrait.
+  'theatre-wide': '_src/theatre/web/still-wide-lounge.png',
+  'theatre-tall': '_src/theatre/web/still-tall-lounge.png',
 };
 
 // The manifest records each photo's real widths and aspect so the Vite plugin can write
@@ -287,8 +290,59 @@ async function room() {
   console.log('room', [...keep].length, 'files');
 }
 
+// Home theatre: the light layers (screen up, screen down cropped to the screen, the picture's own
+// light), rendered and exported by scripts/theatre/; the pre-show card; one still per scene (the
+// no-WebGL fallback); and the film, joined from its frames into a 10 s loop whose last second
+// dissolves into the first.
+async function theatre() {
+  const dir = '_src/theatre/web';
+  if (!existsSync(`${dir}/theatre.json`)) return;
+  const out = `${OUT}/theatre`;
+  mkdirSync(out, { recursive: true });
+  const data = JSON.parse(readFileSync(`${dir}/theatre.json`, 'utf8'));
+  const keep = new Set();
+  const webp = async (file, opts, from = dir) => {
+    const name = path.basename(file).replace(/\.png$/, '.webp');
+    keep.add(`${out}/${name}`);
+    if (!fresh(`${out}/${name}`, `${from}/${file}`)) await sharp(`${from}/${file}`).webp(opts).toFile(`${out}/${name}`);
+    return name;
+  };
+  const LAYER = { quality: 90, smartSubsample: true, effort: 6 };
+  for (const framing of ['wide', 'tall']) {
+    const set = data[framing];
+    if (!set) continue;
+    set.up = await Promise.all(set.up.map((f) => webp(f, LAYER)));
+    set.down = await Promise.all(set.down.map((f) => webp(f, LAYER)));
+    set.screen = await webp(set.screen, LAYER);
+    for (const scene of Object.keys(set.stills)) set.stills[scene] = await webp(set.stills[scene], { quality: 76, effort: 5 });
+  }
+  data.card = await webp('card.png', { quality: 88, effort: 5 });
+  const frames = '_src/theatre/film';
+  const last = `${frames}/0264.png`;
+  if (existsSync(last)) {
+    const mp4 = `${out}/film.mp4`;
+    keep.add(mp4);
+    if (!fresh(mp4, last)) {
+      execFileSync(ffmpeg, ['-y', '-loglevel', 'error', '-framerate', '24', '-start_number', '1', '-i', `${frames}/%04d.png`,
+        '-filter_complex', '[0:v]split[x][y];[x]trim=start_frame=24:end_frame=264,setpts=PTS-STARTPTS[a];' +
+          '[y]trim=start_frame=0:end_frame=24,setpts=PTS-STARTPTS[b];[a][b]xfade=transition=fade:duration=1:offset=9,format=yuv420p[v]',
+        '-map', '[v]', '-c:v', 'libx264', '-preset', 'slow', '-crf', '22', '-profile:v', 'high', '-pix_fmt', 'yuv420p',
+        '-movflags', '+faststart', '-an', mp4], { stdio: 'inherit' });
+    }
+    data.film.src = 'film.mp4';
+    const still = `${out}/film-still.webp`;                 // the frame the stills show
+    keep.add(still);
+    if (!fresh(still, `${frames}/0121.png`)) await sharp(`${frames}/0121.png`).webp({ quality: 84, effort: 5 }).toFile(still);
+    data.film.still = 'film-still.webp';
+  }
+  for (const f of readdirSync(out)) if (!keep.has(`${out}/${f}`)) unlinkSync(`${out}/${f}`);
+  writeFileSync('src/media-theatre.json', JSON.stringify(data));
+  console.log('theatre', keep.size, 'files');
+}
+
 const only = process.argv[2];
 if (!only || only === 'room') await room();
+if (!only || only === 'theatre') await theatre();
 if (!only || only === 'designer') await designer();
 if (!only || only === 'photos') await photos();
 if (!only || only === 'brand') await brandLogo();
