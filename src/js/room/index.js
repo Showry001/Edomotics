@@ -203,6 +203,7 @@ export function initRoom(view, bag) {
     away: () => { setLights('off'); setCurtain(1); },
   };
   keys.forEach((k) => bag.on(k, 'click', () => {
+    keypad?.classList.add('is-used');                     // the invitation has done its job
     ACTIONS[k.dataset.key]();
     indicate();
     showStill();

@@ -8,7 +8,7 @@ export function initMenu() {
   const toggle = $('[data-menu-toggle]');
   const veil = $('[data-veil]');
   if (!box || !panel || !toggle) return { hide() {}, isOpen: () => false };
-  const links = $$('.mbox__links a, .mcard', panel);
+  const links = $$('.mbox__links a, .mbox__social > *, .mcard', panel);
   let open = false;
   let collapsed = null;
 

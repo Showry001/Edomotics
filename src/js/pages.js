@@ -6,6 +6,7 @@ import { initHeroVideo, heroEntrance, pageHero, initFill } from './hero.js';
 import { initCinema, initProjects, initApproach, initSteps } from './chapters.js';
 import { initRoom } from './room/index.js';
 import { initTheatre } from './theatre/index.js';
+import { initCardFilms } from './cardfilms.js';
 import { initReveals, initCounters, initCarousel, initQuotes, initForm, initFooter, initProjectIndex } from './interactions.js';
 import { initField } from './field.js';
 import { initDesigner } from './designer/index.js';
@@ -43,7 +44,8 @@ export function mountPage(view, { first = false } = {}) {
     safely('fill', () => initFill(view));
     safely('room', () => initRoom(view, bag));
     safely('theatre', () => initTheatre(view, bag));
-    safely('steps', () => keep(initSteps(view)));
+    safely('cardFilms', () => initCardFilms(view, bag));
+    safely('steps', () => keep(initSteps(view, bag)));
     safely('approach', () => initApproach(view));
     safely('cinema', () => keep(initCinema(view)));
     safely('projects', () => keep(initProjects(view, bag)));

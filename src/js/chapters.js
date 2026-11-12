@@ -135,9 +135,61 @@ export function initApproach(view) {
    [data-steps]          pinned stage; scroll moves between steps.
    [data-step-media]     one photograph per step — wipes between them, or
    [data-camera]         one photograph, with a camera keyframe per step (data-cam="scale,x,y,light").
+   [data-step-film]      on a step's media: its film (media/steps/<name>.mp4), looping over the
+                         photograph (a still of the same film) while that step is on screen.
    [data-step]           the words for each step.
    ===================================================================== */
-export function initSteps(view) {
+const STEP_FILMS = `${import.meta.env.BASE_URL}media/steps/`;
+
+function stepFilms(block, medias, bag) {
+  const list = medias.map((m) => (m.dataset.stepFilm ? { m, v: null } : null));
+  if (!bag || !list.some(Boolean)) return { show() {} };
+  const small = window.matchMedia('(max-width: 860px)').matches;
+  let want = -1, near = false;
+  // Nothing loads until its step is shown with the block near the screen.
+  const load = (f) => {
+    if (f.v) return f.v;
+    const v = document.createElement('video');
+    v.muted = true;
+    v.loop = true;
+    v.playsInline = true;
+    v.preload = 'auto';
+    v.disablePictureInPicture = true;
+    v.setAttribute('muted', '');
+    v.setAttribute('playsinline', '');
+    v.setAttribute('aria-hidden', 'true');
+    v.src = `${STEP_FILMS}${f.m.dataset.stepFilm}${small ? '-sm' : ''}.mp4`;
+    // Shown only once it is really moving, so a slow network never flashes black.
+    bag.on(v, 'playing', () => f.m.classList.add('is-film'));
+    f.m.append(v);
+    f.v = v;
+    return v;
+  };
+  const sync = (restart) => list.forEach((f, j) => {
+    if (!f) return;
+    if (j === want && near) {
+      const v = load(f);
+      if (restart && v.currentTime > 0) v.currentTime = 0;     // each step's film starts from its beginning
+      v.play().catch(() => {});
+    } else if (f.v && !f.v.paused) f.v.pause();
+  });
+  const io = new IntersectionObserver(([e]) => { near = e.isIntersecting; sync(false); }, { rootMargin: '25% 0px' });
+  io.observe(block);
+  bag.add(() => {
+    io.disconnect();
+    list.forEach((f) => {
+      if (!f?.v) return;
+      f.v.pause();
+      f.v.removeAttribute('src');
+      f.v.load();
+      f.v.remove();
+      f.m.classList.remove('is-film');
+    });
+  });
+  return { show(i) { if (i === want) return; want = i; sync(true); } };
+}
+
+export function initSteps(view, bag) {
   const blocks = $$('[data-steps]', view);
   if (!blocks.length) return null;
   const mm = gsap.matchMedia();
@@ -145,6 +197,7 @@ export function initSteps(view) {
     const stage = $('.steps__stage', block);
     const texts = $$('[data-step]', block);
     const medias = $$('[data-step-media]', block);
+    const films = stepFilms(block, medias, bag);
     const camera = $('[data-camera]', block);
     const camImg = camera && $('img', camera);
     const nowEl = $('[data-step-now]', block);
@@ -166,16 +219,19 @@ export function initSteps(view) {
       gsap.fromTo($$('.steps__anim', inT), { yPercent: 40, autoAlpha: 0 }, { yPercent: 0, autoAlpha: 1, duration: 0.9 * d, delay: 0.25 * d, ease: EASE.out, stagger: 0.06, overwrite: true });
       if (medias.length) {
         const down = prev > i;
+        films.show(i);
         medias.forEach((m, j) => { m.style.zIndex = j === i ? 2 : j === prev ? 1 : 0; });
         gsap.fromTo(medias[i], { clipPath: down ? 'inset(0% 0% 100% 0%)' : 'inset(100% 0% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.1 * d, ease: EASE.io, overwrite: true });
-        gsap.fromTo($('img', medias[i]), { scale: 1.15 }, { scale: 1, duration: 1.5 * d, ease: EASE.out, overwrite: true });
+        gsap.fromTo($$('img, video', medias[i]), { scale: 1.15 }, { scale: 1, duration: 1.5 * d, ease: EASE.out, overwrite: true });
       }
     };
 
     mm.add({ wide: '(min-width: 861px)', narrow: '(max-width: 860px)', rm: '(prefers-reduced-motion: reduce)' }, (ctx) => {
       if (ctx.conditions.narrow || reduced) {
-        // Small screens: no pin. Each step simply shows; the camera holds a gentle frame.
+        // Small screens: no pin. Each step simply shows; the camera holds a gentle frame, and the
+        // first step's film plays (the only photograph shown).
         texts.forEach((t) => t.classList.add('is-active'));
+        films.show(0);
         return undefined;
       }
       current = -1;

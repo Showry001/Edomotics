@@ -923,6 +923,473 @@
     ],
     "avif": true
   },
+  "dr-akhil-sunitha-residence-09": {
+    "width": 2134,
+    "height": 3200,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/dr-akhil-sunitha-residence-09-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/dr-akhil-sunitha-residence-09-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/dr-akhil-sunitha-residence-09-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "dr-akhil-sunitha-residence-10": {
+    "width": 3200,
+    "height": 2134,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/dr-akhil-sunitha-residence-10-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/dr-akhil-sunitha-residence-10-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/dr-akhil-sunitha-residence-10-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/dr-akhil-sunitha-residence-10.webp"
+      }
+    ],
+    "avif": true
+  },
+  "dr-akhil-sunitha-residence-11": {
+    "width": 2134,
+    "height": 3200,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/dr-akhil-sunitha-residence-11-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/dr-akhil-sunitha-residence-11-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/dr-akhil-sunitha-residence-11-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "dr-akhil-sunitha-residence-12": {
+    "width": 3200,
+    "height": 2133,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/dr-akhil-sunitha-residence-12-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/dr-akhil-sunitha-residence-12-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/dr-akhil-sunitha-residence-12-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/dr-akhil-sunitha-residence-12.webp"
+      }
+    ],
+    "avif": true
+  },
+  "prudvi-kotta-residence-01": {
+    "width": 3200,
+    "height": 2133,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/prudvi-kotta-residence-01-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/prudvi-kotta-residence-01-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/prudvi-kotta-residence-01-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/prudvi-kotta-residence-01.webp"
+      }
+    ],
+    "avif": true
+  },
+  "prudvi-kotta-residence-02": {
+    "width": 3200,
+    "height": 2133,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/prudvi-kotta-residence-02-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/prudvi-kotta-residence-02-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/prudvi-kotta-residence-02-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/prudvi-kotta-residence-02.webp"
+      }
+    ],
+    "avif": true
+  },
+  "prudvi-kotta-residence-03": {
+    "width": 2134,
+    "height": 3200,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/prudvi-kotta-residence-03-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/prudvi-kotta-residence-03-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/prudvi-kotta-residence-03-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "prudvi-kotta-residence-04": {
+    "width": 3200,
+    "height": 2134,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/prudvi-kotta-residence-04-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/prudvi-kotta-residence-04-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/prudvi-kotta-residence-04-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/prudvi-kotta-residence-04.webp"
+      }
+    ],
+    "avif": true
+  },
+  "prudvi-kotta-residence-05": {
+    "width": 3200,
+    "height": 2133,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/prudvi-kotta-residence-05-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/prudvi-kotta-residence-05-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/prudvi-kotta-residence-05-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/prudvi-kotta-residence-05.webp"
+      }
+    ],
+    "avif": true
+  },
+  "prudvi-kotta-residence-06": {
+    "width": 2133,
+    "height": 3200,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/prudvi-kotta-residence-06-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/prudvi-kotta-residence-06-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/prudvi-kotta-residence-06-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "prudvi-kotta-residence-07": {
+    "width": 3200,
+    "height": 2133,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/prudvi-kotta-residence-07-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/prudvi-kotta-residence-07-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/prudvi-kotta-residence-07-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/prudvi-kotta-residence-07.webp"
+      }
+    ],
+    "avif": true
+  },
+  "prudvi-kotta-residence-08": {
+    "width": 3200,
+    "height": 2133,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/prudvi-kotta-residence-08-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/prudvi-kotta-residence-08-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/prudvi-kotta-residence-08-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/prudvi-kotta-residence-08.webp"
+      }
+    ],
+    "avif": true
+  },
+  "prudvi-kotta-residence-09": {
+    "width": 2560,
+    "height": 3200,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/prudvi-kotta-residence-09-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/prudvi-kotta-residence-09-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/prudvi-kotta-residence-09-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/prudvi-kotta-residence-09.webp"
+      }
+    ],
+    "avif": true
+  },
+  "prudvi-kotta-residence-10": {
+    "width": 3200,
+    "height": 2133,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/prudvi-kotta-residence-10-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/prudvi-kotta-residence-10-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/prudvi-kotta-residence-10-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/prudvi-kotta-residence-10.webp"
+      }
+    ],
+    "avif": true
+  },
+  "prudvi-kotta-residence-11": {
+    "width": 3200,
+    "height": 2133,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/prudvi-kotta-residence-11-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/prudvi-kotta-residence-11-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/prudvi-kotta-residence-11-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/prudvi-kotta-residence-11.webp"
+      }
+    ],
+    "avif": true
+  },
+  "prudvi-kotta-residence-12": {
+    "width": 2560,
+    "height": 3200,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/prudvi-kotta-residence-12-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/prudvi-kotta-residence-12-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/prudvi-kotta-residence-12-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/prudvi-kotta-residence-12.webp"
+      }
+    ],
+    "avif": true
+  },
+  "prudvi-kotta-residence-13": {
+    "width": 3200,
+    "height": 2133,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/prudvi-kotta-residence-13-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/prudvi-kotta-residence-13-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/prudvi-kotta-residence-13-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/prudvi-kotta-residence-13.webp"
+      }
+    ],
+    "avif": true
+  },
+  "prudvi-kotta-residence-14": {
+    "width": 3200,
+    "height": 2133,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/prudvi-kotta-residence-14-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/prudvi-kotta-residence-14-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/prudvi-kotta-residence-14-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/prudvi-kotta-residence-14.webp"
+      }
+    ],
+    "avif": true
+  },
+  "prudvi-kotta-residence-15": {
+    "width": 2560,
+    "height": 3200,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/prudvi-kotta-residence-15-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/prudvi-kotta-residence-15-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/prudvi-kotta-residence-15-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/prudvi-kotta-residence-15.webp"
+      }
+    ],
+    "avif": true
+  },
+  "prudvi-kotta-residence-16": {
+    "width": 3200,
+    "height": 2133,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/prudvi-kotta-residence-16-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/prudvi-kotta-residence-16-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/prudvi-kotta-residence-16-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/prudvi-kotta-residence-16.webp"
+      }
+    ],
+    "avif": true
+  },
+  "prudvi-kotta-residence-17": {
+    "width": 3200,
+    "height": 2133,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/prudvi-kotta-residence-17-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/prudvi-kotta-residence-17-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/prudvi-kotta-residence-17-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/prudvi-kotta-residence-17.webp"
+      }
+    ],
+    "avif": true
+  },
   "seshu-rajalakshmi-residence-01": {
     "width": 3200,
     "height": 2137,
@@ -1145,6 +1612,611 @@
       {
         "w": 1920,
         "file": "media/img/seshu-rajalakshmi-residence-10-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "seshu-rajalakshmi-residence-11": {
+    "width": 3840,
+    "height": 2160,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/seshu-rajalakshmi-residence-11-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/seshu-rajalakshmi-residence-11-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/seshu-rajalakshmi-residence-11-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/seshu-rajalakshmi-residence-11.webp"
+      }
+    ],
+    "avif": true
+  },
+  "seshu-rajalakshmi-residence-12": {
+    "width": 1620,
+    "height": 2160,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/seshu-rajalakshmi-residence-12-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/seshu-rajalakshmi-residence-12-md.webp"
+      },
+      {
+        "w": 1620,
+        "file": "media/img/seshu-rajalakshmi-residence-12-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "seshu-rajalakshmi-residence-13": {
+    "width": 2880,
+    "height": 2160,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/seshu-rajalakshmi-residence-13-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/seshu-rajalakshmi-residence-13-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/seshu-rajalakshmi-residence-13-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/seshu-rajalakshmi-residence-13.webp"
+      }
+    ],
+    "avif": true
+  },
+  "card-lighting": {
+    "width": 1080,
+    "height": 1440,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/card-lighting-sm.webp"
+      },
+      {
+        "w": 1080,
+        "file": "media/img/card-lighting-md.webp"
+      }
+    ],
+    "avif": true
+  },
+  "card-climate": {
+    "width": 1080,
+    "height": 1440,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/card-climate-sm.webp"
+      },
+      {
+        "w": 1080,
+        "file": "media/img/card-climate-md.webp"
+      }
+    ],
+    "avif": true
+  },
+  "card-curtains": {
+    "width": 1080,
+    "height": 1440,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/card-curtains-sm.webp"
+      },
+      {
+        "w": 1080,
+        "file": "media/img/card-curtains-md.webp"
+      }
+    ],
+    "avif": true
+  },
+  "card-music": {
+    "width": 1080,
+    "height": 1440,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/card-music-sm.webp"
+      },
+      {
+        "w": 1080,
+        "file": "media/img/card-music-md.webp"
+      }
+    ],
+    "avif": true
+  },
+  "card-security": {
+    "width": 1080,
+    "height": 1440,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/card-security-sm.webp"
+      },
+      {
+        "w": 1080,
+        "file": "media/img/card-security-md.webp"
+      }
+    ],
+    "avif": true
+  },
+  "card-access": {
+    "width": 1080,
+    "height": 1440,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/card-access-sm.webp"
+      },
+      {
+        "w": 1080,
+        "file": "media/img/card-access-md.webp"
+      }
+    ],
+    "avif": true
+  },
+  "card-cinema": {
+    "width": 1080,
+    "height": 1440,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/card-cinema-sm.webp"
+      },
+      {
+        "w": 1080,
+        "file": "media/img/card-cinema-md.webp"
+      }
+    ],
+    "avif": true
+  },
+  "card-control": {
+    "width": 1080,
+    "height": 1440,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/card-control-sm.webp"
+      },
+      {
+        "w": 1080,
+        "file": "media/img/card-control-md.webp"
+      }
+    ],
+    "avif": true
+  },
+  "step-entrance": {
+    "width": 1920,
+    "height": 1440,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/step-entrance-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/step-entrance-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/step-entrance-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "step-living": {
+    "width": 1920,
+    "height": 1440,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/step-living-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/step-living-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/step-living-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "step-curtains": {
+    "width": 1920,
+    "height": 1440,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/step-curtains-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/step-curtains-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/step-curtains-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "step-space": {
+    "width": 1920,
+    "height": 1440,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/step-space-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/step-space-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/step-space-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "step-lighting": {
+    "width": 1920,
+    "height": 1440,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/step-lighting-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/step-lighting-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/step-lighting-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "step-screen": {
+    "width": 1920,
+    "height": 1440,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/step-screen-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/step-screen-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/step-screen-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "step-sound": {
+    "width": 1920,
+    "height": 1440,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/step-sound-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/step-sound-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/step-sound-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "step-acoustics": {
+    "width": 1920,
+    "height": 1440,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/step-acoustics-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/step-acoustics-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/step-acoustics-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "step-control": {
+    "width": 1920,
+    "height": 1440,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/step-control-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/step-control-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/step-control-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "step-cinema": {
+    "width": 1920,
+    "height": 1440,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/step-cinema-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/step-cinema-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/step-cinema-lg.webp"
+      }
+    ],
+    "avif": true
+  },
+  "home-access": {
+    "width": 2400,
+    "height": 3600,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/home-access-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/home-access-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/home-access-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/home-access.webp"
+      }
+    ],
+    "avif": true
+  },
+  "home-cinema": {
+    "width": 2400,
+    "height": 3200,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/home-cinema-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/home-cinema-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/home-cinema-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/home-cinema.webp"
+      }
+    ],
+    "avif": true
+  },
+  "home-climate": {
+    "width": 2400,
+    "height": 3600,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/home-climate-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/home-climate-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/home-climate-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/home-climate.webp"
+      }
+    ],
+    "avif": true
+  },
+  "home-control": {
+    "width": 2400,
+    "height": 3200,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/home-control-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/home-control-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/home-control-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/home-control.webp"
+      }
+    ],
+    "avif": true
+  },
+  "home-curtains": {
+    "width": 2400,
+    "height": 3620,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/home-curtains-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/home-curtains-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/home-curtains-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/home-curtains.webp"
+      }
+    ],
+    "avif": true
+  },
+  "home-lighting": {
+    "width": 2400,
+    "height": 3600,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/home-lighting-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/home-lighting-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/home-lighting-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/home-lighting.webp"
+      }
+    ],
+    "avif": true
+  },
+  "home-music": {
+    "width": 2400,
+    "height": 2999,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/home-music-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/home-music-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/home-music-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/home-music.webp"
+      }
+    ],
+    "avif": true
+  },
+  "home-picture": {
+    "width": 2400,
+    "height": 3600,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/home-picture-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/home-picture-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/home-picture-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/home-picture.webp"
+      }
+    ],
+    "avif": true
+  },
+  "home-security": {
+    "width": 2400,
+    "height": 3600,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/home-security-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/home-security-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/home-security-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/home-security.webp"
+      }
+    ],
+    "avif": true
+  },
+  "home-sound": {
+    "width": 2400,
+    "height": 3599,
+    "widths": [
+      {
+        "w": 640,
+        "file": "media/img/home-sound-sm.webp"
+      },
+      {
+        "w": 1280,
+        "file": "media/img/home-sound-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/home-sound-lg.webp"
+      },
+      {
+        "w": 2400,
+        "file": "media/img/home-sound.webp"
       }
     ],
     "avif": true

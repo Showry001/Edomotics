@@ -39,41 +39,47 @@
             <p class="steps__hint">Scroll<span class="cue__capsule" aria-hidden="true"><svg><use href="#i-down"/></svg></span></p>
           </div>
           <div class="wrap grid steps__body">
-            <div class="steps__media" data-camera>
-              <figure><img data-pic="cinema-recliners" sizes="(min-width: 861px) 60vw, 100vw" alt="The private cinema seen from the front: recliners in two tiers, sconces on the back wall and a projector port in the ceiling."></figure>
+            <div class="steps__media">
+              <figure data-step-media data-step-film="space"><img data-pic="step-space" sizes="(min-width: 861px) 58vw, 100vw" alt="A private cinema: two rows of recliners inside a lit perimeter cove, wall lights either side of the screen wall."></figure>
+              <figure data-step-media data-step-film="lighting"><img data-pic="step-lighting" sizes="(min-width: 861px) 58vw, 100vw" alt="A cinema screen wall in the dark, its spotlights coming up on textured acoustic panels."></figure>
+              <figure data-step-media data-step-film="screen"><img data-pic="step-screen" sizes="(min-width: 861px) 58vw, 100vw" alt="A sunset film on a wide cinema screen, red recliners and blue step lights in front of it."></figure>
+              <figure data-step-media data-step-film="sound"><img data-pic="step-sound" sizes="(min-width: 861px) 58vw, 100vw" alt="A floor-standing speaker beside the cinema screen, in front of lit acoustic wall panels."></figure>
+              <figure data-step-media data-step-film="acoustics"><img data-pic="step-acoustics" sizes="(min-width: 861px) 58vw, 100vw" alt="Green leather recliners in a fabric-lined cinema, the walls washed with soft light."></figure>
+              <figure data-step-media data-step-film="control"><img data-pic="step-control" sizes="(min-width: 861px) 58vw, 100vw" alt="A home cinema with a lit keypad on the wall beside the door, the recliners beyond."></figure>
+              <figure data-step-media data-step-film="cinema"><img data-pic="step-cinema" sizes="(min-width: 861px) 58vw, 100vw" alt="The projector glowing above two rows of recliners under a ceiling of star points."></figure>
             </div>
             <div class="steps__side">
               <p class="steps__count"><span data-step-now>01</span> / <span>07</span></p>
               <span class="steps__line" data-step-bar aria-hidden="true"></span>
               <ol class="steps__texts">
-                <li class="step" data-step data-cam="1.32,0,4,0.42">
+                <li class="step" data-step>
                   <h3 class="step__title serif steps__anim">Space</h3>
                   <p class="step__sub steps__anim">Architecture sets the stage.</p>
                 </li>
-                <li class="step" data-step data-cam="1.18,0,0,0.85">
+                <li class="step" data-step>
                   <h3 class="step__title serif steps__anim">Lighting</h3>
                   <p class="step__sub steps__anim">The room finds its glow.</p>
                   <p class="step__text steps__anim">Cove, step and star-ceiling circuits settle into a precise cinematic&nbsp;scene.</p>
                 </li>
-                <li class="step" data-step data-cam="1.75,0,24,0.8">
+                <li class="step" data-step>
                   <h3 class="step__title serif steps__anim">Screen</h3>
                   <p class="step__sub steps__anim">The picture comes alive.</p>
                 </li>
-                <li class="step" data-step data-cam="1.45,0,-13,0.95">
+                <li class="step" data-step>
                   <h3 class="step__title serif steps__anim">Sound</h3>
                   <p class="step__sub steps__anim">Every seat is the centre.</p>
                   <p class="step__text steps__anim">Object-based audio moves naturally through the room, measured and balanced around&nbsp;you.</p>
                 </li>
-                <li class="step" data-step data-cam="1.6,17,3,0.72">
+                <li class="step" data-step>
                   <h3 class="step__title serif steps__anim">Acoustics</h3>
                   <p class="step__sub steps__anim">The room becomes silent.</p>
                 </li>
-                <li class="step" data-step data-cam="1.12,0,0,1">
+                <li class="step" data-step>
                   <h3 class="step__title serif steps__anim">Control</h3>
                   <p class="step__sub steps__anim">One touch. Every detail.</p>
                   <p class="step__text steps__anim">Picture, sound and light arrive together in one effortless&nbsp;command.</p>
                 </li>
-                <li class="step" data-step data-cam="1,0,0,1.06">
+                <li class="step" data-step>
                   <h3 class="step__title serif steps__anim">Cinema</h3>
                   <p class="step__sub steps__anim"><span class="serif-i">Picture. Sound. Light.</span></p>
                   <p class="step__text steps__anim">Perfectly in sync.</p>
@@ -97,10 +103,10 @@
           </div>
         </div>
         <ul class="wrap caps__list">
-          <li class="cap"><span class="cap__n">01</span><h3 class="cap__name">Dedicated home theatres</h3><p class="cap__text">A room built around sightlines, sound and darkness, for films the way they were&nbsp;made.</p><figure class="cap__img" aria-hidden="true"><img data-pic="cinema-recliners" sizes="240px" alt=""></figure></li>
-          <li class="cap"><span class="cap__n">02</span><h3 class="cap__name">Media rooms</h3><p class="cap__text">Cinema-grade picture and sound in a room the family uses every&nbsp;day.</p><figure class="cap__img" aria-hidden="true"><img data-pic="akhil-sanjana-residence-02" sizes="240px" alt=""></figure></li>
+          <li class="cap" data-film="cinema"><span class="cap__n">01</span><h3 class="cap__name">Dedicated home theatres</h3><p class="cap__text">A room built around sightlines, sound and darkness, for films the way they were&nbsp;made.</p><figure class="cap__img" aria-hidden="true"><img data-pic="card-cinema" sizes="240px" alt=""></figure></li>
+          <li class="cap" data-film="music"><span class="cap__n">02</span><h3 class="cap__name">Media rooms</h3><p class="cap__text">Cinema-grade picture and sound in a room the family uses every&nbsp;day.</p><figure class="cap__img" aria-hidden="true"><img data-pic="card-music" sizes="240px" alt=""></figure></li>
           <li class="cap"><span class="cap__n">03</span><h3 class="cap__name">Multi-room audio</h3><p class="cap__text">Music that follows you through the house, room by&nbsp;room.</p><figure class="cap__img" aria-hidden="true"><img data-pic="lounge-tall" sizes="240px" alt=""></figure></li>
-          <li class="cap"><span class="cap__n">04</span><h3 class="cap__name">Integrated control</h3><p class="cap__text">Picture, sound and light from one touch, alongside the rest of the home&nbsp;automation.</p><figure class="cap__img" aria-hidden="true"><img data-pic="living-media-wall" sizes="240px" alt=""></figure></li>
+          <li class="cap" data-film="control"><span class="cap__n">04</span><h3 class="cap__name">Integrated control</h3><p class="cap__text">Picture, sound and light from one touch, alongside the rest of the home&nbsp;automation.</p><figure class="cap__img" aria-hidden="true"><img data-pic="card-control" sizes="240px" alt=""></figure></li>
         </ul>
       </section>
 

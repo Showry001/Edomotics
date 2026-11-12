@@ -78,7 +78,7 @@ const fresh = (out, src) => existsSync(out) && statSync(out).mtimeMs >= statSync
 async function photos() {
   const manifest = {};
   const keep = new Set();
-  for (const [name, src] of Object.entries({ ...PHOTOS, ...projectPhotos() })) {
+  for (const [name, src] of Object.entries({ ...PHOTOS, ...projectPhotos(), ...filmPhotos(), ...stockPhotos() })) {
     const meta = await sharp(src).metadata();
     const portrait = (meta.orientation || 1) >= 5;
     const width = portrait ? meta.height : meta.width;
@@ -196,12 +196,35 @@ function poster(src, out) {
   execFileSync(ffmpeg, ['-y', '-loglevel', 'error', '-i', src, '-frames:v', '1', '-q:v', '3', out]);
 }
 
+// The hero: the Seshu & Rajalakshmi lounge as its lights come up, cut from the 4K original (the
+// same take the first site used, at last at full quality). 1920 wide for screens from 768 px, and a
+// portrait cut for phones, so a phone gets sharp pixels instead of a magnified slice of landscape.
+const HERO = { src: '_src/drive/video/video-ss/C2041.MP4', from: 9.3, to: 22.4 };
+function heroCut(out, vf, crf) {
+  execFileSync(ffmpeg, ['-y', '-loglevel', 'error', '-ss', String(HERO.from), '-to', String(HERO.to), '-i', HERO.src, '-an',
+    '-vf', `${vf},format=yuv420p`, '-c:v', 'libx264', '-preset', 'slow', '-crf', String(crf), '-profile:v', 'high',
+    '-movflags', '+faststart', out], { stdio: 'inherit' });
+  console.log('video', out, `${(statSync(out).size / 1e6).toFixed(1)} MB`);
+}
+async function hero() {
+  if (!existsSync(HERO.src)) return false;
+  heroCut(`${OUT}/video/hero.mp4`, 'fps=30,scale=1920:-2:flags=lanczos', 21);
+  heroCut(`${OUT}/video/hero-sm.mp4`, 'fps=30,crop=ih*9/16:ih:(iw-ih*9/16)*0.5:0,scale=720:1280:flags=lanczos', 23);
+  frame(`${OUT}/video/hero.mp4`, `${OUT}/video/hero-poster.png`);
+  await sharp(`${OUT}/video/hero-poster.png`).webp({ quality: 80 }).toFile(`${OUT}/video/hero-poster.webp`);
+  await sharp(`${OUT}/video/hero-poster.png`).jpeg({ quality: 82, mozjpeg: true }).toFile(`${OUT}/video/hero-poster.jpg`);
+  unlinkSync(`${OUT}/video/hero-poster.png`);
+  return true;
+}
+
 async function videos() {
   const v = '_src/framer/video';
-  encode(`${v}/hero.mp4`, `${OUT}/video/hero.mp4`, { width: 1280, crf: 26 });
-  encode(`${v}/hero.mp4`, `${OUT}/video/hero-sm.mp4`, { width: 720, crf: 27 });
-  poster(`${OUT}/video/hero.mp4`, `${OUT}/video/hero-poster.jpg`);
-  await sharp(`${OUT}/video/hero-poster.jpg`).webp({ quality: 72 }).toFile(`${OUT}/video/hero-poster.webp`);
+  if (!(await hero())) {
+    encode(`${v}/hero.mp4`, `${OUT}/video/hero.mp4`, { width: 1280, crf: 26 });
+    encode(`${v}/hero.mp4`, `${OUT}/video/hero-sm.mp4`, { width: 720, crf: 27 });
+    poster(`${OUT}/video/hero.mp4`, `${OUT}/video/hero-poster.jpg`);
+    await sharp(`${OUT}/video/hero-poster.jpg`).webp({ quality: 72 }).toFile(`${OUT}/video/hero-poster.webp`);
+  }
 
   // Scroll-scrubbed footage: drop it into _src/videos/ with these names.
   for (const name of ['cinema']) {
@@ -340,7 +363,161 @@ async function theatre() {
   console.log('theatre', keep.size, 'files');
 }
 
+// Films, cut from the project shoots in _src/drive/video/ (the client's Drive, and the "website
+// content" folder copied into wc/). A film is one or more parts, each a moment of a clip (from–to,
+// in seconds), fitted together into the set's length and dissolving into each other. `turn` stands
+// a clip upright where the camera was on its side (ffmpeg transpose); x, y place the crop; `push`
+// is a slow push-in across the part, [from, to] zoom (x, y then place the zoom). `poster` is the
+// moment of the film (in seconds) shown as its photograph: it is taken from the 4K source, so the
+// photo and the film always agree. `overlay` puts the site's own film (the theatre section's
+// sunset) on a blank screen in the shot, fading in as a projector would: [x, y, w, h] in source pixels.
+//   Card films play over the capability rows on the Automation and Home theatre pages
+//   (src/js/cardfilms.js). Step films play in the stepped stories on those pages (initSteps).
+// `node scripts/media.mjs cards|steps [name]` re-cuts films and posters.
+const GRADE = 'eq=contrast=1.05:saturation=1.05';
+const CARD_FILMS = [
+  // Home automation
+  { name: 'lighting', parts: [{ src: 'wc/lib-0167.MP4', from: 1.2, to: 7.4 }], poster: 4.95 },
+  { name: 'climate', parts: [{ src: 'wc/ac-2106.MP4', from: 4, to: 9 }], poster: 0.2 },
+  { name: 'curtains', parts: [{ src: 'video-pk/C2817.MP4', from: 3, to: 15.5 }], poster: 0 },
+  { name: 'music', parts: [{ src: 'wc/media-2562.MP4', from: 14, to: 19 }], poster: 4.95 },
+  { name: 'security', parts: [{ src: 'wc/cctv-0179.MP4', from: 0.3, to: 5.3 }], poster: 0.2 },
+  { name: 'access', parts: [{ src: 'wc/bell-2107.MP4', from: 3.8, to: 6.8 }, { src: 'wc/phone-2096.MP4', from: 14, to: 17 }], poster: 2.2 },
+  // Home theatre
+  { name: 'cinema', parts: [{ src: 'wc/cinema-2589.MP4', from: 0.5, to: 5.5 }], poster: 2.5 },
+  { name: 'control', parts: [{ src: 'video-dr/C0010.MP4', from: 18, to: 23, turn: 2, grade: GRADE }], poster: 4.95 },
+];
+// The Seshu theatre was shot dark: lift it (as its stills on the project page are lifted).
+const SESHU = 'eq=gamma=1.25:contrast=1.05:saturation=1.08';
+// The stepped stories: Walk through intelligence (Automation) and Seven moments (Home theatre).
+const STEP_FILMS = [
+  // Automation: the Prudvi Kotta entrance at dusk; living rooms across the projects, their lights
+  // coming up; the Prudvi Kotta sheers opening on the garden.
+  { name: 'entrance', parts: [{ src: 'video-pk/C2880.MP4', from: 0, to: 5.5, y: 0.6 }], poster: 7.6 },
+  { name: 'living', parts: [
+    { src: 'video-ss/C2034.MP4', from: 2.5, to: 7.5 },
+    { src: 'wc/living-0176.MP4', from: 2.5, to: 7.5, grade: 'eq=gamma=1.25:saturation=1.1,colorbalance=rs=0.04:bs=-0.04:rm=0.05:bm=-0.05:rh=0.03:bh=-0.03' },
+    { src: 'video-pk/C2817.MP4', from: 18, to: 25, y: 0.8 },
+  ], poster: 2.4 },
+  { name: 'curtains', parts: [{ src: 'video-pk/C2817.MP4', from: 0.5, to: 14.5, y: 0.5 }], poster: 6.5 },
+  // Home theatre: one moment each, from three theatres in the shoots (video-dr, video-ss and wc).
+  { name: 'space', parts: [{ src: 'video-dr/C0008.MP4', from: 0.3, to: 8.3, push: [1, 1.08], grade: 'hqdn3d=3:3:4:4' }], poster: 4 },
+  { name: 'lighting', parts: [{ src: 'wc/front-2573.MP4', from: 6, to: 14 }], poster: 7.6 },
+  { name: 'screen', parts: [{ src: 'wc/screen-2594.MP4', from: 10.5, to: 17.7, overlay: { film: `${OUT}/theatre/film.mp4`, at: 2, rect: [964, 716, 1964, 824], start: 1.6, fade: 1.4 } }], poster: 7.4 },
+  { name: 'sound', parts: [{ src: 'wc/front-2573.MP4', from: 14, to: 20, x: 0, y: 0.8, push: [1.15, 1.4] }], poster: 6 },
+  { name: 'acoustics', parts: [{ src: 'video-ss/C2016.MP4', from: 1, to: 10, grade: SESHU }], poster: 7.5 },
+  { name: 'control', parts: [{ src: 'video-ss/C2026.MP4', from: 0.2, to: 4.2, x: 0.85, grade: SESHU }], poster: 0.5 },
+  { name: 'cinema', parts: [{ src: 'video-ss/C2013.MP4', from: 2, to: 10, grade: SESHU }], poster: 3.4 },
+];
+
+const FILM_SETS = {
+  cards: { films: CARD_FILMS, seconds: 5, dissolve: 0.4, poster: [1080, 1440], pic: 'card',
+    sizes: [{ suffix: '', w: 720, h: 960, crf: 23 }, { suffix: '-sm', w: 480, h: 640, crf: 25 }] },
+  steps: { films: STEP_FILMS, seconds: 8, dissolve: 0.6, poster: [1920, 1440], pic: 'step',
+    sizes: [{ suffix: '', w: 1440, h: 1080, crf: 23 }, { suffix: '-sm', w: 800, h: 600, crf: 25 }] },
+};
+
+// Scale to cover the frame and crop; with `push`, cover the frame at the closer zoom first, then
+// shrink from there frame by frame (so the push never enlarges a picture already made smaller).
+function frameChain(p, w, h, each) {
+  const steps = [p.turn ? `transpose=${p.turn}` : null];
+  if (p.push) {
+    const [z0, z1] = p.push, W = Math.ceil((w * z1) / 2) * 2, H = Math.ceil((h * z1) / 2) * 2;
+    steps.push(`scale=${W}:${H}:force_original_aspect_ratio=increase:flags=lanczos`, `crop=${W}:${H}:(iw-${W})*${p.x ?? 0.5}:(ih-${H})*${p.y ?? 0.5}`,
+      `scale=w='2*trunc(${w}*(${z0}+(${z1 - z0})*min(t/${each.toFixed(3)},1))/2)':h=-2:eval=frame:flags=lanczos`,
+      `crop=${w}:${h}:(iw-${w})*${p.x ?? 0.5}:(ih-${h})*${p.y ?? 0.5}`);
+  } else {
+    steps.push(`scale=${w}:${h}:force_original_aspect_ratio=increase:flags=lanczos`, `crop=${w}:${h}:(iw-${w})*${p.x ?? 0.5}:(ih-${h})*${p.y ?? 0.5}`);
+  }
+  steps.push(p.grade || null);
+  return steps.filter(Boolean).join(',');
+}
+// Each part gets an equal share of the film, plus the overlap it dissolves through.
+function partTimes(f, set) {
+  const each = (set.seconds + set.dissolve * (f.parts.length - 1)) / f.parts.length;
+  return f.parts.map((p, i) => ({ p, each, start: i * (each - set.dissolve), speed: (p.to - p.from) / each }));
+}
+function cutFilm(f, set, { w, h, crf }, file) {
+  const parts = partTimes(f, set);
+  const args = ['-y', '-loglevel', 'error'];
+  parts.forEach(({ p }) => args.push('-ss', String(p.from), '-to', String(p.to), '-i', `_src/drive/video/${p.src}`));
+  let extra = parts.length;
+  const chains = parts.map(({ p, speed, each }, i) => {
+    let base = `[${i}:v]setpts=(PTS-STARTPTS)/${speed.toFixed(4)},fps=30`;
+    if (p.overlay) {
+      const o = p.overlay, [ox, oy, ow, oh] = o.rect, k = extra++;
+      args.push('-ss', String(o.at || 0), '-i', o.film);
+      base = `[${k}:v]scale=${ow}:${oh}:flags=lanczos,format=yuva420p,fade=t=in:st=${o.start}:d=${o.fade}:alpha=1,setpts=PTS-STARTPTS[ov${i}];`
+        + `${base}[base${i}];[base${i}][ov${i}]overlay=${ox}:${oy}:shortest=1`;
+    }
+    return `${base},${frameChain(p, w, h, each)},format=yuv420p,trim=duration=${each.toFixed(3)},setpts=PTS-STARTPTS,settb=AVTB[v${i}]`;
+  });
+  let graph = chains.join(';');
+  let last = 'v0';
+  for (let i = 1; i < parts.length; i++) {
+    graph += `;[${last}][v${i}]xfade=transition=fade:duration=${set.dissolve}:offset=${parts[i].start.toFixed(3)}[x${i}]`;
+    last = `x${i}`;
+  }
+  args.push('-filter_complex', graph, '-map', `[${last}]`, '-t', String(set.seconds), '-an', '-c:v', 'libx264',
+    '-preset', 'slow', '-crf', String(crf), '-profile:v', 'high', '-movflags', '+faststart', '-pix_fmt', 'yuv420p', file);
+  execFileSync(ffmpeg, args, { stdio: 'inherit' });
+  console.log('film', path.basename(file), `${(statSync(file).size / 1024).toFixed(0)} KB`);
+}
+// A film's photograph: the poster moment of the finished film, rendered at full poster size
+// from the 4K source (so stitched parts and overlays are exactly as the film shows them).
+async function cutPoster(f, set, dir) {
+  const tmp = `${dir}/.${f.name}.mp4`, png = `${dir}/${f.name}.png`;
+  cutFilm(f, set, { w: set.poster[0], h: set.poster[1], crf: 10 }, tmp);
+  execFileSync(ffmpeg, ['-y', '-loglevel', 'error', '-ss', String(f.poster), '-i', tmp, '-frames:v', '1', png]);
+  await sharp(png).jpeg({ quality: 93, chromaSubsampling: '4:4:4', mozjpeg: true }).toFile(`${dir}/${f.name}.jpg`);
+  unlinkSync(png);
+  unlinkSync(tmp);
+  console.log('poster', f.name, `${f.poster}s`);
+}
+
+// Cut a set's films (public/media/<set>/) and posters (_src/<set>/); only missing ones unless forced.
+async function films(name, { force = false, pick = null } = {}) {
+  const set = FILM_SETS[name];
+  const out = `${OUT}/${name}`, dir = `_src/${name}`;
+  mkdirSync(out, { recursive: true });
+  mkdirSync(dir, { recursive: true });
+  const keep = new Set();
+  for (const f of set.films) {
+    const ready = f.parts.every((p) => existsSync(`_src/drive/video/${p.src}`));
+    const redo = force && (!pick || pick === f.name);
+    for (const s of set.sizes) {
+      const file = `${out}/${f.name}${s.suffix}.mp4`;
+      keep.add(file);
+      if (ready && (redo || !existsSync(file))) cutFilm(f, set, s, file);
+    }
+    if (ready && (redo || !existsSync(`${dir}/${f.name}.jpg`))) await cutPoster(f, set, dir);
+  }
+  for (const f of readdirSync(out)) if (!keep.has(`${out}/${f}`)) unlinkSync(`${out}/${f}`);
+}
+
+// Film photographs (films() writes them): pictures named card-<film> and step-<film>.
+function filmPhotos() {
+  const found = {};
+  for (const [name, set] of Object.entries(FILM_SETS)) {
+    for (const f of set.films) {
+      const src = `_src/${name}/${f.name}.jpg`;
+      if (existsSync(src)) found[`${set.pic}-${f.name}`] = src;
+    }
+  }
+  return found;
+}
+// Stock photographs for the homepage cards (Unsplash License; sources in _src/stock/CREDITS.md):
+// _src/stock/home-<card>.jpg becomes the picture home-<card>.
+function stockPhotos() {
+  const dir = '_src/stock';
+  if (!existsSync(dir)) return {};
+  return Object.fromEntries(readdirSync(dir).filter((f) => /^home-.+\.jpg$/.test(f)).map((f) => [f.replace(/\.jpg$/, ''), `${dir}/${f}`]));
+}
+
 const only = process.argv[2];
+if (only === 'hero') await hero();
+if (only === 'cards' || only === 'steps') await films(only, { force: true, pick: process.argv[3] || null });
+else if (!only) { await films('cards'); await films('steps'); }
 if (!only || only === 'room') await room();
 if (!only || only === 'theatre') await theatre();
 if (!only || only === 'designer') await designer();

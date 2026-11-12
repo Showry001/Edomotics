@@ -39,7 +39,11 @@
 .mbox__toggle[aria-expanded="true"] span:last-child { transform: translateY(-2.75px) rotate(-45deg); }
 
 .mbox__panel { width: min(620px, calc(100vw - 2 * var(--pad))); padding: 10px 12px 14px; }
-.mbox__links { display: grid; padding: 8px 0 22px; }
+.mbox__top { display: flex; justify-content: space-between; align-items: end; gap: 24px; padding: 8px 0 22px; }
+.mbox__links { display: grid; }
+/* Socials: small text on the right, level with the foot of the menu links. */
+.mbox__social { display: grid; justify-items: end; gap: 3px; padding-bottom: 0.35em; font-size: 0.8125rem; font-weight: 500; line-height: 1.3; }
+.mbox__follow { color: var(--muted); font-size: 0.75rem; margin-bottom: 4px; }
 .mbox__links a {
   font-size: clamp(1.6rem, 1.2rem + 1vw, 2.15rem); font-weight: 500; letter-spacing: -0.035em; line-height: 1.12;
   justify-self: start; transition: opacity 0.4s var(--ease-out), transform 0.5s var(--ease-out);
@@ -108,6 +112,10 @@
 .scard__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--ease-out); }
 .scard__img::after { content: ""; position: absolute; inset: 50% 0 0 0; background: linear-gradient(to bottom, rgb(18 17 14 / 0), rgb(18 17 14 / 0.55)); pointer-events: none; }
 .scard:hover .scard__img img { transform: scale(1.045); }
+/* A card's film (src/js/cardfilms.js) fades in over its photograph and takes the same hover push. */
+.scard__img video, .cap__img video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; pointer-events: none; transition: opacity 0.45s var(--ease-out), transform 1.4s var(--ease-out); }
+.scard.is-film .scard__img video, .cap.is-film .cap__img video { opacity: 1; }
+.scard:hover .scard__img video { transform: scale(1.045); }
 .scard__name {
   position: relative; z-index: 1; margin: -1.15em 0 0 18px; height: 1.15em;
   font-family: var(--font-serif); font-size: clamp(2.2rem, 1.4rem + 1.7vw, 3.25rem); line-height: 1; letter-spacing: -0.02em;
@@ -116,7 +124,7 @@
 .scard__line { margin-top: 16px; font-size: 0.875rem; color: var(--muted); max-width: 34ch; }
 
 /* ---------- Statement ---------- */
-.statement { text-align: center; padding-block: clamp(80px, 9vw, 150px) var(--block); }
+.statement { text-align: center; padding-block: 0; }
 .statement__in { display: grid; justify-items: center; gap: 14px; }
 .statement__sans { max-width: 17ch; font-variant-numeric: tabular-nums; }
 .statement__serif { font-family: var(--font-serif); font-size: clamp(1.8rem, 1.1rem + 2.3vw, 3.75rem); line-height: 1.04; letter-spacing: -0.02em; max-width: 24ch; }
@@ -181,6 +189,17 @@
 .pkey:active { background: linear-gradient(180deg, rgb(255 255 255 / 0.02), rgb(255 255 255 / 0) 30%), #060403; }
 .pkey:focus-visible { outline: 2px solid var(--filament); outline-offset: -3px; }
 .pkey.is-on .pkey__icon, .pkey.is-on .pkey__name { opacity: 1; filter: drop-shadow(0 0 2px rgb(170 205 255 / 0.85)) drop-shadow(0 0 8px rgb(110 160 255 / 0.45)); }
+/* An invitation above the keypad, and a slow ripple round the plate: both bow out after the first press. */
+.keypad__hint { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; font-size: max(13px, 5.1cqi); font-weight: 500; letter-spacing: 0.01em; line-height: 1.2; color: rgb(243 238 230 / 0.92); transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out); }
+.keypad__hint svg { flex: none; width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.keypad.is-used .keypad__hint { opacity: 0; transform: translateY(6px); }
+.keypad__plate { position: relative; }
+.keypad__plate::after { content: ""; position: absolute; inset: -1px; border-radius: inherit; border: 1px solid rgb(243 238 230 / 0.55); opacity: 0; pointer-events: none; }
+.keypad:not(.is-used) .keypad__plate::after { animation: keypad-call 2.8s var(--ease-out) 1.2s infinite; }
+.keypad.is-used .keypad__plate::after { animation: none; opacity: 0; }
+@keyframes keypad-call { 0% { opacity: 0.7; transform: scale(1); } 70%, 100% { opacity: 0; transform: scale(1.07); } }
+.reduced .keypad__plate::after { animation: none !important; }
+@media (prefers-reduced-motion: reduce) { .keypad__plate::after { animation: none !important; } }
 
 /* One theatre: the same section and plate, a home cinema (src/js/theatre/). Its portrait render
    is framed on the screen; the film plays from a hidden video, copied to the canvas. */

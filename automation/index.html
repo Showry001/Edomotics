@@ -48,9 +48,9 @@
           </div>
           <div class="wrap grid steps__body">
             <div class="steps__media">
-              <figure data-step-media><img data-pic="dining-corridor" sizes="(min-width: 861px) 58vw, 100vw" alt="A long dining hall under a crystal chandelier, daylight falling into a courtyard at the far end."></figure>
-              <figure data-step-media><img data-pic="living-dining" sizes="(min-width: 861px) 58vw, 100vw" alt="An open living and dining room under a stepped ceiling cove, its lights warmed for the evening."></figure>
-              <figure data-step-media><img data-pic="bedroom-lakeview" sizes="(min-width: 861px) 58vw, 100vw" alt="A bedroom with floor-to-ceiling glass and long curtains drawn back to a view of trees and a lake."></figure>
+              <figure data-step-media data-step-film="entrance"><img data-pic="step-entrance" sizes="(min-width: 861px) 58vw, 100vw" alt="The entrance pavilion at dusk: timber-clad pillars either side of a glass door, its steps lit from beneath."></figure>
+              <figure data-step-media data-step-film="living"><img data-pic="step-living" sizes="(min-width: 861px) 58vw, 100vw" alt="A lounge with its ceiling cove and sculptural pendant lit, sofas around a copper table."></figure>
+              <figure data-step-media data-step-film="curtains"><img data-pic="step-curtains" sizes="(min-width: 861px) 58vw, 100vw" alt="Double-height sheer curtains drawn back from a wall of glass, the garden beyond."></figure>
             </div>
             <div class="steps__side">
               <p class="steps__count"><span data-step-now>01</span> / <span>03</span></p>
@@ -69,14 +69,14 @@
                   <p class="step__sub steps__anim">Motorised drapes glide open.</p>
                 </li>
               </ol>
-              <a class="link-arrow" href="#scenes"><span class="link-arrow__t">See the scenes</span><span class="ap" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span></a>
+              <a class="link-arrow" href="#capabilities"><span class="link-arrow__t">See the capabilities</span><span class="ap" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span></a>
             </div>
           </div>
         </div>
       </section>
 
       <!-- Capabilities -->
-      <section class="caps block" data-theme="light" aria-labelledby="caps-title">
+      <section class="caps block" id="capabilities" data-theme="light" aria-labelledby="caps-title">
         <div class="wrap grid split-head">
           <div class="split-head__title">
             <p class="count">Capabilities</p>
@@ -87,43 +87,13 @@
           </div>
         </div>
         <ul class="wrap caps__list">
-          <li class="cap"><span class="cap__n">01</span><h3 class="cap__name">Lighting</h3><p class="cap__text">Scenes, dimming and schedules for every room, from a bright afternoon to a low evening&nbsp;glow.</p><figure class="cap__img" aria-hidden="true"><img data-pic="akhil-sanjana-residence-04" sizes="240px" alt=""></figure></li>
-          <li class="cap"><span class="cap__n">02</span><h3 class="cap__name">Climate</h3><p class="cap__text">Comfort that follows the time of day and the rooms in&nbsp;use.</p><figure class="cap__img" aria-hidden="true"><img data-pic="bedroom-sculpted" sizes="240px" alt=""></figure></li>
-          <li class="cap"><span class="cap__n">03</span><h3 class="cap__name">Curtains &amp; shades</h3><p class="cap__text">Motorised drapes and blinds that open and close with the light&nbsp;outside.</p><figure class="cap__img" aria-hidden="true"><img data-pic="bedroom-lakeview" sizes="240px" alt=""></figure></li>
-          <li class="cap"><span class="cap__n">04</span><h3 class="cap__name">Music</h3><p class="cap__text">Sound in the rooms you choose, started from the same keypad as the&nbsp;lights.</p><figure class="cap__img" aria-hidden="true"><img data-pic="akhil-sanjana-residence-03" sizes="240px" alt=""></figure></li>
-          <li class="cap"><span class="cap__n">05</span><h3 class="cap__name">Security</h3><p class="cap__text">The house arms itself with a single press, as you leave or as you turn in for the&nbsp;night.</p><figure class="cap__img" aria-hidden="true"><img data-pic="villa-dusk" sizes="240px" alt=""></figure></li>
-          <li class="cap"><span class="cap__n">06</span><h3 class="cap__name">Access &amp; intercom</h3><p class="cap__text">See who is at the door and let them in from inside the&nbsp;house.</p><figure class="cap__img" aria-hidden="true"><img data-pic="dr-akhil-sunitha-residence-02" sizes="240px" alt=""></figure></li>
+          <li class="cap" data-film="lighting"><span class="cap__n">01</span><h3 class="cap__name">Lighting</h3><p class="cap__text">Scenes, dimming and schedules for every room, from a bright afternoon to a low evening&nbsp;glow.</p><figure class="cap__img" aria-hidden="true"><img data-pic="card-lighting" sizes="240px" alt=""></figure></li>
+          <li class="cap" data-film="climate"><span class="cap__n">02</span><h3 class="cap__name">Climate</h3><p class="cap__text">Comfort that follows the time of day and the rooms in&nbsp;use.</p><figure class="cap__img" aria-hidden="true"><img data-pic="card-climate" sizes="240px" alt=""></figure></li>
+          <li class="cap" data-film="curtains"><span class="cap__n">03</span><h3 class="cap__name">Curtains &amp; shades</h3><p class="cap__text">Motorised drapes and blinds that open and close with the light&nbsp;outside.</p><figure class="cap__img" aria-hidden="true"><img data-pic="card-curtains" sizes="240px" alt=""></figure></li>
+          <li class="cap" data-film="music"><span class="cap__n">04</span><h3 class="cap__name">Music</h3><p class="cap__text">Sound in the rooms you choose, started from the same keypad as the&nbsp;lights.</p><figure class="cap__img" aria-hidden="true"><img data-pic="card-music" sizes="240px" alt=""></figure></li>
+          <li class="cap" data-film="security"><span class="cap__n">05</span><h3 class="cap__name">Security</h3><p class="cap__text">The house arms itself with a single press, as you leave or as you turn in for the&nbsp;night.</p><figure class="cap__img" aria-hidden="true"><img data-pic="card-security" sizes="240px" alt=""></figure></li>
+          <li class="cap" data-film="access"><span class="cap__n">06</span><h3 class="cap__name">Access &amp; intercom</h3><p class="cap__text">See who is at the door and let them in from inside the&nbsp;house.</p><figure class="cap__img" aria-hidden="true"><img data-pic="card-access" sizes="240px" alt=""></figure></li>
         </ul>
-      </section>
-
-      <!-- Scenes -->
-      <section class="scenes block" id="scenes" data-theme="light" aria-labelledby="scenes-title">
-        <div class="wrap grid split-head">
-          <div class="split-head__title">
-            <p class="count">Scenes</p>
-            <h2 class="t-xl" id="scenes-title" data-lines>Scenes,<br> not switches.</h2>
-          </div>
-          <div class="split-head__aside">
-            <p>Every room keeps a few moods. One press sets the light, curtains, climate and music together, so the house is ready before you&nbsp;are.</p>
-          </div>
-        </div>
-        <div class="wrap carousel-bar">
-          <p class="count">Drag, swipe or use the arrows</p>
-          <div class="carousel-nav">
-            <button type="button" class="round" aria-label="Previous scenes" data-car-prev><svg style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></button>
-            <button type="button" class="round" aria-label="Next scenes" data-car-next><svg><use href="#i-arrow"/></svg></button>
-          </div>
-        </div>
-        <div class="carousel" data-carousel>
-          <ul class="carousel__track" data-car-track>
-            <li class="scard"><figure class="scard__img"><img data-pic="living-media-wall" sizes="(min-width: 768px) 26vw, 76vw" alt="A formal living room with a white media wall and a linear chandelier, lit low for the evening."></figure><p class="scard__name">Arrive</p><p class="scard__line">The hall and living room come up before you reach the&nbsp;door.</p></li>
-            <li class="scard"><figure class="scard__img"><img data-pic="dr-akhil-sunitha-residence-03" sizes="(min-width: 768px) 26vw, 76vw" alt="A long dining table in the evening, a glass chandelier lit above it and the rest of the room held low."></figure><p class="scard__name">Dinner</p><p class="scard__line">Pendants over the table. Everything else held&nbsp;low.</p></li>
-            <li class="scard"><figure class="scard__img"><img data-pic="lounge-tall" sizes="(min-width: 768px) 26vw, 76vw" alt="A lounge with copper-panelled walls and a glowing ceiling cove."></figure><p class="scard__name">Unwind</p><p class="scard__line">Cove light only. Curtains drawn. Music, quietly, in the next room&nbsp;too.</p></li>
-            <li class="scard"><figure class="scard__img"><img data-pic="bedroom-pendant" sizes="(min-width: 768px) 26vw, 76vw" alt="A bedroom with a single onyx pendant beside the bed."></figure><p class="scard__name">Read</p><p class="scard__line">One warm pendant, close. The rest of the room&nbsp;asleep.</p></li>
-            <li class="scard"><figure class="scard__img"><img data-pic="bedroom-sculpted" sizes="(min-width: 768px) 26vw, 76vw" alt="A bedroom with a sculpted plaster wall behind the bed, softly lit from a ceiling cove."></figure><p class="scard__name">Sleep</p><p class="scard__line">A single press at the bedside, and the whole house goes&nbsp;dark.</p></li>
-            <li class="scard"><figure class="scard__img"><img data-pic="bedroom-lakeview" sizes="(min-width: 768px) 26vw, 76vw" alt="A bedroom with floor-to-ceiling glass looking out over trees and a lake."></figure><p class="scard__name">Wake</p><p class="scard__line">Curtains open slowly, at the pace of the light&nbsp;outside.</p></li>
-          </ul>
-        </div>
       </section>
 
       <!-- Partners -->

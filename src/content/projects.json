@@ -183,12 +183,38 @@
           "type": "pair",
           "pics": [
             {
+              "pic": "dr-akhil-sunitha-residence-11",
+              "alt": "A sculptural glass chandelier above the dining table, under a lit ceiling cove."
+            },
+            {
+              "pic": "dr-akhil-sunitha-residence-10",
+              "alt": "A lounge with a curved cream sofa, a black round table and a shelf of objects set into a stone wall."
+            }
+          ]
+        },
+        {
+          "type": "pair",
+          "pics": [
+            {
               "pic": "dr-akhil-sunitha-residence-07",
               "alt": "A round backlit mirror reflecting the hexagonal pendant, beside a leather sofa."
             },
             {
               "pic": "living-curved",
               "alt": "A lounge with a curved cream sofa and a lit display niche."
+            }
+          ]
+        },
+        {
+          "type": "pair",
+          "pics": [
+            {
+              "pic": "dr-akhil-sunitha-residence-09",
+              "alt": "The stair under a timber-lined ceiling, sunlight striping the stone wall beside a tall timber door."
+            },
+            {
+              "pic": "dr-akhil-sunitha-residence-12",
+              "alt": "A bedroom with a cream upholstered bed, an abstract painting and a full-height window onto the trees."
             }
           ]
         },
@@ -333,6 +359,163 @@
             {
               "pic": "seshu-rajalakshmi-residence-08",
               "alt": "A bedroom with a fluted headboard, a pendant light and a mirrored wardrobe."
+            }
+          ]
+        },
+        {
+          "type": "wide",
+          "pics": [
+            {
+              "pic": "seshu-rajalakshmi-residence-11",
+              "alt": "The home theatre: two rows of green leather recliners on a timber riser, the walls washed with light and the projector above."
+            }
+          ]
+        },
+        {
+          "type": "pair",
+          "pics": [
+            {
+              "pic": "seshu-rajalakshmi-residence-12",
+              "alt": "The home theatre recliners from the side, a projector in the ceiling and star points above."
+            },
+            {
+              "pic": "seshu-rajalakshmi-residence-13",
+              "alt": "The home theatre from the door: the recliners on their riser and a lit keypad on the wall."
+            }
+          ]
+        }
+      ],
+      "galleryNote": "",
+      "related": null
+    },
+    {
+      "slug": "prudvi-kotta-residence",
+      "name": "Prudvi Kotta Residence",
+      "title": "Prudvi Kotta<br> Residence",
+      "kind": "Residence",
+      "location": "",
+      "featured": true,
+      "cover": "prudvi-kotta-residence-01",
+      "coverAlt": "The house at dusk: low timber-lined roofs over walls of glass lit from within, among tall palms above a lawn.",
+      "lead": "A house of timber-coffered ceilings and tropical gardens: double-height living rooms, a sculptural spiral stair, deep verandahs and an entrance pavilion that glows at dusk.",
+      "heroVideo": null,
+      "gallery": [
+        {
+          "type": "wide",
+          "pics": [
+            {
+              "pic": "prudvi-kotta-residence-02",
+              "alt": "The living room under a coffered timber ceiling: grey and cream sofas, an abstract painting and a wall of shelves beyond."
+            }
+          ]
+        },
+        {
+          "type": "pair",
+          "pics": [
+            {
+              "pic": "prudvi-kotta-residence-03",
+              "alt": "A sculptural spiral stair beside a double-height window, a gilded tree sculpture at its foot and a cascade of pendant lights above."
+            },
+            {
+              "pic": "prudvi-kotta-residence-04",
+              "alt": "The double-height hall: the coffered timber ceiling, the gallery above and the living room, dining room and stair beyond."
+            }
+          ]
+        },
+        {
+          "type": "wide",
+          "pics": [
+            {
+              "pic": "prudvi-kotta-residence-05",
+              "alt": "The family room: deep sofas around low marble tables, a bright orange painting and a media wall."
+            }
+          ]
+        },
+        {
+          "type": "pair",
+          "pics": [
+            {
+              "pic": "prudvi-kotta-residence-06",
+              "alt": "A cascade of glass-drop pendants hanging through the stairwell under the timber ceiling."
+            },
+            {
+              "pic": "prudvi-kotta-residence-07",
+              "alt": "A curved sectional sofa and round black tables before a wall of sheer curtains, washed by a ceiling cove."
+            }
+          ]
+        },
+        {
+          "type": "wide",
+          "pics": [
+            {
+              "pic": "prudvi-kotta-residence-08",
+              "alt": "A glowing emblem on a panelled timber wall, with small wall lights either side."
+            }
+          ]
+        },
+        {
+          "type": "pair",
+          "pics": [
+            {
+              "pic": "prudvi-kotta-residence-09",
+              "alt": "A double-height lounge: a stone feature wall, a glass chandelier and two grey sofas facing each other."
+            },
+            {
+              "pic": "prudvi-kotta-residence-10",
+              "alt": "Sculptural cream seating on a polished marble floor, a skylight cut into the timber ceiling above."
+            }
+          ]
+        },
+        {
+          "type": "wide",
+          "pics": [
+            {
+              "pic": "prudvi-kotta-residence-11",
+              "alt": "The dining room: a long stone table, a line of pendants overhead and red wall art."
+            }
+          ]
+        },
+        {
+          "type": "pair",
+          "pics": [
+            {
+              "pic": "prudvi-kotta-residence-12",
+              "alt": "A tall seating nook: blush walls, timber fins and a rounded sofa around a low marble table."
+            },
+            {
+              "pic": "prudvi-kotta-residence-13",
+              "alt": "The verandah: chairs around a low table under a deep timber-coffered canopy, the garden beyond."
+            }
+          ]
+        },
+        {
+          "type": "wide",
+          "pics": [
+            {
+              "pic": "prudvi-kotta-residence-14",
+              "alt": "A raised terrace under the timber canopy, its curtains drawn, wrapped in tropical planting."
+            }
+          ]
+        },
+        {
+          "type": "pair",
+          "pics": [
+            {
+              "pic": "prudvi-kotta-residence-15",
+              "alt": "The entrance hall: a doorway garlanded with marigolds, a timber-panelled wall and a painting above a low bench."
+            },
+            {
+              "pic": "prudvi-kotta-residence-16",
+              "alt": "The entrance pavilion by day: a timber-coffered roof on slender columns among palms."
+            }
+          ]
+        },
+        {
+          "type": "wide",
+          "pics": [
+            {
+              "pic": "prudvi-kotta-residence-17",
+              "alt": "The entrance at dusk: the timber canopy lit from beneath, palms on either side and the hall glowing beyond."
             }
           ]
         }

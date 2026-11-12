@@ -242,7 +242,7 @@ export function initTheatre(view, bag) {
       k.setAttribute('aria-pressed', String(on));
     });
   }
-  keys.forEach((k) => bag.on(k, 'click', () => go(k.dataset.scene)));
+  keys.forEach((k) => bag.on(k, 'click', () => { keypad?.classList.add('is-used'); go(k.dataset.scene); }));
   indicate();
 
   /* ---------------- loading, resizing, leaving ---------------- */
