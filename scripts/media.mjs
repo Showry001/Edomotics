@@ -36,7 +36,8 @@ const PHOTOS = {
   'lounge-amber': `${masters}/lounge-amber.jpg`,
   'bedroom-cove': `${framer}/rising-3.jpg`,
   'living-dining': `${framer}/blog-1.jpg`,
-  'villa-dusk': `${framer}/rising-2.jpg`,
+  // The About call-to-action: a final from the Prudvi Kotta shoot (the Framer original was a watermarked proof).
+  'villa-dusk': '_src/drive/finals/prudvi-kotta/_DSC9926_HDR.jpg',
   'lounge-tall': `${framer}/rising-4.jpg`,
   'project-ravi-prasad': `${framer}/project-1.jpg`,
   // Leadership portraits, square. Ganesh and Keshava: studio portraits supplied by Edomotics
@@ -78,7 +79,7 @@ const fresh = (out, src) => existsSync(out) && statSync(out).mtimeMs >= statSync
 async function photos() {
   const manifest = {};
   const keep = new Set();
-  for (const [name, src] of Object.entries({ ...PHOTOS, ...projectPhotos(), ...filmPhotos(), ...stockPhotos() })) {
+  for (const [name, src] of Object.entries({ ...PHOTOS, ...projectPhotos(), ...filmPhotos(), ...homeCardPhotos() })) {
     const meta = await sharp(src).metadata();
     const portrait = (meta.orientation || 1) >= 5;
     const width = portrait ? meta.height : meta.width;
@@ -125,10 +126,33 @@ async function brandLogo() {
   console.log('brand logo');
 }
 
+// Team portraits for the About hero: _src/team/portraits/<Name>.jpg are 3:4 head-and-shoulders
+// crops (one per person, face centred, cut from the photographs Edomotics shared). Each becomes
+// public/media/team/<slug>.webp at 480 × 640, and src/media-team.json lists them with their names.
+async function team() {
+  const dir = '_src/team/portraits';
+  if (!existsSync(dir)) return;
+  const out = `${OUT}/team`;
+  mkdirSync(out, { recursive: true });
+  const keep = new Set();
+  const list = [];
+  for (const file of readdirSync(dir).filter((x) => x.endsWith('.jpg')).sort()) {
+    const name = file.replace(/\.jpg$/, '');
+    const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const dest = `${out}/${slug}.webp`;
+    keep.add(dest);
+    if (!fresh(dest, `${dir}/${file}`)) await sharp(`${dir}/${file}`).resize(480, 640, { fit: 'cover' }).webp({ quality: 78, effort: 5 }).toFile(dest);
+    list.push({ file: `${slug}.webp`, name });
+  }
+  for (const x of readdirSync(out)) if (!keep.has(`${out}/${x}`)) unlinkSync(`${out}/${x}`);
+  writeFileSync('src/media-team.json', JSON.stringify(list, null, 1));
+  console.log('team', list.length, 'portraits');
+}
+
 // Partner logos → one monochrome system. Each logo becomes an alpha mask (ink-coloured),
-// so a wall of thirteen different brand treatments reads as one quiet surface.
+// so a wall of different brand treatments reads as one quiet surface.
 const LOGOS = [
-  ['basalte', 'logo-01.jpg'], ['wiim', 'logo-02.jpeg'], ['schneider-electric', 'logo-03.webp'],
+  ['basalte', 'logo-01.jpg'], ['schneider-electric', 'logo-03.webp'],
   ['hunter-douglas', 'logo-04.png'], ['yale', 'logo-05.png'], ['honeywell', 'logo-06.png'],
   ['somfy', 'logo-07.png'], ['assa-abloy', 'logo-08.png'], ['control4', 'logo-09.png'],
   ['grandstream', 'logo-10.jpg'], ['intesis', 'logo-11.jpg'], ['legrand', 'logo-12.png'],
@@ -506,12 +530,13 @@ function filmPhotos() {
   }
   return found;
 }
-// Stock photographs for the homepage cards (Unsplash License; sources in _src/stock/CREDITS.md):
-// _src/stock/home-<card>.jpg becomes the picture home-<card>.
-function stockPhotos() {
-  const dir = '_src/stock';
+// Homepage card photographs: 3:4 crops of the project photography (the shoot finals) and, where
+// no photograph shows the subject, stills from the 4K project films. _src/homecards/<card>.jpg
+// becomes the picture home-<card>.
+function homeCardPhotos() {
+  const dir = '_src/homecards';
   if (!existsSync(dir)) return {};
-  return Object.fromEntries(readdirSync(dir).filter((f) => /^home-.+\.jpg$/.test(f)).map((f) => [f.replace(/\.jpg$/, ''), `${dir}/${f}`]));
+  return Object.fromEntries(readdirSync(dir).filter((f) => f.endsWith('.jpg')).map((f) => [`home-${f.replace(/\.jpg$/, '')}`, `${dir}/${f}`]));
 }
 
 const only = process.argv[2];
@@ -523,6 +548,7 @@ if (!only || only === 'theatre') await theatre();
 if (!only || only === 'designer') await designer();
 if (!only || only === 'photos') await photos();
 if (!only || only === 'brand') await brandLogo();
+if (!only || only === 'team') await team();
 if (!only || only === 'logos') await logos();
 if (!only || only === 'clients') await clients();
 if (!only || only === 'videos') await videos();

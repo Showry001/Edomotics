@@ -32,8 +32,8 @@ function panelHTML() {
       return `<fieldset class="field dgroup"><legend>${g.label}</legend>${stepper('rows', 'Rows', 'Fewer rows', 'More rows')}${stepper('seats', 'Seats per row', 'Fewer seats per row', 'More seats per row')}<p class="dgroup__note" data-note="seating"></p></fieldset>`;
     }
     const chips = g.items.map((o) => `<label class="chip"><input type="radio" name="d-${g.key}" value="${o.id}"><span>${g.swatch ? `<i class="dswatch" style="--c: ${o.color}" aria-hidden="true"></i>` : ''}${esc(o.label)}</span></label>`).join('');
-    const note = g.key === 'screen' ? '<p class="dgroup__note" data-note="screen"></p>' : '';
-    return `<fieldset class="field dgroup chips"><legend>${g.label}</legend>${chips}${note}</fieldset>`;
+    const note = g.key === 'screen' ? '<p class="dgroup__note" data-note="screen"></p>' : g.note ? `<p class="dgroup__note">${esc(g.note)}</p>` : '';
+    return `<fieldset class="field dgroup chips" data-group="${g.key}"><legend>${g.label}</legend>${chips}${note}</fieldset>`;
   }).join('');
 }
 
@@ -77,6 +77,8 @@ export function initDesigner(view, bag) {
   function sync() {
     const lim = limits(state);
     GROUPS.filter((g) => g.items).forEach((g) => {
+      // Choices that apply to one kind of display only show with it.
+      if (g.when) $(`[data-group="${g.key}"]`, panel).hidden = !g.when(state);
       $$(`input[name="d-${g.key}"]`, panel).forEach((i) => {
         i.checked = i.value === state[g.key];
         if (g.key === 'screen') i.disabled = !lim.fits[i.value];

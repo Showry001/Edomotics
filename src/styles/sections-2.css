@@ -63,7 +63,7 @@
 .pcap__main { grid-column: 2 / span 6; container-type: inline-size; display: grid; gap: 18px; justify-items: start; }
 .pcap__name {
   font-size: min(clamp(2.3rem, 0.9rem + 3.6vw, 5.4rem), 12.5cqi);
-  font-weight: 500; letter-spacing: -0.045em; line-height: 0.95; text-wrap: balance; overflow-wrap: break-word; max-width: 100%;
+  font-weight: 500; letter-spacing: -0.025em; line-height: 0.95; text-wrap: balance; overflow-wrap: break-word; max-width: 100%;
 }
 .pcap__specs { font-size: 0.875rem; color: rgb(243 238 230 / 0.78); }
 .pcap__lead { grid-column: 9 / span 4; font-size: clamp(1rem, 0.9rem + 0.3vw, 1.25rem); line-height: 1.35; letter-spacing: -0.01em; max-width: 34ch; }
@@ -116,8 +116,8 @@
 }
 .fcard__body { position: absolute; z-index: 2; left: 24px; right: 24px; bottom: 24px; }
 .fcard__title { font-weight: 500; }
-.fcard__role { display: block; font-family: var(--font-serif); font-size: 1.75rem; font-weight: 400; line-height: 0.96; letter-spacing: -0.02em; }
-.fcard__name { display: block; font-size: 1.5rem; letter-spacing: -0.04em; line-height: 1.1; }
+.fcard__role { display: block; font-family: var(--font-serif); font-size: 1.75rem; font-weight: 400; line-height: 0.96; letter-spacing: 0; }
+.fcard__name { display: block; font-size: 1.5rem; letter-spacing: -0.022em; line-height: 1.1; }
 .fcard__more { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.3s var(--ease-card); }
 .fcard__more > div { overflow: hidden; }
 .fcard__more p { padding-top: 13px; font-size: 0.9375rem; line-height: 1.35; max-width: 30ch; }
@@ -168,6 +168,9 @@
    weight; capped so the widest mark stays at the partner logos' 46px. */
 .clients .tile:not(.tile--text) { container-type: size; }
 .clients .tile img { height: calc(var(--s, 0.7) * min(72cqh, 86px)); max-height: none; object-fit: contain; }
+/* A client without a supplied logo: its name, set as a quiet ink wordmark. */
+.tile--name span { font-size: clamp(0.8125rem, 0.65rem + 0.45vw, 1.0625rem); font-weight: 600; letter-spacing: 0.06em; line-height: 1.2; text-transform: uppercase; text-align: center; color: var(--ink); transition: transform 0.8s var(--ease-out); }
+.tile--name:hover span { transform: scale(1.06); }
 
 /* ---------- Voices ---------- */
 .voices__grid { row-gap: 32px; align-items: start; }
@@ -204,7 +207,7 @@
 .cta__img img { width: 100%; height: 100%; object-fit: cover; }
 .cta__in { position: relative; height: 100%; display: flex; align-items: flex-end; justify-content: flex-end; padding-bottom: var(--pad); }
 .cta__card { width: min(680px, 100%); background: var(--paper); color: var(--ink); border-radius: var(--r); padding: clamp(24px, 3vw, 44px); --bg: var(--paper); }
-.cta__card h2 { font-size: clamp(1.9rem, 1.15rem + 2.1vw, 3.4rem); letter-spacing: -0.045em; line-height: 1; }
+.cta__card h2 { font-size: clamp(1.9rem, 1.15rem + 2.1vw, 3.4rem); letter-spacing: -0.025em; line-height: 1; }
 
 /* ---------- Enquiry ---------- */
 .enquiry__grid { row-gap: 64px; align-items: start; }
@@ -215,7 +218,7 @@
   display: grid; grid-template-columns: 1fr auto; column-gap: 16px; row-gap: 2px; align-items: center;
   padding: 18px 0; border-bottom: 1px solid var(--line);
 }
-.centre__city { font-size: 1.375rem; font-weight: 500; letter-spacing: -0.03em; grid-column: 1; }
+.centre__city { font-size: 1.375rem; font-weight: 500; letter-spacing: -0.018em; grid-column: 1; }
 .centre__role { grid-column: 1; font-size: 0.75rem; font-weight: 500; color: var(--muted); }
 .centre__addr { grid-column: 1; font-size: 0.875rem; max-width: 46ch; color: var(--muted); margin-top: 6px; }
 .centre .ap { grid-column: 2; grid-row: 1 / span 3; background: var(--fg); }
@@ -300,7 +303,7 @@ a.centre:hover { padding-left: 10px; }
 .ftr__label { font-size: 0.75rem; font-weight: 500; }
 .ftr__explore { grid-column: 7 / span 6; display: grid; justify-items: start; }
 .ftr__explore .ftr__label { margin-bottom: 10px; }
-.ftr__explore a { font-size: clamp(2rem, 1.2rem + 2.4vw, 3.9rem); font-weight: 500; letter-spacing: -0.045em; line-height: 1.02; transition: opacity 0.4s var(--ease-out), transform 0.6s var(--ease-out); }
+.ftr__explore a { font-size: clamp(2rem, 1.2rem + 2.4vw, 3.9rem); font-weight: 500; letter-spacing: -0.025em; line-height: 1.02; transition: opacity 0.4s var(--ease-out), transform 0.6s var(--ease-out); }
 .ftr__explore:hover a { opacity: 0.35; }
 .ftr__explore a:hover { opacity: 1; transform: translateX(8px); }
 .ftr__legal { display: flex; flex-wrap: wrap; gap: 10px 28px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 0.8125rem; color: var(--muted); }

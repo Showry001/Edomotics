@@ -27,7 +27,6 @@ export function initField(view, bag, { first = false } = {}) {
   if (!field || !TEAM.length) return;
   const tip = $('[data-field-tip]', hero);
   const tipName = tip && $('[data-tip-name]', tip);
-  const tipRole = tip && $('[data-tip-role]', tip);
 
   const count = Math.min(isSmall() ? 6 : 8, TEAM.length);
   let queue = shuffle(TEAM.slice());
@@ -141,7 +140,7 @@ export function initField(view, bag, { first = false } = {}) {
     }
   }
 
-  // Who's this? A small card follows the cursor over a portrait (fine pointers only).
+  // Who's this? A small card with the person's name follows the cursor over a portrait (fine pointers only).
   if (tip && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
     const xTo = gsap.quickTo(tip, 'x', { duration: 0.35, ease: 'power3' });
     const yTo = gsap.quickTo(tip, 'y', { duration: 0.35, ease: 'power3' });
@@ -149,7 +148,6 @@ export function initField(view, bag, { first = false } = {}) {
     slots.forEach((s) => {
       bag.on(s.el, 'pointerenter', () => {
         tipName.textContent = s.member.name;
-        tipRole.textContent = s.member.role;
         gsap.to(tip, { autoAlpha: 1, scale: 1, duration: 0.3, ease: 'power1.in' });
       });
       bag.on(s.el, 'pointerleave', () => gsap.to(tip, { autoAlpha: 0, scale: 0.9, duration: 0.3, ease: 'power1.out' }));

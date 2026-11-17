@@ -105,6 +105,7 @@ export function createScene(stage, initial, { lite = false, sceneId = 'interval'
   };
   let screenTex = null;
   let disposed = false;
+  const screenTint = new Color('#ffffff'); // the screen surface's own colour (white, AT, ALR)
   new TextureLoader().load(`${BASE}media/designer/screen.webp`, (tex) => {
     if (disposed) { tex.dispose(); return; }
     tex.colorSpace = SRGBColorSpace;
@@ -224,17 +225,34 @@ export function createScene(stage, initial, { lite = false, sceneId = 'interval'
     }
     front.add(frontPanels);
 
-    // Wall lights and side speakers ride with their walls.
+    // Wall lights ride with their walls.
     [[left, -1], [right, 1]].forEach(([g, s]) => {
       [0.42, 0.76].forEach((f) => {
         const m = new Mesh(geo(new BoxGeometry(0.07, 0.26, 0.12)), mats.sconce);
         m.position.set(s * (W / 2 - 0.035), 1.95, L * f);
         g.add(m);
       });
-      const sp = new Mesh(geo(new BoxGeometry(0.09, 0.34, 0.24)), mats.grille);
-      sp.position.set(s * (W / 2 - 0.045), 1.35, mlp.z);
-      g.add(sp);
     });
+
+    // Surround speakers, from the sound system: sides beside the main seat (5), rears on the back
+    // wall (7) and wides between the screen and the seats (9). Visible ones stand off the wall,
+    // built-in ones sit flush as grilles, concealed ones are hidden behind the wall finish.
+    const sound = pick('sound', state.sound);
+    const style = state.spk;
+    const surround = (g, x, z, along) => {
+      if (style === 'hidden') return;
+      const deep = style === 'visible' ? 0.2 : 0.012;
+      const size = along === 'x' ? [deep, 0.34, 0.24] : [0.24, 0.34, deep];
+      const m = new Mesh(geo(new BoxGeometry(...size)), style === 'visible' ? mats.speaker : mats.grille);
+      m.position.set(x, 1.35, z);
+      g.add(m);
+    };
+    [[left, -1], [right, 1]].forEach(([g, s]) => {
+      const x = s * (W / 2 - (style === 'visible' ? 0.1 : 0.03));
+      surround(g, x, mlp.z, 'x');
+      if (sound.ear >= 9) surround(g, x, Math.max(0.9, mlp.z * 0.5), 'x');
+    });
+    if (sound.ear >= 7) [-1, 1].forEach((s) => surround(back, s * W * 0.22, L - (style === 'visible' ? 0.1 : 0.03), 'z'));
     sconceL.position.set(-W / 2 + 0.45, 1.95, L * 0.6);
     sconceR.position.set(W / 2 - 0.45, 1.95, L * 0.6);
 
@@ -280,36 +298,91 @@ export function createScene(stage, initial, { lite = false, sceneId = 'interval'
     });
     room.add(...parts, armMesh);
 
-    // Screen, its frame, and the front speakers.
-    const frame = new Mesh(geo(new BoxGeometry(screen.w + 0.08, screen.h + 0.08, 0.04)), mats.frame);
-    frame.position.set(0, screen.y, 0.06);
+    // The picture: a television on a low console, or a projection screen (fixed to the wall,
+    // dropping from a ceiling cassette, or rising out of a floor cabinet) lit by a projector.
+    const box = (w, h, d, mat, x, y, z, parent = room) => {
+      const m = new Mesh(geo(new BoxGeometry(w, h, d)), mat);
+      m.position.set(x, y, z);
+      parent.add(m);
+      return m;
+    };
+    const top = screen.y + screen.h / 2;
+    const foot = screen.y - screen.h / 2;
+    let picZ = 0.081;
+    if (screen.tv) {
+      picZ = 0.085;
+      box(screen.w + 0.03, screen.h + 0.03, 0.045, mats.frame, 0, screen.y, 0.06);
+      box(Math.min(W - 0.6, screen.w + 0.5), 0.42, 0.4, mats.speaker, 0, 0.21, 0.26);
+    } else if (state.stype === 'drop') {
+      picZ = 0.13;
+      box(screen.w + 0.3, 0.12, 0.16, mats.frame, 0, Math.min(H - 0.08, top + 0.08), 0.13);
+      box(screen.w, 0.03, 0.02, mats.frame, 0, foot - 0.015, picZ);
+    } else if (state.stype === 'rise') {
+      picZ = 0.2;
+      box(screen.w + 0.3, foot, 0.34, mats.speaker, 0, foot / 2, 0.2);
+      box(screen.w, 0.03, 0.02, mats.frame, 0, top + 0.015, picZ);
+    } else {
+      box(screen.w + 0.08, screen.h + 0.08, 0.04, mats.frame, 0, screen.y, 0.06);
+    }
     const pic = new Mesh(geo(new PlaneGeometry(screen.w, screen.h)), mats.screen);
-    pic.position.set(0, screen.y, 0.081);
-    room.add(frame, pic);
+    pic.position.set(0, screen.y, picZ);
+    room.add(pic);
+    screenTint.set(screen.tv ? '#ffffff' : pick('surface', state.surface).tint);
     fitScreenTexture();
     screenLight.position.set(0, screen.y, 0.9);
-    const tower = (x) => {
-      const body = new Mesh(geo(new BoxGeometry(0.26, 1.12, 0.3)), mats.speaker);
-      body.position.set(x, 0.56, 0.26);
-      const grille = new Mesh(geo(new BoxGeometry(0.22, 1.0, 0.01)), mats.grille);
-      grille.position.set(x, 0.58, 0.415);
-      room.add(body, grille);
-    };
-    const tx = Math.min(screen.w / 2 + 0.32, W / 2 - 0.22);
-    tower(-tx);
-    tower(tx);
-    const centre = new Mesh(geo(new BoxGeometry(0.62, 0.19, 0.26)), mats.speaker);
-    centre.position.set(0, Math.max(0.12, screen.y - screen.h / 2 - 0.16), 0.2);
-    room.add(centre);
 
-    // Ceiling: plain, cove-lit or starlit, with four ceiling speakers.
+    // The projector, at the distance its throw needs: on the ceiling for long and short throw,
+    // on a low console just in front of the screen for ultra short throw.
+    if (!screen.tv) {
+      const t = pick('throw', state.throw);
+      const d = screen.w * t.ratio;
+      if (t.id === 'ust') {
+        const z = Math.max(0.42, d);
+        box(Math.min(W - 0.6, screen.w * 0.6), 0.38, 0.46, mats.speaker, 0, 0.19, z);
+        box(0.6, 0.13, 0.38, mats.frame, 0, 0.445, z);
+      } else {
+        const z = MathUtils.clamp(d, 1.2, L - 0.45);
+        box(0.05, 0.2, 0.05, mats.frame, 0, H - 0.1, z);
+        box(0.44, 0.17, 0.48, mats.frame, 0, H - 0.285, z);
+        const lens = new Mesh(geo(new CylinderGeometry(0.06, 0.06, 0.05, 24)), mats.speaker);
+        lens.rotation.x = Math.PI / 2;
+        lens.position.set(0.08, H - 0.285, z - 0.26);
+        room.add(lens);
+      }
+    }
+
+    // Front speakers (left, centre, right) and subwoofers, fitted as chosen: visible cabinets,
+    // grilles built into the screen wall, or concealed behind it.
+    const tx = Math.min(screen.w / 2 + 0.32, W / 2 - 0.22);
+    if (style === 'visible') {
+      [-tx, tx].forEach((x) => {
+        box(0.26, 1.12, 0.3, mats.speaker, x, 0.56, 0.26);
+        box(0.22, 1.0, 0.01, mats.grille, x, 0.58, 0.415);
+      });
+      const cy = screen.tv ? 0.42 + 0.1 : state.stype === 'rise' ? foot - 0.2 : Math.max(0.12, foot - 0.16);
+      box(0.62, 0.19, 0.26, mats.speaker, 0, cy, screen.tv ? 0.26 : state.stype === 'rise' ? 0.38 : 0.2);
+    } else if (style === 'built') {
+      [-tx, tx].forEach((x) => box(0.26, 0.9, 0.012, mats.grille, x, Math.max(0.75, Math.min(1.25, screen.y)), 0.046, front));
+      if (!screen.tv && state.stype === 'fixed') box(0.7, 0.16, 0.012, mats.grille, 0, Math.max(0.12, foot - 0.16), 0.046, front);
+    }
+    if (style !== 'hidden') {
+      const subs = sound.subs === 1 ? [-1] : [-1, 1];
+      subs.forEach((s) => {
+        const x = s * (W / 2 - 0.4);
+        if (style === 'visible') box(0.45, 0.45, 0.45, mats.speaker, x, 0.225, 0.42);
+        else box(0.4, 0.4, 0.012, mats.grille, x, 0.35, 0.046, front);
+      });
+    }
+
+    // Ceiling: plain, cove-lit or starlit, with the overhead speakers of the sound system.
     const ceiling = new Group();
     const slab = new Mesh(geo(new BoxGeometry(W + 2 * T, T, L + 2 * T)), mats.shell);
     slab.position.set(0, H + T / 2, L / 2);
     ceiling.add(slab);
-    [-1, 1].forEach((sx) => [-1, 1].forEach((sz) => {
+    const overhead = { 0: [], 2: [0], 4: [-1.1, 1.1], 6: [-1.4, 0, 1.4] }[sound.over] || [];
+    if (style !== 'hidden') overhead.forEach((dz) => [-1, 1].forEach((sx) => {
       const spk = new Mesh(geo(new CylinderGeometry(0.1, 0.1, 0.012, 24)), mats.grille);
-      spk.position.set(sx * W * 0.22, H - 0.006, MathUtils.clamp(mlp.z + sz * 1.1, 0.6, L - 0.4));
+      spk.position.set(sx * W * 0.22, H - 0.006, MathUtils.clamp(mlp.z + dz, 0.6, L - 0.4));
       ceiling.add(spk);
     }));
     if (state.ceiling === 'cove') {
@@ -345,7 +418,7 @@ export function createScene(stage, initial, { lite = false, sceneId = 'interval'
     coveLight.intensity = cove ? v.cove * 5 : 0;
     mats.stars.opacity = v.stars;
     mats.steps.emissiveIntensity = v.steps * 2.4;
-    mats.screen.color.setScalar(screenTex ? 0.18 + v.screen * 0.82 : 0.05); // dark until its picture arrives
+    mats.screen.color.setScalar(screenTex ? 0.18 + v.screen * 0.82 : 0.05).multiply(screenTint); // dark until its picture arrives
     screenLight.intensity = v.screen * 3.2;
   }
 
@@ -480,7 +553,7 @@ export function createScene(stage, initial, { lite = false, sceneId = 'interval'
       state = next;
       colours();
       const kindChanged = pick('walls', prev.walls).kind !== pick('walls', next.walls).kind;
-      const structural = kindChanged || ['room', 'rows', 'seats', 'ceiling', 'screen', 'shape'].some((k) => prev[k] !== next[k]);
+      const structural = kindChanged || ['room', 'rows', 'seats', 'ceiling', 'screen', 'shape', 'display', 'tv', 'stype', 'surface', 'throw', 'sound', 'spk'].some((k) => prev[k] !== next[k]);
       if (structural) {
         build();
         // The ceiling is cut away from outside, so a new ceiling is shown from the seat, looking up.

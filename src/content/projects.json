@@ -93,13 +93,13 @@
       "related": null
     },
     {
-      "slug": "dr-akhil-sunitha-residence",
-      "name": "Dr Akhil & Sunitha Residence",
-      "title": "Dr Akhil &amp; Sunitha<br> Residence",
+      "slug": "dr-ram-sunitha-residence",
+      "name": "Dr Ram & Sunitha Residence",
+      "title": "Dr Ram &amp; Sunitha<br> Residence",
       "kind": "Residence",
       "location": "",
       "featured": true,
-      "cover": "dr-akhil-sunitha-residence-01",
+      "cover": "dr-ram-sunitha-residence-01",
       "coverAlt": "The house from its forecourt: white volumes under deep timber-lined eaves, a cantilevered porch and a sculpted bonsai beside the steps.",
       "lead": "A house in a landscaped garden, with a dedicated home theatre, a living room under a hexagonal ring pendant and a bedroom that looks out over the water.",
       "heroVideo": null,
@@ -108,7 +108,7 @@
           "type": "wide",
           "pics": [
             {
-              "pic": "dr-akhil-sunitha-residence-02",
+              "pic": "dr-ram-sunitha-residence-02",
               "alt": "The entrance: broad stone steps under a timber-lined canopy on slender columns."
             }
           ]
@@ -117,7 +117,7 @@
           "type": "pair",
           "pics": [
             {
-              "pic": "dr-akhil-sunitha-residence-04",
+              "pic": "dr-ram-sunitha-residence-04",
               "alt": "A floating timber-and-glass staircase against a stone wall, traced by a single line of light."
             },
             {
@@ -139,7 +139,7 @@
           "type": "pair",
           "pics": [
             {
-              "pic": "dr-akhil-sunitha-residence-05",
+              "pic": "dr-ram-sunitha-residence-05",
               "alt": "The hexagonal pendant above a leather sofa and a round backlit mirror."
             },
             {
@@ -161,7 +161,7 @@
           "type": "pair",
           "pics": [
             {
-              "pic": "dr-akhil-sunitha-residence-06",
+              "pic": "dr-ram-sunitha-residence-06",
               "alt": "Wire pendants hanging in the double-height stairwell, sheer curtains behind."
             },
             {
@@ -174,7 +174,7 @@
           "type": "wide",
           "pics": [
             {
-              "pic": "dr-akhil-sunitha-residence-03",
+              "pic": "dr-ram-sunitha-residence-03",
               "alt": "The dining room in the evening, its ceiling cove and chandelier lit."
             }
           ]
@@ -183,11 +183,11 @@
           "type": "pair",
           "pics": [
             {
-              "pic": "dr-akhil-sunitha-residence-11",
+              "pic": "dr-ram-sunitha-residence-11",
               "alt": "A sculptural glass chandelier above the dining table, under a lit ceiling cove."
             },
             {
-              "pic": "dr-akhil-sunitha-residence-10",
+              "pic": "dr-ram-sunitha-residence-10",
               "alt": "A lounge with a curved cream sofa, a black round table and a shelf of objects set into a stone wall."
             }
           ]
@@ -196,7 +196,7 @@
           "type": "pair",
           "pics": [
             {
-              "pic": "dr-akhil-sunitha-residence-07",
+              "pic": "dr-ram-sunitha-residence-07",
               "alt": "A round backlit mirror reflecting the hexagonal pendant, beside a leather sofa."
             },
             {
@@ -209,11 +209,11 @@
           "type": "pair",
           "pics": [
             {
-              "pic": "dr-akhil-sunitha-residence-09",
+              "pic": "dr-ram-sunitha-residence-09",
               "alt": "The stair under a timber-lined ceiling, sunlight striping the stone wall beside a tall timber door."
             },
             {
-              "pic": "dr-akhil-sunitha-residence-12",
+              "pic": "dr-ram-sunitha-residence-12",
               "alt": "A bedroom with a cream upholstered bed, an abstract painting and a full-height window onto the trees."
             }
           ]
@@ -231,7 +231,7 @@
           "type": "wide",
           "pics": [
             {
-              "pic": "dr-akhil-sunitha-residence-08",
+              "pic": "dr-ram-sunitha-residence-08",
               "alt": "The garden: a deep porch canopy, flowering shrubs and a stepping-stone path across the lawn."
             }
           ]
