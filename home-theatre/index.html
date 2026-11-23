@@ -155,6 +155,7 @@
               <button type="button" class="dview" aria-pressed="false" data-designer-view="seat">From the seat</button>
               <button type="button" class="dview" aria-pressed="false" data-designer-view="front">Front</button>
               <button type="button" class="dview" aria-pressed="false" data-designer-view="top">Above</button>
+              <button type="button" class="dview designer__roll" data-designer-roll hidden>Raise screen</button>
             </div>
           </div>
 
@@ -171,6 +172,53 @@
             </div>
           </div>
         </div>
+
+        <!-- Send this design: the visitor's details and the design summary go to Edomotics. -->
+        <dialog class="dsend" data-dsend aria-labelledby="dsend-title" data-lenis-prevent>
+          <div class="dsend__in">
+            <button type="button" class="round dsend__close" data-dsend-close aria-label="Close"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 1.5l9 9M10.5 1.5l-9 9" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></button>
+            <div data-dsend-ask>
+              <p class="count">Send this design</p>
+              <h2 class="t-m dsend__title" id="dsend-title">Where can we reach you?</h2>
+              <form class="form dsend__form" novalidate data-dsend-form data-endpoint="">
+                <div class="field">
+                  <label for="d-name">Name <span aria-hidden="true">*</span></label>
+                  <input id="d-name" name="name" type="text" autocomplete="name" required aria-describedby="de-name">
+                  <p class="field__error" id="de-name" data-error-for="name"></p>
+                </div>
+                <div class="field">
+                  <label for="d-phone">Phone <span aria-hidden="true">*</span></label>
+                  <input id="d-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="de-phone">
+                  <p class="field__error" id="de-phone" data-error-for="phone"></p>
+                </div>
+                <div class="field">
+                  <label for="d-location">Location</label>
+                  <input id="d-location" name="location" type="text" autocomplete="address-level2" placeholder="City" aria-describedby="de-location">
+                  <p class="field__error" id="de-location" data-error-for="location"></p>
+                </div>
+                <div class="field">
+                  <label for="d-budget">Budget</label>
+                  <select id="d-budget" name="budget"><option value="">Choose a range</option><option>₹4–10 lakhs</option><option>₹10–15 lakhs</option><option>₹15–20 lakhs</option><option>₹20–30 lakhs</option><option>Above ₹30 lakhs</option></select>
+                </div>
+                <div class="field field--wide dsend__design">
+                  <p class="dsend__label">Your design</p>
+                  <dl class="contact-meta" data-dsend-summary></dl>
+                </div>
+                <div class="visually-hidden" aria-hidden="true"><label for="d-website">Leave this field empty</label><input id="d-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+                <div class="form__foot">
+                  <button class="btn" type="submit" data-dsend-submit><span data-dsend-label>Send design</span><span class="ap ap--inv" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span></button>
+                </div>
+                <div class="form__status" role="status" aria-live="polite" data-dsend-status hidden></div>
+              </form>
+            </div>
+            <div class="dsend__done" data-dsend-done hidden tabindex="-1">
+              <p class="count">Design sent</p>
+              <h2 class="t-m">Thank you.</h2>
+              <p>Our team will contact you shortly.</p>
+              <button type="button" class="link-u" data-dsend-close>Close</button>
+            </div>
+          </div>
+        </dialog>
       </section>
 
       <!-- From the projects -->
@@ -183,6 +231,35 @@
             <p class="muted" style="color: var(--muted); font-size: 0.9375rem;">A listening room: floor-standing speakers either side of the console, a turntable and a deep leather recliner.</p>
             <a class="link-arrow" href="/projects/akhil-sanjana-residence/"><span class="link-arrow__t">View project</span><span class="ap" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span></a>
           </div>
+        </div>
+      </section>
+
+      <!-- Partners in home theatre -->
+      <section class="brands block" data-theme="light" aria-labelledby="partners-title" style="padding-top: 0;">
+        <div class="wrap grid brands__grid">
+          <div class="brands__head">
+            <p class="count">Home theatre partners</p>
+            <h2 class="t-xl" id="partners-title" data-lines>Credible <span class="serif-i">partners.</span></h2>
+            <p>Audio and video brands from around the world, specified and integrated as one&nbsp;system.</p>
+          </div>
+          <ul class="tiles" data-tiles>
+            <li class="tile"><img src="/media/logos/jbl-synthesis.png" alt="JBL Synthesis" loading="lazy"></li>
+            <li class="tile"><img src="/media/logos/dali.png" alt="DALI" loading="lazy"></li>
+            <li class="tile"><img src="/media/logos/martinlogan.png" style="--h: 64px" alt="MartinLogan" loading="lazy"></li>
+            <li class="tile"><img src="/media/logos/anthem.png" alt="Anthem" loading="lazy"></li>
+            <li class="tile"><img src="/media/logos/arcam.png" alt="Arcam" loading="lazy"></li>
+            <li class="tile"><img src="/media/logos/marantz.png" alt="Marantz" loading="lazy"></li>
+            <li class="tile"><img src="/media/logos/sim2.png" style="--h: 58px" alt="SIM2" loading="lazy"></li>
+            <li class="tile"><img src="/media/logos/jvc.png" alt="JVC" loading="lazy"></li>
+            <li class="tile"><img src="/media/logos/sony.png" alt="Sony" loading="lazy"></li>
+            <li class="tile"><img src="/media/logos/1-sound.png" style="--h: 64px" alt="1 SOUND" loading="lazy"></li>
+            <li class="tile"><img src="/media/logos/architettura-sonora.png" style="--h: 52px" alt="Architettura Sonora" loading="lazy"></li>
+            <li class="tile"><img src="/media/logos/bang-olufsen.png" alt="Bang &amp; Olufsen" loading="lazy"></li>
+            <li class="tile"><img src="/media/logos/devialet.png" alt="Devialet" loading="lazy"></li>
+            <li class="tile"><img src="/media/logos/sonos.png" alt="Sonos" loading="lazy"></li>
+            <li class="tile"><img src="/media/logos/dual.png" style="--h: 62px" alt="Dual" loading="lazy"></li>
+            <li class="tile tile--text tile--many"><p>and many more</p><a class="link-arrow" href="/contact/"><span class="link-arrow__t">Ask which brands suit your room</span><span class="ap" aria-hidden="true"><svg><use href="#i-arrow"/></svg><svg><use href="#i-arrow"/></svg></span></a></li>
+          </ul>
         </div>
       </section>
 

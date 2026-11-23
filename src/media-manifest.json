@@ -1996,16 +1996,20 @@
     "avif": true
   },
   "home-access": {
-    "width": 1080,
-    "height": 1440,
+    "width": 2160,
+    "height": 2880,
     "widths": [
       {
         "w": 640,
         "file": "media/img/home-access-sm.webp"
       },
       {
-        "w": 1080,
+        "w": 1280,
         "file": "media/img/home-access-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/home-access-lg.webp"
       }
     ],
     "avif": true
@@ -2263,31 +2267,39 @@
     "avif": true
   },
   "home-security": {
-    "width": 1080,
-    "height": 1440,
+    "width": 1536,
+    "height": 2048,
     "widths": [
       {
         "w": 640,
         "file": "media/img/home-security-sm.webp"
       },
       {
-        "w": 1080,
+        "w": 1280,
         "file": "media/img/home-security-md.webp"
+      },
+      {
+        "w": 1536,
+        "file": "media/img/home-security-lg.webp"
       }
     ],
     "avif": true
   },
   "home-sound": {
-    "width": 1080,
-    "height": 1440,
+    "width": 2160,
+    "height": 2880,
     "widths": [
       {
         "w": 640,
         "file": "media/img/home-sound-sm.webp"
       },
       {
-        "w": 1080,
+        "w": 1280,
         "file": "media/img/home-sound-md.webp"
+      },
+      {
+        "w": 1920,
+        "file": "media/img/home-sound-lg.webp"
       }
     ],
     "avif": true

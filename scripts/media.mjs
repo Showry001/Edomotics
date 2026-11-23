@@ -36,7 +36,7 @@ const PHOTOS = {
   'lounge-amber': `${masters}/lounge-amber.jpg`,
   'bedroom-cove': `${framer}/rising-3.jpg`,
   'living-dining': `${framer}/blog-1.jpg`,
-  // The About call-to-action: a final from the Prudvi Kotta shoot (the Framer original was a watermarked proof).
+  // The About call-to-action: a final from the Prudhvi Kotha shoot (the Framer original was a watermarked proof).
   'villa-dusk': '_src/drive/finals/prudvi-kotta/_DSC9926_HDR.jpg',
   'lounge-tall': `${framer}/rising-4.jpg`,
   'project-ravi-prasad': `${framer}/project-1.jpg`,
@@ -151,18 +151,38 @@ async function team() {
 
 // Partner logos → one monochrome system. Each logo becomes an alpha mask (ink-coloured),
 // so a wall of different brand treatments reads as one quiet surface.
+// [name, source, mode]: a bare file name is in _src/framer/logos; a path is a logo taken from the
+// brand's own website (_src/logos-web/<brand>/). Mode, for logos set inside a box or badge:
+// 'dark' inks the dark and coloured parts and clears white (a name knocked out of a box stays
+// knocked out); 'bright' inks the light parts and clears dark ones (dark letters in a white box).
 const LOGOS = [
   ['basalte', 'logo-01.jpg'], ['schneider-electric', 'logo-03.webp'],
   ['hunter-douglas', 'logo-04.png'], ['yale', 'logo-05.png'], ['honeywell', 'logo-06.png'],
   ['somfy', 'logo-07.png'], ['assa-abloy', 'logo-08.png'], ['control4', 'logo-09.png'],
-  ['grandstream', 'logo-10.jpg'], ['intesis', 'logo-11.jpg'], ['legrand', 'logo-12.png'],
+  ['grandstream', 'logo-10.jpg'], ['intesis', 'logo-11.jpg'], ['legrand', '_src/logos-web/legrand/legrand-logo-desktop.svg'],
   ['steinel', 'logo-13.png'],
+  // Home theatre partners (Home Theatre page), from each brand's website, Nov 2026.
+  ['jbl-synthesis', '_src/logos-web/jbl-synthesis/logo.svg', 'bright'], ['dali', '_src/logos-web/dali/logo.svg'],
+  ['martinlogan', '_src/logos-web/martinlogan/martinlogan-logo-red.png', 'dark'], ['anthem', '_src/logos-web/anthem/logo.png'],
+  ['arcam', '_src/logos-web/arcam/arcam-header.svg'], ['marantz', '_src/logos-web/marantz/logo.svg'],
+  ['sim2', '_src/logos-web/sim2/sim2-header.svg', 'dark'], ['jvc', '_src/logos-web/jvc/jvc_logo.svg'],
+  ['sony', '_src/logos-web/sony/sony-logo.svg'], ['1-sound', '_src/logos-web/1-sound/logo-white.webp'],
+  ['architettura-sonora', '_src/logos-web/architettura-sonora/AS_logo.svg', 'dark'],
+  ['bang-olufsen', '_src/logos-web/bang-olufsen/primary-logo-white.svg'], ['devialet', '_src/logos-web/devialet/devialet-header.svg'],
+  ['sonos', '_src/logos-web/sonos/sonos-header.svg'], ['dual', '_src/logos-web/dual/Dual_Logo_2021_outline.svg', 'dark'],
 ];
 
+// SVG logos are drawn at about 2000 px wide, whatever size they declare.
+async function logoInput(src) {
+  if (!src.endsWith('.svg')) return sharp(src);
+  const { width = 200 } = await sharp(src).metadata();
+  return sharp(src, { density: Math.max(36, Math.min(2400, (72 * 2000) / width)) });
+}
+
 async function logos() {
-  for (const [name, file] of LOGOS) {
-    const src = path.join('_src/framer/logos', file);
-    const { data, info } = await sharp(src).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+  for (const [name, file, mode] of LOGOS) {
+    const src = file.includes('/') ? file : path.join('_src/framer/logos', file);
+    const { data, info } = await (await logoInput(src)).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
     const n = info.width * info.height;
     let transparent = 0;
     const counts = new Map();
@@ -182,7 +202,9 @@ async function logos() {
     for (let i = 0; i < n; i++) {
       const r = data[i * 4], g = data[i * 4 + 1], b = data[i * 4 + 2], a = data[i * 4 + 3] / 255;
       let m;
-      if (useAlpha) m = a;
+      if (mode === 'dark') m = a * (1 - Math.min(r, g, b) / 255);
+      else if (mode === 'bright') m = a * ((0.2126 * r + 0.7152 * g + 0.0722 * b) / 255);
+      else if (useAlpha) m = a;
       else {
         const d = Math.sqrt((r - bg[0]) ** 2 + (g - bg[1]) ** 2 + (b - bg[2]) ** 2) / 441;
         m = a * Math.min(1, Math.max(0, (d - 0.12) / 0.28));
@@ -415,8 +437,8 @@ const CARD_FILMS = [
 const SESHU = 'eq=gamma=1.25:contrast=1.05:saturation=1.08';
 // The stepped stories: Walk through intelligence (Automation) and Seven moments (Home theatre).
 const STEP_FILMS = [
-  // Automation: the Prudvi Kotta entrance at dusk; living rooms across the projects, their lights
-  // coming up; the Prudvi Kotta sheers opening on the garden.
+  // Automation: the Prudhvi Kotha entrance at dusk; living rooms across the projects, their lights
+  // coming up; the Prudhvi Kotha sheers opening on the garden.
   { name: 'entrance', parts: [{ src: 'video-pk/C2880.MP4', from: 0, to: 5.5, y: 0.6 }], poster: 7.6 },
   { name: 'living', parts: [
     { src: 'video-ss/C2034.MP4', from: 2.5, to: 7.5 },

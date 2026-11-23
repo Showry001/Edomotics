@@ -1,15 +1,18 @@
 // Design your cinema: every choice a visitor can make, and the rules that place things in the room.
-// PLACEHOLDERS: the values follow common home-cinema practice until Edomotics supplies its own
-// rooms, seats, finishes and screen sizes. Change them here; the panel and the 3D room follow.
+// Rooms, screen sizes, shapes, screen types and speaker styles are Edomotics' own (Nov 2026); seats,
+// finishes and the rest are placeholders until it supplies them. Change them here; the panel and the
+// 3D room follow.
 // Distances are in metres; the room's screen wall is at z = 0 and the back wall at z = length.
 const FT = 0.3048;
 
+// Inside width × length, and the ceiling height: the larger rooms are taller, so the largest
+// screens fit in them.
 export const ROOMS = [
-  { id: 's', label: '10 × 12 ft', w: 10 * FT, l: 12 * FT },
-  { id: 'm', label: '14 × 18 ft', w: 14 * FT, l: 18 * FT },
-  { id: 'l', label: '20 × 30 ft', w: 20 * FT, l: 30 * FT },
+  { id: 's', label: '12 × 15 ft', w: 12 * FT, l: 15 * FT, h: 10 * FT },
+  { id: 'm', label: '14 × 18 ft', w: 14 * FT, l: 18 * FT, h: 10 * FT },
+  { id: 'ml', label: '16 × 24 ft', w: 16 * FT, l: 24 * FT, h: 11 * FT },
+  { id: 'l', label: '20 × 30 ft', w: 20 * FT, l: 30 * FT, h: 12 * FT },
 ];
-export const CEILING_HEIGHT = 10 * FT;
 
 export const SEATS = [
   { id: 'cognac', label: 'Cognac', color: '#6e3c22' },
@@ -33,19 +36,15 @@ export const FLOORS = [
   { id: 'sand', label: 'Sand', color: '#8f7f69' },
   { id: 'oxblood', label: 'Oxblood', color: '#45201d' },
 ];
-export const SCREENS = [
-  { id: '100', label: '100″', inches: 100 },
-  { id: '120', label: '120″', inches: 120 },
-  { id: '135', label: '135″', inches: 135 },
-];
+export const SCREENS = [120, 135, 150, 165, 180, 200].map((inches) => ({ id: String(inches), label: `${inches}″`, inches }));
 export const SHAPES = [
-  { id: 'classic', label: '4:3', ratio: 4 / 3 },
   { id: 'wide', label: '16:9', ratio: 16 / 9 },
   { id: 'scope', label: '2.35:1', ratio: 2.35 },
 ];
 
-// The picture: a projection screen (with its type and surface, and the projector that lights it)
-// or a television. Speakers: a layout (ear-level . subwoofers . overhead) and how they are fitted.
+// The picture: a projection screen (fixed, or motorised: it rolls down from a ceiling cassette)
+// with the projector that lights it, or a television. Speakers: a layout (ear-level . subwoofers .
+// overhead) and whether they are seen.
 export const DISPLAYS = [
   { id: 'screen', label: 'Projection screen' },
   { id: 'tv', label: 'Television' },
@@ -57,23 +56,12 @@ export const TV_SIZES = [
 ];
 export const SCREEN_TYPES = [
   { id: 'fixed', label: 'Fixed frame' },
-  { id: 'drop', label: 'Motorised drop-down' },
-  { id: 'rise', label: 'Floor-rising' },
-];
-export const SURFACES = [
-  { id: 'white', label: 'Standard white', tint: '#ffffff' },
-  { id: 'at', label: 'Acoustically transparent', tint: '#ece8e1' },
-  { id: 'alr', label: 'Ambient light rejecting', tint: '#c9c9cc' },
+  { id: 'drop', label: 'Motorised' },
 ];
 export const THROWS = [
   { id: 'long', label: 'Long throw', ratio: 1.5 },
   { id: 'short', label: 'Short throw', ratio: 0.7 },
   { id: 'ust', label: 'Ultra short throw', ratio: 0.25 },
-];
-export const LAMPS = [
-  { id: 'laser', label: 'Laser' },
-  { id: 'led', label: 'LED' },
-  { id: 'lamp', label: 'Lamp' },
 ];
 export const SOUNDS = [
   { id: '51', label: '5.1', ear: 5, subs: 1, over: 0 },
@@ -85,7 +73,6 @@ export const SOUNDS = [
 ];
 export const SPEAKER_STYLES = [
   { id: 'visible', label: 'Visible' },
-  { id: 'built', label: 'Built-in' },
   { id: 'hidden', label: 'Concealed' },
 ];
 
@@ -109,21 +96,19 @@ export const GROUPS = [
   { key: 'tv', label: 'Television size', items: TV_SIZES, when: (s) => s.display === 'tv' },
   { key: 'shape', label: 'Screen shape', items: SHAPES, when: (s) => s.display === 'screen' },
   { key: 'stype', label: 'Screen type', items: SCREEN_TYPES, when: (s) => s.display === 'screen' },
-  { key: 'surface', label: 'Screen surface', items: SURFACES, when: (s) => s.display === 'screen' },
   { key: 'throw', label: 'Projector', items: THROWS, when: (s) => s.display === 'screen' },
-  { key: 'lamp', label: 'Projector light', items: LAMPS, when: (s) => s.display === 'screen' },
   { key: 'sound', label: 'Sound system', items: SOUNDS, note: 'Speakers at ear level · subwoofers · overhead speakers.' },
   { key: 'spk', label: 'Speakers', items: SPEAKER_STYLES },
 ];
 
 export const DEFAULTS = {
   room: 'm', rows: 2, seats: 3, seat: 'cognac', walls: 'walnut', ceiling: 'stars', floor: 'charcoal', screen: '120', shape: 'scope',
-  display: 'screen', tv: '85', stype: 'fixed', surface: 'white', throw: 'long', lamp: 'laser', sound: '714', spk: 'built',
+  display: 'screen', tv: '85', stype: 'fixed', throw: 'long', sound: '714', spk: 'hidden',
 };
 
 const LISTS = {
   room: ROOMS, seat: SEATS, walls: WALLS, ceiling: CEILINGS, floor: FLOORS, screen: SCREENS, shape: SHAPES,
-  display: DISPLAYS, tv: TV_SIZES, stype: SCREEN_TYPES, surface: SURFACES, throw: THROWS, lamp: LAMPS, sound: SOUNDS, spk: SPEAKER_STYLES,
+  display: DISPLAYS, tv: TV_SIZES, stype: SCREEN_TYPES, throw: THROWS, sound: SOUNDS, spk: SPEAKER_STYLES,
 };
 export const pick = (key, id) => LISTS[key].find((o) => o.id === id) || LISTS[key].find((o) => o.id === DEFAULTS[key]);
 
@@ -149,7 +134,7 @@ export function limits(s) {
   const rows = clamp(1 + Math.floor(depth / RULES.rowSpacing), RULES.minRows, RULES.maxRows);
   const fits = Object.fromEntries(SCREENS.map((o) => {
     const { w, h } = screenSize(o.id, s.shape);
-    return [o.id, w <= room.w - 2 * RULES.screenSide && RULES.screenBottom + h <= CEILING_HEIGHT - RULES.screenTop];
+    return [o.id, w <= room.w - 2 * RULES.screenSide && RULES.screenBottom + h <= room.h - RULES.screenTop];
   }));
   return { seats, rows, fits };
 }
@@ -170,7 +155,7 @@ export function normalise(input) {
 // behind rises by one step. The main listening position is the centre seat of the middle row.
 export function layout(s) {
   const room = pick('room', s.room);
-  const W = room.w, L = room.l, H = CEILING_HEIGHT;
+  const W = room.w, L = room.l, H = room.h;
   const rows = Array.from({ length: s.rows }, (_, i) => {
     const fromBack = s.rows - 1 - i;
     return {
@@ -188,14 +173,18 @@ export function layout(s) {
   return { W, L, H, rows, screen, mlp };
 }
 
-// The design as a short, readable link parameter: room.rows.seats.seat.walls.ceiling.floor.screen.shape
-const ORDER = ['room', 'rows', 'seats', 'seat', 'walls', 'ceiling', 'floor', 'screen', 'shape', 'display', 'tv', 'stype', 'surface', 'throw', 'lamp', 'sound', 'spk'];
-const FIRST = 9; // links made before the display, projector and sound choices carry only these
+// The design as a short, readable link parameter: room.rows.seats.seat.walls.ceiling.floor.screen.shape…
+const ORDER = ['room', 'rows', 'seats', 'seat', 'walls', 'ceiling', 'floor', 'screen', 'shape', 'display', 'tv', 'stype', 'throw', 'sound', 'spk'];
+// Links made earlier still open: they carried a screen surface and a projector light (17 parts),
+// or only the first nine choices. Values that no longer exist fall back to the defaults.
+const EARLIER = ['room', 'rows', 'seats', 'seat', 'walls', 'ceiling', 'floor', 'screen', 'shape', 'display', 'tv', 'stype', 'surface', 'throw', 'lamp', 'sound', 'spk'];
+const FIRST = 9;
 export const encode = (s) => ORDER.map((k) => s[k]).join('.');
 export function decode(str) {
   const parts = String(str || '').split('.');
-  if (parts.length !== ORDER.length && parts.length !== FIRST) return {};
-  return Object.fromEntries(parts.map((v, i) => [ORDER[i], v]));
+  const keys = parts.length === ORDER.length ? ORDER : parts.length === EARLIER.length ? EARLIER : parts.length === FIRST ? ORDER : null;
+  if (!keys) return {};
+  return Object.fromEntries(parts.map((v, i) => [keys[i], v]).filter(([k]) => k in DEFAULTS));
 }
 
 export function describe(s) {
@@ -209,8 +198,8 @@ export function describe(s) {
     ['Floor', `${pick('floor', s.floor).label} carpet`],
     s.display === 'tv'
       ? ['Display', `${pick('tv', s.tv).label} television`]
-      : ['Screen', `${pick('screen', s.screen).label} · ${pick('shape', s.shape).label} · ${pick('stype', s.stype).label} · ${pick('surface', s.surface).label}`],
-    ...(s.display === 'tv' ? [] : [['Projector', `${pick('throw', s.throw).label} · ${pick('lamp', s.lamp).label}`]]),
+      : ['Screen', `${pick('screen', s.screen).label} · ${pick('shape', s.shape).label} · ${pick('stype', s.stype).label}`],
+    ...(s.display === 'tv' ? [] : [['Projector', pick('throw', s.throw).label]]),
     ['Sound', `${pick('sound', s.sound).label} · ${pick('spk', s.spk).label} speakers`],
   ];
 }

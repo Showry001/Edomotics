@@ -1,7 +1,7 @@
 // Design your cinema: the options panel, the design summary and its link. The choices come from
 // options.js. The 3D room (scene.js, with three.js) is fetched only when it's needed: as the
 // section nears the screen on desktops, or when a phone or tablet visitor taps "Explore in 3D".
-import { $, $$ } from '../core.js';
+import { $, $$, lenis } from '../core.js';
 import { GROUPS, RULES, normalise, limits, encode, decode, describe } from './options.js';
 
 const LITE = '(max-width: 860px), (pointer: coarse)';
@@ -51,6 +51,7 @@ export function initDesigner(view, bag) {
   const sceneState = $('[data-designer-scene-state]', root);
   const sceneKeys = $$('[data-scene]', root);
   const viewBtns = $$('[data-designer-view]', root);
+  const rollBtn = $('[data-designer-roll]', root);
 
   let state = normalise(decode(new URLSearchParams(location.search).get('design')));
   let sceneId = sceneKeys.find((k) => k.classList.contains('is-active'))?.dataset.scene || 'interval';
@@ -70,8 +71,16 @@ export function initDesigner(view, bag) {
   };
   const mail = () => {
     const lines = describe(state).map(([k, v]) => `${k}: ${v}`).join('\n');
-    const body = `Hello Edomotics,\n\nI designed a home theatre on your website and would like to talk about it.\n\n${lines}\n\nMy design: ${link()}\n\nName:\nPhone:\nCity:\n`;
+    const body = `Hello Edomotics,\n\nI designed a home theatre on your website and would like to talk about it.\n\n${lines}\n\nName:\nPhone:\nCity:\n`;
     return `mailto:${EMAIL}?subject=${encodeURIComponent('My home theatre design')}&body=${encodeURIComponent(body)}`;
+  };
+
+  // A motorised screen can be raised and lowered; choosing one brings it down.
+  const motorised = (s) => s.display === 'screen' && s.stype === 'drop';
+  let screenDown = true;
+  const showRoll = () => {
+    rollBtn.hidden = !motorised(state);
+    rollBtn.textContent = screenDown ? 'Raise screen' : 'Lower screen';
   };
 
   function sync() {
@@ -94,11 +103,13 @@ export function initDesigner(view, bag) {
     $('[data-note="screen"]', panel).textContent = tooWide ? 'Larger screens need a wider room.' : '';
     summary.innerHTML = describe(state).map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('');
     send.href = mail();
+    showRoll();
   }
 
   function set(patch) {
     const next = normalise({ ...state, ...patch });
     if (encode(next) === encode(state)) { sync(); return; }
+    if (motorised(next) && !motorised(state)) screenDown = true;
     state = next;
     sync();
     api?.update(state);
@@ -117,6 +128,108 @@ export function initDesigner(view, bag) {
     if (b) set({ [b.dataset.step]: state[b.dataset.step] + Number(b.dataset.dir) });
   });
   bag.on(panel, 'submit', (e) => e.preventDefault());
+
+
+  // Send this design: a dialog takes the visitor's name, phone, location and budget, and sends
+  // them with the design summary to data-endpoint (a JSON POST answered with 2xx). With no
+  // endpoint set, nothing is sent and the visitor is offered their email app instead.
+  const dialog = $('[data-dsend]', root);
+  const dform = $('[data-dsend-form]', root);
+  const dstatus = $('[data-dsend-status]', root);
+  const dsubmit = $('[data-dsend-submit]', root);
+  const dlabel = $('[data-dsend-label]', root);
+  const dendpoint = (dform.dataset.endpoint || '').trim();
+  const DIRECT = 'call <a href="tel:+919100444648">+91 910 044 4648</a> or write to <a href="mailto:info@edomotics.com">info@edomotics.com</a>';
+  const drules = {
+    name: () => dform.elements.name.value.trim().length >= 2 || 'Please tell us your name.',
+    phone: () => {
+      const v = dform.elements.phone.value.trim();
+      if (!v) return 'Please add a phone number, so we can call you.';
+      const digits = v.replace(/\D/g, '').length;
+      return (/^[+\d\s().-]+$/.test(v) && digits >= 8 && digits <= 15) || 'Please check the number: digits, spaces and a leading + only.';
+    },
+    location: () => dform.elements.location.value.length <= 80 || 'Please keep the location short.',
+  };
+  const dmark = (name, msg) => {
+    const bad = typeof msg === 'string';
+    const input = dform.elements[name];
+    input.closest('.field')?.classList.toggle('is-invalid', bad);
+    input.setAttribute('aria-invalid', String(bad));
+    const err = $(`[data-error-for="${name}"]`, dform);
+    if (err) err.textContent = bad ? msg : '';
+    return bad;
+  };
+  const dcheck = (name) => dmark(name, drules[name]());
+  const dshow = (kind, html) => { dstatus.hidden = false; dstatus.className = `form__status is-${kind}`; dstatus.innerHTML = html; };
+  const dsending = (on) => { dsubmit.disabled = on; dlabel.textContent = on ? 'Sending…' : 'Send design'; dform.setAttribute('aria-busy', String(on)); };
+  const ask = $('[data-dsend-ask]', root);
+  const done = $('[data-dsend-done]', root);
+  let dtried = false;
+  const details = () => ({
+    name: dform.elements.name.value.trim(),
+    phone: dform.elements.phone.value.trim(),
+    location: dform.elements.location.value.trim(),
+    budget: dform.elements.budget.value,
+  });
+  const dmailto = (d) => {
+    const lines = [`Name: ${d.name}`, `Phone: ${d.phone}`, d.location && `Location: ${d.location}`, d.budget && `Budget: ${d.budget}`,
+      '', 'My home theatre design:', ...describe(state).map(([k, v]) => `${k}: ${v}`)].filter((x) => x !== false && x !== undefined);
+    return `mailto:${EMAIL}?subject=${encodeURIComponent('My home theatre design')}&body=${encodeURIComponent(lines.join('\n'))}`;
+  };
+  function openSend() {
+    $('[data-dsend-summary]', dform).innerHTML = describe(state).map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('');
+    ask.hidden = false;
+    done.hidden = true;
+    dstatus.hidden = true;
+    if (typeof dialog.showModal === 'function') dialog.showModal(); else dialog.setAttribute('open', '');
+    lenis?.stop();
+    dform.elements.name.focus();
+  }
+  const closeSend = () => { if (dialog.open) dialog.close(); };
+  bag.on(dialog, 'close', () => lenis?.start());
+  bag.on(dialog, 'click', (e) => { if (e.target === dialog) closeSend(); }); // a click on the backdrop
+  $$('[data-dsend-close]', root).forEach((b) => bag.on(b, 'click', closeSend));
+  bag.on(send, 'click', (e) => { e.preventDefault(); openSend(); });
+  Object.keys(drules).forEach((name) => {
+    bag.on(dform.elements[name], 'input', () => { if (dtried) dcheck(name); });
+    bag.on(dform.elements[name], 'blur', () => { if (dtried || dform.elements[name].value) dcheck(name); });
+  });
+  bag.on(dform, 'submit', async (e) => {
+    e.preventDefault();
+    dtried = true;
+    const bad = Object.keys(drules).filter((name) => dcheck(name));
+    if (bad.length) {
+      dshow('error', bad.length === 1 ? 'Please check the highlighted field.' : `Please check the ${bad.length} highlighted fields.`);
+      dform.elements[bad[0]].focus();
+      return;
+    }
+    if (dform.elements.website.value) return; // honeypot: a person never fills this in
+    const d = details();
+    if (!dendpoint) {
+      dshow('info', `<strong>Online sending isn’t connected yet, so nothing has been sent.</strong> <a href="${dmailto(d)}">Send your design from your email app</a>, or ${DIRECT}.`);
+      return;
+    }
+    dsending(true);
+    try {
+      const res = await fetch(dendpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ ...d, subject: 'Home theatre design', design: describe(state).map(([label, value]) => ({ label, value })) }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      dform.reset();
+      dtried = false;
+      Object.keys(drules).forEach((name) => dmark(name, true));
+      ask.hidden = true;
+      done.hidden = false;
+      done.focus();
+    } catch (err) {
+      dshow('error', `<strong>Your design couldn’t be sent.</strong> Please try again in a moment, or ${DIRECT}.`);
+    } finally {
+      dsending(false);
+    }
+  });
+  bag.add(() => { closeSend(); lenis?.start(); });
 
   let copied = 0;
   bag.on(copy, 'click', async () => {
@@ -146,6 +259,7 @@ export function initDesigner(view, bag) {
   };
   sceneKeys.forEach((k) => bag.on(k, 'click', () => { showScene(k.dataset.scene); api?.setScene(k.dataset.scene); }));
   viewBtns.forEach((b) => bag.on(b, 'click', () => { showView(b.dataset.designerView); api?.setView(b.dataset.designerView); }));
+  bag.on(rollBtn, 'click', () => { screenDown = !screenDown; api?.setRoll(screenDown); showRoll(); });
 
   const say = (text) => { status.textContent = text; };
   async function mount() {

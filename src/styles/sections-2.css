@@ -155,10 +155,12 @@
   display: grid; place-items: center; padding: 14% 16%;
   transition: background-color 0.6s var(--ease-out);
 }
-.tile img { max-height: 46px; max-width: 100%; width: auto; height: auto; transition: transform 0.8s var(--ease-out); }
+.tile img { max-height: var(--h, 46px); max-width: 100%; width: auto; height: auto; transition: transform 0.8s var(--ease-out); }
 .tile:hover { background: var(--stone-2); }
 .tile:hover img { transform: scale(1.06); }
 .tile--text { grid-column: span 2; aspect-ratio: auto; place-items: end start; padding: 24px; }
+.tile--many { align-content: end; gap: 14px; }
+.tile--many p { font-family: var(--font-serif); font-style: italic; font-size: clamp(1.25rem, 1rem + 0.7vw, 1.625rem); line-height: 1.1; }
 /* Commercial clients: the partner tiles beside a sticky head, as in the brands layout. */
 .clients { align-items: start; row-gap: 40px; margin-bottom: clamp(96px, 10vw, 168px); }
 .clients__head { grid-column: 1 / span 5; position: sticky; top: calc(var(--hdr) + 24px); display: grid; gap: 24px; justify-items: start; }
@@ -166,11 +168,13 @@
 .clients__more { font-size: 0.8125rem; color: var(--muted); }
 /* Optical sizing: each logo carries --s (1 / sqrt(aspect ratio)) so wide and compact marks read at a similar
    weight; capped so the widest mark stays at the partner logos' 46px. */
-.clients .tile:not(.tile--text) { container-type: size; }
+.clients .tile:not(.tile--text, .tile--more) { container-type: size; }
 .clients .tile img { height: calc(var(--s, 0.7) * min(72cqh, 86px)); max-height: none; object-fit: contain; }
 /* A client without a supplied logo: its name, set as a quiet ink wordmark. */
 .tile--name span { font-size: clamp(0.8125rem, 0.65rem + 0.45vw, 1.0625rem); font-weight: 600; letter-spacing: 0.06em; line-height: 1.2; text-transform: uppercase; text-align: center; color: var(--ink); transition: transform 0.8s var(--ease-out); }
 .tile--name:hover span { transform: scale(1.06); }
+/* The closing tile: a quiet line in place of a logo, completing the grid. */
+.tile--more p { font-family: var(--font-serif); font-style: italic; font-size: clamp(1.0625rem, 0.85rem + 0.6vw, 1.375rem); line-height: 1.2; text-align: center; color: var(--ink); max-width: 14ch; }
 
 /* ---------- Voices ---------- */
 .voices__grid { row-gap: 32px; align-items: start; }
@@ -364,6 +368,7 @@ a.centre:hover { padding-left: 10px; }
   .brands__head { grid-column: 1 / -1; position: static; }
   .tiles { grid-column: 1 / -1; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .tile--text { grid-column: span 2; }
+  .tile--more { grid-column: span 2; aspect-ratio: auto; padding-block: 36px; }
 
   .voices__count, .voices__quote { grid-column: 1 / -1; }
   .voices__mark { position: static; display: block; height: 0.5em; }

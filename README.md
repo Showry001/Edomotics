@@ -33,7 +33,7 @@ BASE_PATH=/Edomotics/ npm run build
 | `/automation/` | `automation/index.html` |
 | `/home-theatre/` | `home-theatre/index.html` |
 | `/projects/` | `projects/index.html` |
-| `/projects/<slug>/` | `projects/akhil-sanjana-residence/`, `dr-ram-sunitha-residence/`, `seshu-rajalakshmi-residence/` (generated from `src/content/projects.json`) |
+| `/projects/<slug>/` | `projects/akhil-sanjana-residence/`, `dr-ram-dr-sunitha-residence/`, `seshu-rajalakshmi-residence/` (generated from `src/content/projects.json`) |
 | `/about/` | `about/index.html` |
 | `/contact/` | `contact/index.html` |
 

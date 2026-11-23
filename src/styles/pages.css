@@ -300,6 +300,7 @@
 .designer__views { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 22px; font-size: 0.8125rem; font-weight: 500; transition: opacity 0.6s var(--ease-out); }
 .designer__view:not(:has(.is-live)) .designer__views { opacity: 0.35; pointer-events: none; }
 .designer__views-label { color: var(--muted); }
+.designer__roll { margin-left: auto; }
 .dview { position: relative; padding: 4px 0; color: var(--muted); transition: color 0.4s var(--ease-out); }
 .dview::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--filament); transform: scaleX(0); transform-origin: left; transition: transform 0.6s var(--ease-io); }
 .dview:hover, .dview[aria-pressed="true"] { color: var(--fg); }
@@ -324,6 +325,24 @@
 .designer__note { font-size: 0.8125rem; color: var(--muted); max-width: 40ch; }
 .designer__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; }
 .designer__copy { font-size: 0.875rem; font-weight: 500; }
+/* Send this design: a dialog over the page, the enquiry form's fields on cream. */
+.dsend { width: min(620px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); margin: auto; padding: 0; border: 0; border-radius: var(--r); background: var(--paper); color: var(--ink); overflow: auto; overscroll-behavior: contain; }
+.dsend::backdrop { background: rgb(18 17 14 / 0.6); }
+.dsend[open] { animation: dsend-in 0.5s var(--ease-out); }
+@keyframes dsend-in { from { opacity: 0; transform: translateY(16px); } }
+.dsend__in { position: relative; padding: clamp(28px, 4vw, 44px); display: grid; gap: 14px; }
+.dsend__close { position: absolute; top: 14px; right: 14px; }
+.dsend__title { margin-bottom: 10px; max-width: 18ch; }
+.dsend__form { grid-column: auto; padding: clamp(20px, 3vw, 32px); gap: 24px 20px; }
+.dsend__label { font-size: 0.8125rem; font-weight: 500; color: var(--muted); }
+.dsend__design .contact-meta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 20px; border-top: 0; }
+.dsend__design .contact-meta div { grid-template-columns: 1fr; align-content: start; gap: 2px; padding: 8px 0; font-size: 0.8125rem; }
+.dsend__design .contact-meta dd { text-align: left; }
+.dsend__done { display: grid; gap: 12px; justify-items: start; padding: 8px 0 4px; }
+.dsend__done[hidden] { display: none; }
+.dsend__done p:not(.count) { font-size: 1.0625rem; max-width: 34ch; }
+.dsend__done:focus { outline: none; }
+@media (max-width: 560px) { .dsend__form { grid-template-columns: 1fr; } }
 
 @media (max-width: 1080px) {
   .designer__view { grid-column: 1 / span 7; }

@@ -7,7 +7,7 @@ import {
   BoxGeometry, PlaneGeometry, CylinderGeometry, BufferGeometry, Float32BufferAttribute,
   MeshStandardMaterial, MeshBasicMaterial, PointsMaterial, HemisphereLight, PointLight,
   CanvasTexture, DataTexture, TextureLoader, RepeatWrapping, SRGBColorSpace, ACESFilmicToneMapping,
-  PMREMGenerator, MathUtils,
+  PMREMGenerator, MathUtils, Plane,
 } from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
@@ -60,6 +60,7 @@ export function createScene(stage, initial, { lite = false, sceneId = 'interval'
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, lite ? 1.5 : 2));
   renderer.toneMapping = ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.05;
+  renderer.localClippingEnabled = true; // the motorised screen is revealed as it unrolls
   const canvas = renderer.domElement;
   canvas.setAttribute('aria-hidden', 'true');
   stage.prepend(canvas);
@@ -105,7 +106,7 @@ export function createScene(stage, initial, { lite = false, sceneId = 'interval'
   };
   let screenTex = null;
   let disposed = false;
-  const screenTint = new Color('#ffffff'); // the screen surface's own colour (white, AT, ALR)
+  const screenTint = new Color('#ffffff'); // the screen surface's own colour
   new TextureLoader().load(`${BASE}media/designer/screen.webp`, (tex) => {
     if (disposed) { tex.dispose(); return; }
     tex.colorSpace = SRGBColorSpace;
@@ -162,6 +163,28 @@ export function createScene(stage, initial, { lite = false, sceneId = 'interval'
     mats.floor.color.set(pick('floor', state.floor).color);
     const wall = pick('walls', state.walls);
     (wall.kind === 'slats' ? mats.slat : mats.fabric).color.set(wall.color);
+  }
+
+  // The motorised screen: `deploy` runs from 0 (rolled up in its cassette) to 1 (fully down). The
+  // projected picture is fixed on the wall, so the unrolling surface reveals it from the top down;
+  // a clipping plane at the surface's lower edge does that, and the weighted bar rides on the edge.
+  const rollPlane = new Plane(new Vector3(0, 1, 0), 0);
+  let drop = null;
+  let deploy = 1;
+  let rollTween = null;
+  function roll() {
+    if (!drop) return;
+    const edge = drop.top - drop.h * Math.max(0.004, deploy);
+    rollPlane.constant = -edge;
+    drop.bar.position.y = edge - 0.015;
+  }
+  function setRoll(down) {
+    rollTween?.kill();
+    const to = down ? 1 : 0;
+    if (reduced || !drop) { deploy = to; roll(); request(); return; }
+    // About the pace of a real screen: a full drop takes a few seconds.
+    rollTween = gsap.to({ v: deploy }, { v: to, duration: 1.2 + 2.4 * Math.abs(to - deploy), ease: 'power1.inOut',
+      onUpdate() { deploy = this.targets()[0].v; roll(); request(); }, onComplete: () => { rollTween = null; } });
   }
 
   function build() {
@@ -298,8 +321,8 @@ export function createScene(stage, initial, { lite = false, sceneId = 'interval'
     });
     room.add(...parts, armMesh);
 
-    // The picture: a television on a low console, or a projection screen (fixed to the wall,
-    // dropping from a ceiling cassette, or rising out of a floor cabinet) lit by a projector.
+    // The picture: a television on a low console, or a projection screen (fixed to the wall, or
+    // motorised: it unrolls from a ceiling cassette) lit by a projector.
     const box = (w, h, d, mat, x, y, z, parent = room) => {
       const m = new Mesh(geo(new BoxGeometry(w, h, d)), mat);
       m.position.set(x, y, z);
@@ -309,6 +332,7 @@ export function createScene(stage, initial, { lite = false, sceneId = 'interval'
     const top = screen.y + screen.h / 2;
     const foot = screen.y - screen.h / 2;
     let picZ = 0.081;
+    drop = null;
     if (screen.tv) {
       picZ = 0.085;
       box(screen.w + 0.03, screen.h + 0.03, 0.045, mats.frame, 0, screen.y, 0.06);
@@ -316,18 +340,16 @@ export function createScene(stage, initial, { lite = false, sceneId = 'interval'
     } else if (state.stype === 'drop') {
       picZ = 0.13;
       box(screen.w + 0.3, 0.12, 0.16, mats.frame, 0, Math.min(H - 0.08, top + 0.08), 0.13);
-      box(screen.w, 0.03, 0.02, mats.frame, 0, foot - 0.015, picZ);
-    } else if (state.stype === 'rise') {
-      picZ = 0.2;
-      box(screen.w + 0.3, foot, 0.34, mats.speaker, 0, foot / 2, 0.2);
-      box(screen.w, 0.03, 0.02, mats.frame, 0, top + 0.015, picZ);
+      drop = { top, h: screen.h, bar: box(screen.w, 0.03, 0.02, mats.frame, 0, foot - 0.015, picZ) };
     } else {
       box(screen.w + 0.08, screen.h + 0.08, 0.04, mats.frame, 0, screen.y, 0.06);
     }
     const pic = new Mesh(geo(new PlaneGeometry(screen.w, screen.h)), mats.screen);
     pic.position.set(0, screen.y, picZ);
     room.add(pic);
-    screenTint.set(screen.tv ? '#ffffff' : pick('surface', state.surface).tint);
+    mats.screen.clippingPlanes = drop ? [rollPlane] : null;
+    mats.screen.needsUpdate = true;
+    roll();
     fitScreenTexture();
     screenLight.position.set(0, screen.y, 0.9);
 
@@ -359,11 +381,8 @@ export function createScene(stage, initial, { lite = false, sceneId = 'interval'
         box(0.26, 1.12, 0.3, mats.speaker, x, 0.56, 0.26);
         box(0.22, 1.0, 0.01, mats.grille, x, 0.58, 0.415);
       });
-      const cy = screen.tv ? 0.42 + 0.1 : state.stype === 'rise' ? foot - 0.2 : Math.max(0.12, foot - 0.16);
-      box(0.62, 0.19, 0.26, mats.speaker, 0, cy, screen.tv ? 0.26 : state.stype === 'rise' ? 0.38 : 0.2);
-    } else if (style === 'built') {
-      [-tx, tx].forEach((x) => box(0.26, 0.9, 0.012, mats.grille, x, Math.max(0.75, Math.min(1.25, screen.y)), 0.046, front));
-      if (!screen.tv && state.stype === 'fixed') box(0.7, 0.16, 0.012, mats.grille, 0, Math.max(0.12, foot - 0.16), 0.046, front);
+      const cy = screen.tv ? 0.42 + 0.1 : Math.max(0.12, foot - 0.16);
+      box(0.62, 0.19, 0.26, mats.speaker, 0, cy, screen.tv ? 0.26 : 0.2);
     }
     if (style !== 'hidden') {
       const subs = sound.subs === 1 ? [-1] : [-1, 1];
@@ -553,8 +572,12 @@ export function createScene(stage, initial, { lite = false, sceneId = 'interval'
       state = next;
       colours();
       const kindChanged = pick('walls', prev.walls).kind !== pick('walls', next.walls).kind;
-      const structural = kindChanged || ['room', 'rows', 'seats', 'ceiling', 'screen', 'shape', 'display', 'tv', 'stype', 'surface', 'throw', 'sound', 'spk'].some((k) => prev[k] !== next[k]);
+      const structural = kindChanged || ['room', 'rows', 'seats', 'ceiling', 'screen', 'shape', 'display', 'tv', 'stype', 'throw', 'sound', 'spk'].some((k) => prev[k] !== next[k]);
+      // Choosing a motorised screen shows it coming down from its cassette.
+      const motorised = (x) => x.display === 'screen' && x.stype === 'drop';
+      const lower = motorised(next) && !motorised(prev);
       if (structural) {
+        if (lower) { rollTween?.kill(); deploy = 0; }
         build();
         // The ceiling is cut away from outside, so a new ceiling is shown from the seat, looking up.
         if (prev.ceiling !== next.ceiling) { setView('ceiling'); onView?.(null); }
@@ -563,7 +586,10 @@ export function createScene(stage, initial, { lite = false, sceneId = 'interval'
       }
       applyLevels();
       request();
+      if (lower) setRoll(true);
     },
+    // Raise (false) or lower (true) a motorised screen; returns whether it ends up down.
+    setRoll(down) { setRoll(down); return down; },
     setScene(id) {
       const to = SCENES[id];
       if (!to) return;
@@ -577,6 +603,7 @@ export function createScene(stage, initial, { lite = false, sceneId = 'interval'
       cancelAnimationFrame(raf);
       tween?.kill();
       levelTween?.kill();
+      rollTween?.kill();
       ro.disconnect();
       io.disconnect();
       canvas.removeEventListener('wheel', onWheel);

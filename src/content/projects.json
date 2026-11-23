@@ -93,9 +93,9 @@
       "related": null
     },
     {
-      "slug": "dr-ram-sunitha-residence",
-      "name": "Dr Ram & Sunitha Residence",
-      "title": "Dr Ram &amp; Sunitha<br> Residence",
+      "slug": "dr-ram-dr-sunitha-residence",
+      "name": "Dr Ram & Dr Sunitha Residence",
+      "title": "Dr Ram &amp; Dr Sunitha<br> Residence",
       "kind": "Residence",
       "location": "",
       "featured": true,
@@ -389,9 +389,9 @@
       "related": null
     },
     {
-      "slug": "prudvi-kotta-residence",
-      "name": "Prudvi Kotta Residence",
-      "title": "Prudvi Kotta<br> Residence",
+      "slug": "prudhvi-kotha-residence",
+      "name": "Prudhvi Kotha Residence",
+      "title": "Prudhvi Kotha<br> Residence",
       "kind": "Residence",
       "location": "",
       "featured": true,
