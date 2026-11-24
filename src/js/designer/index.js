@@ -71,7 +71,7 @@ export function initDesigner(view, bag) {
   };
   const mail = () => {
     const lines = describe(state).map(([k, v]) => `${k}: ${v}`).join('\n');
-    const body = `Hello Edomotics,\n\nI designed a home theatre on your website and would like to talk about it.\n\n${lines}\n\nName:\nPhone:\nCity:\n`;
+    const body = `Hello EDOMOTICS,\n\nI designed a home theatre on your website and would like to talk about it.\n\n${lines}\n\nName:\nPhone:\nCity:\n`;
     return `mailto:${EMAIL}?subject=${encodeURIComponent('My home theatre design')}&body=${encodeURIComponent(body)}`;
   };
 

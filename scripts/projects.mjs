@@ -65,10 +65,10 @@ projects.forEach((p, i) => {
 <html lang="en-IN">
 <head>
 <!-- @include head -->
-  <title>${p.name} — Edomotics</title>
-  <meta name="description" content="${esc(p.name)}, a ${p.kind.toLowerCase()} by Edomotics. ${esc(p.lead.replace(/<[^>]+>/g, ''))}">
-  <meta property="og:title" content="${esc(p.name)} — Edomotics">
-  <meta property="og:description" content="${esc(p.name)}, a ${p.kind.toLowerCase()} by Edomotics.">
+  <title>${p.name} — EDOMOTICS</title>
+  <meta name="description" content="${esc(p.name)}, a ${p.kind.toLowerCase()} by EDOMOTICS. ${esc(p.lead.replace(/<[^>]+>/g, ''))}">
+  <meta property="og:title" content="${esc(p.name)} — EDOMOTICS">
+  <meta property="og:description" content="${esc(p.name)}, a ${p.kind.toLowerCase()} by EDOMOTICS.">
   <meta property="og:image" content="/media/share/${p.slug}.jpg">
 </head>
 <body>
