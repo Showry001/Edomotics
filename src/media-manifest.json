@@ -2042,20 +2042,12 @@
     "avif": true
   },
   "home-climate": {
-    "width": 2160,
-    "height": 2880,
+    "width": 300,
+    "height": 400,
     "widths": [
       {
-        "w": 640,
+        "w": 300,
         "file": "media/img/home-climate-sm.webp"
-      },
-      {
-        "w": 1280,
-        "file": "media/img/home-climate-md.webp"
-      },
-      {
-        "w": 1920,
-        "file": "media/img/home-climate-lg.webp"
       }
     ],
     "avif": true
