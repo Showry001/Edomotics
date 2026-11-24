@@ -390,12 +390,16 @@
     "avif": true
   },
   "founder-manjunath-n-m": {
-    "width": 365,
-    "height": 365,
+    "width": 1024,
+    "height": 1024,
     "widths": [
       {
-        "w": 365,
+        "w": 640,
         "file": "media/img/founder-manjunath-n-m-sm.webp"
+      },
+      {
+        "w": 1024,
+        "file": "media/img/founder-manjunath-n-m-md.webp"
       }
     ],
     "avif": true

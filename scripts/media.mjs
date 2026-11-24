@@ -7,7 +7,7 @@ import { mkdirSync, existsSync, readdirSync, readFileSync, writeFileSync, unlink
 import path from 'node:path';
 
 const OUT = 'public/media';
-// -sm and -md always exist (the markup links -md directly for previews and og:image);
+// -sm and -md always exist (the markup links -md directly for previews);
 // larger sizes are only made when the source is big enough to be worth a separate file.
 const SIZES = [{ suffix: '-sm', width: 640 }, { suffix: '-md', width: 1280 }, { suffix: '-lg', width: 1920 }, { suffix: '', width: 2400 }];
 const QUALITY = { webp: { '-sm': 70, default: 74 }, avif: { '-sm': 50, default: 54 } };
@@ -40,9 +40,8 @@ const PHOTOS = {
   'villa-dusk': '_src/drive/finals/prudvi-kotta/_DSC9926_HDR.jpg',
   'lounge-tall': `${framer}/rising-4.jpg`,
   'project-ravi-prasad': `${framer}/project-1.jpg`,
-  // Leadership portraits, square. Ganesh and Keshava: studio portraits supplied by Edomotics
-  // (square crops; the full frames are in _src/founders/originals/). Manjunath: the 365px
-  // original from the Edomotics Framer site (shown small, never upscaled).
+  // Leadership portraits, square crops of portraits supplied by Edomotics (the full frames are in
+  // _src/founders/originals/). Manjunath's, supplied 24 Nov 2026, is 1024 px wide.
   'founder-ganesh-vudutha': '_src/founders/ganesh-vudutha.jpg',
   'founder-keshava-varma': '_src/founders/keshava-varma.jpg',
   'founder-manjunath-n-m': '_src/founders/manjunath-n-m.jpg',
@@ -561,6 +560,45 @@ function homeCardPhotos() {
   return Object.fromEntries(readdirSync(dir).filter((f) => f.endsWith('.jpg')).map((f) => [`home-${f.replace(/\.jpg$/, '')}`, `${dir}/${f}`]));
 }
 
+// Link previews (WhatsApp, LinkedIn, Facebook, X, search results): one 1200 × 630 JPEG per page,
+// cropped from that page's own photograph into public/media/share/<page>.jpg. Each page links its
+// picture as <meta property="og:image" content="/media/share/<page>.jpg">; project pages use their
+// cover, and the Projects page the first featured project's. A path is a file in public/; a bare
+// name is a picture from the manifest (its largest size is used); { film, at } is a still from a film.
+const SHARE = {
+  // The hero film's lounge once its lights are up (the poster is its dark first frame).
+  home: { film: HERO.src, at: HERO.from + 6 },
+  automation: 'living-amber-wide',
+  'home-theatre': 'cinema-recliners',
+  about: 'team-hyderabad',
+  contact: 'living-dining',
+};
+async function share() {
+  const manifest = JSON.parse(readFileSync('src/media-manifest.json', 'utf8'));
+  const projects = JSON.parse(readFileSync('src/content/projects.json', 'utf8')).projects.filter((p) => !p.hidden);
+  const list = { ...SHARE, projects: projects.find((p) => p.featured)?.cover };
+  for (const p of projects) list[p.slug] = p.cover;
+  const dir = `${OUT}/share`;
+  mkdirSync(dir, { recursive: true });
+  const keep = new Set();
+  for (const [name, src] of Object.entries(list)) {
+    const file = src.film || (src.includes('/') ? `public/${src}` : `public/${manifest[src]?.widths.at(-1).file}`);
+    if (!existsSync(file)) throw new Error(`share ${name}: no picture at ${file}`);
+    const out = `${dir}/${name}.jpg`;
+    keep.add(out);
+    if (existsSync(out) && statSync(out).mtimeMs > statSync(file).mtimeMs) continue;
+    let input = file;
+    if (src.film) {
+      input = `_src/share/${name}.png`;
+      mkdirSync('_src/share', { recursive: true });
+      execFileSync(ffmpeg, ['-y', '-loglevel', 'error', '-ss', String(src.at), '-i', file, '-frames:v', '1', '-update', '1', input]);
+    }
+    await sharp(input).resize(1200, 630, { fit: 'cover' }).jpeg({ quality: 82, mozjpeg: true }).toFile(out);
+    console.log('share', name, '←', file);
+  }
+  for (const f of readdirSync(dir)) if (!keep.has(`${dir}/${f}`)) unlinkSync(`${dir}/${f}`);
+}
+
 const only = process.argv[2];
 if (only === 'hero') await hero();
 if (only === 'cards' || only === 'steps') await films(only, { force: true, pick: process.argv[3] || null });
@@ -574,4 +612,5 @@ if (!only || only === 'team') await team();
 if (!only || only === 'logos') await logos();
 if (!only || only === 'clients') await clients();
 if (!only || only === 'videos') await videos();
+if (!only || only === 'share') await share();
 console.log('done:', readdirSync(`${OUT}/img`).length, 'images,', readdirSync(`${OUT}/logos`).length, 'logos');

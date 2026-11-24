@@ -226,14 +226,17 @@ export function initSteps(view, bag) {
       }
     };
 
-    mm.add({ wide: '(min-width: 861px)', narrow: '(max-width: 860px)', rm: '(prefers-reduced-motion: reduce)' }, (ctx) => {
-      if (ctx.conditions.narrow || reduced) {
-        // Small screens: no pin. Each step simply shows; the camera holds a gentle frame, and the
+    // Desktop, and tablets and phones held upright: the pinned sequence (stacked on narrow screens,
+    // see .steps.is-pinned). Phones on their side are too short for it and keep the list.
+    mm.add({ pinned: '(min-width: 861px), (orientation: portrait)', list: '(max-width: 860px) and (orientation: landscape)', rm: '(prefers-reduced-motion: reduce)' }, (ctx) => {
+      if (ctx.conditions.list || reduced) {
+        // No pin. Each step simply shows; the camera holds a gentle frame, and the
         // first step's film plays (the only photograph shown).
         texts.forEach((t) => t.classList.add('is-active'));
         films.show(0);
         return undefined;
       }
+      block.classList.add('is-pinned');
       current = -1;
       show(0, true);
       const st = ScrollTrigger.create({
@@ -242,7 +245,7 @@ export function initSteps(view, bag) {
         onUpdate: (self) => {
           const p = self.progress;
           show(Math.min(n - 1, Math.floor(p * n * 0.999)));
-          if (bar) bar.style.transform = `scaleY(${p})`;
+          if (bar) bar.style.setProperty('--p', p);
           if (camImg) {
             // Continuous camera between step keyframes: the room is filmed by the scroll.
             const f = Math.min(n - 1, p * (n - 1));
@@ -253,7 +256,17 @@ export function initSteps(view, bag) {
         },
       });
       if (camImg) gsap.set(camImg, { scale: cams[0][0], xPercent: cams[0][1], yPercent: cams[0][2], filter: `brightness(${cams[0][3]})` });
-      return () => { st.kill(); gsap.set(camImg || [], { clearProps: 'all' }); };
+      return () => {
+        st.kill();
+        block.classList.remove('is-pinned');
+        // Leave nothing behind for the list (a rotated phone, a resized window).
+        current = -1;
+        const anims = $$('.steps__anim', block);
+        const pics = medias.flatMap((m) => $$('img, video', m));
+        gsap.killTweensOf([...anims, ...medias, ...pics]);
+        gsap.set([...anims, ...medias, ...pics, camImg].filter(Boolean), { clearProps: 'all' });
+        bar?.style.removeProperty('--p');
+      };
     });
   });
   return mm;

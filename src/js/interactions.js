@@ -373,3 +373,43 @@ export function initProjectIndex(view, bag) {
   bag.on(views.list, 'pointermove', (e) => { xTo(e.clientX); yTo(e.clientY); });
   bag.add(() => gsap.set(preview, { autoAlpha: 0 }));
 }
+
+/* ---------- Capability lists: a row lights up and shows its picture ----------
+   With a mouse, hovering a row does it (CSS :hover). On touch screens, the row crossing the middle
+   of the screen lights up as the list scrolls past, and a tapped row lights up at once (.is-on).
+   Card films follow the lit row through the 'cap:on' and 'cap:off' events (cardfilms.js). */
+export function initCaps(view, bag) {
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  $$('.caps__list', view).forEach((list) => {
+    const rows = $$('.cap', list);
+    if (!rows.length) return;
+    let on = null;
+    const set = (row) => {
+      if (row === on) return;
+      if (on) { on.classList.remove('is-on'); on.dispatchEvent(new Event('cap:off')); }
+      on = row;
+      list.classList.toggle('has-on', !!row);
+      if (row) { row.classList.add('is-on'); row.dispatchEvent(new Event('cap:on')); }
+    };
+    // A thin band just above the middle of the screen. At a border it can touch two rows:
+    // the one whose middle is nearer wins.
+    const hit = new Set();
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => (e.isIntersecting ? hit.add(e.target) : hit.delete(e.target)));
+      const mid = window.innerHeight * 0.47;
+      let best = null;
+      let near = Infinity;
+      hit.forEach((r) => {
+        const b = r.getBoundingClientRect();
+        const d = Math.abs(b.top + b.height / 2 - mid);
+        if (d < near) { near = d; best = r; }
+      });
+      set(best);
+    }, { rootMargin: '-44% 0px -50% 0px' });
+    rows.forEach((r) => {
+      io.observe(r);
+      bag.on(r, 'click', () => set(r));
+    });
+    bag.add(() => { io.disconnect(); set(null); });
+  });
+}

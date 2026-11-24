@@ -1,8 +1,8 @@
 // Card films: an element with data-film="name" plays a short clip from the project shoots over its
 // photograph (media/cards/<name>.mp4, cut by scripts/media.mjs): the capability lists on the
 // Automation and Home theatre pages. With a mouse it plays while the pointer
-// rests on it; on touch screens, while a card is the one most in view (only where the photograph is
-// shown at all). It plays once and holds its last frame; leaving fades back to the photograph.
+// rests on it; on touch screens, a capability row's film plays while the row is lit (initCaps), and
+// a carousel card's while it is the one most in view (only where the photograph is shown at all). It plays once and holds its last frame; leaving fades back to the photograph.
 // The photograph is a still of the same film. Nothing loads until it's wanted, and reduced motion
 // keeps the photographs.
 import { $$, reduced } from './core.js';
@@ -66,23 +66,30 @@ export function initCardFilms(view, bag) {
       bag.on(card, 'pointerleave', () => stop(card));
     });
   } else {
-    // Touch: in each carousel, the card most in view plays (once it is nearly all on screen).
+    // Touch: a capability row plays while it is lit (initCaps in interactions.js).
+    const lit = cards.filter((c) => c.classList.contains('cap'));
+    lit.forEach((c) => {
+      bag.on(c, 'cap:on', () => play(c));
+      bag.on(c, 'cap:off', () => stop(c));
+    });
+    // In each carousel, the card most in view plays (once it is nearly all on screen).
+    const rest = cards.filter((c) => !lit.includes(c));
     const ratios = new Map();
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => ratios.set(e.target, e.intersectionRatio));
       const groups = new Map();
-      cards.forEach((c) => {
+      rest.forEach((c) => {
         const track = c.parentElement;
         const best = groups.get(track);
         if (!best || (ratios.get(c) || 0) > (ratios.get(best) || 0)) groups.set(track, c);
       });
-      cards.forEach((c) => {
+      rest.forEach((c) => {
         const best = groups.get(c.parentElement);
         if (c === best && (ratios.get(c) || 0) >= 0.85) { if (!films.get(c)?.want) play(c); }
         else stop(c);
       });
     }, { threshold: [0, 0.5, 0.85, 1] });
-    cards.forEach((c) => io.observe(c));
+    rest.forEach((c) => io.observe(c));
     bag.add(() => io.disconnect());
   }
 

@@ -7,7 +7,7 @@ import { initCinema, initProjects, initApproach, initSteps } from './chapters.js
 import { initRoom } from './room/index.js';
 import { initTheatre } from './theatre/index.js';
 import { initCardFilms } from './cardfilms.js';
-import { initReveals, initCounters, initCarousel, initQuotes, initForm, initFooter, initProjectIndex } from './interactions.js';
+import { initReveals, initCounters, initCarousel, initQuotes, initForm, initFooter, initProjectIndex, initCaps } from './interactions.js';
 import { initField } from './field.js';
 import { initDesigner } from './designer/index.js';
 
@@ -33,6 +33,7 @@ export function mountPage(view, { first = false } = {}) {
     safely('field', () => initField(view, bag, { first }));
     safely('room', () => initRoom(view, bag));
     safely('theatre', () => initTheatre(view, bag));
+    safely('caps', () => initCaps(view, bag));
     return () => bag.empty();
   }
 
@@ -45,6 +46,7 @@ export function mountPage(view, { first = false } = {}) {
     safely('room', () => initRoom(view, bag));
     safely('theatre', () => initTheatre(view, bag));
     safely('cardFilms', () => initCardFilms(view, bag));
+    safely('caps', () => initCaps(view, bag));
     safely('steps', () => keep(initSteps(view, bag)));
     safely('approach', () => initApproach(view));
     safely('cinema', () => keep(initCinema(view)));

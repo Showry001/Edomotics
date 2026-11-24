@@ -23,6 +23,9 @@
 .phero--center .phero__head { text-align: center; justify-items: center; }
 .phero--center .phero__title-wrap { grid-column: 1 / -1; justify-items: center; }
 .phero--center .phero__aside { grid-column: 3 / span 8; justify-items: center; text-align: center; }
+/* Page not found: the hero alone, with the main pages listed beside it. */
+.nf { padding-bottom: var(--block); }
+.nf__links { display: grid; gap: 10px; font-size: 1rem; }
 .t-name { font-family: var(--font-serif); font-weight: 400; font-size: clamp(3.2rem, 1.6rem + 6vw, 9.5rem); line-height: 0.92; letter-spacing: -0.01em; }
 
 /* ---------- Big statement ---------- */
@@ -47,7 +50,7 @@
 .steps__media[data-camera] img { transform-origin: 50% 50%; will-change: transform, filter; }
 .steps__side { grid-column: 9 / span 4; position: relative; display: grid; grid-template-rows: auto 1fr auto; padding-left: clamp(18px, 2vw, 32px); border-left: 1px solid var(--line); }
 .steps__count { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; }
-.steps__line { position: absolute; left: -1px; top: 0; width: 1px; height: 100%; background: var(--fg); transform-origin: top; transform: scaleY(0); }
+.steps__line { position: absolute; left: -1px; top: 0; width: 1px; height: 100%; background: var(--fg); transform-origin: top; transform: scaleY(var(--p, 0)); }
 .steps__texts { display: grid; align-content: center; }
 .step { grid-area: 1 / 1; display: grid; gap: 16px; align-content: center; }
 .step__title { font-size: clamp(2.2rem, 1.2rem + 2.6vw, 4.2rem); font-weight: 500; letter-spacing: -0.025em; line-height: 0.95; }
@@ -77,11 +80,16 @@
   z-index: 2;
 }
 .cap__img img { width: 100%; height: 100%; object-fit: cover; }
+.cap__name { transition: transform 0.7s var(--ease-out), opacity 0.5s var(--ease-out); }
+/* A row lights up: hovered with a mouse, or on touch screens the row in the middle of the screen
+   (or the one tapped), set by initCaps as .is-on. */
+.cap.is-on .cap__name { transform: translateX(14px); }
+.cap.is-on .cap__img { opacity: 1; transform: translateY(-50%) scale(1) rotate(0deg); }
+.caps__list.has-on .cap:not(.is-on) .cap__name { opacity: 0.35; }
 @media (hover: hover) {
   .cap:hover .cap__name { transform: translateX(14px); }
   .cap:hover .cap__img { opacity: 1; transform: translateY(-50%) scale(1) rotate(0deg); }
   .caps__list:hover .cap:not(:hover) .cap__name { opacity: 0.35; }
-  .cap__name { transition: transform 0.7s var(--ease-out), opacity 0.5s var(--ease-out); }
 }
 
 /* ---------- Media pair / feature ---------- */
@@ -411,11 +419,31 @@
   .steps__texts { gap: 36px; }
   .step { grid-area: auto; border-top: 1px solid var(--line); padding-top: 20px; }
   .steps__count, .steps__line, .steps__hint { display: none; }
+  /* Portrait tablets and phones: the same pinned sequence as desktop, stacked: the photograph
+     fills what the words leave, a hairline fills with progress above the words (initSteps adds
+     .is-pinned; without it, phones in landscape and reduced motion, the steps are a list). */
+  .steps.is-pinned .steps__stage { height: 100vh; height: 100svh; min-height: 0; grid-template-rows: auto minmax(0, 1fr); padding-top: calc(var(--hdr) + 4px); padding-bottom: var(--pad); }
+  .steps.is-pinned .steps__head { padding-bottom: clamp(14px, 2.4svh, 24px); }
+  .steps.is-pinned .steps__body { grid-template-rows: minmax(0, 1fr) auto; row-gap: clamp(14px, 2.4svh, 24px); }
+  .steps.is-pinned .steps__media { aspect-ratio: auto; min-height: 120px; }
+  .steps.is-pinned .steps__media figure:not(:first-child) { display: block; }
+  .steps.is-pinned .steps__side { grid-template-rows: auto auto auto; align-content: start; gap: clamp(12px, 2svh, 20px); padding-top: clamp(12px, 2svh, 18px); border-top: 1px solid var(--line); }
+  .steps.is-pinned .steps__count { display: flex; }
+  .steps.is-pinned .steps__line { display: block; left: 0; top: -1px; width: 100%; height: 1px; transform-origin: left; transform: scaleX(var(--p, 0)); }
+  .steps.is-pinned .steps__texts { gap: 0; }
+  .steps.is-pinned .step { grid-area: 1 / 1; align-content: start; gap: 10px; border-top: 0; padding-top: 0; }
+  .steps.is-pinned .step:not(.is-active) { pointer-events: none; }
+  .steps.is-pinned .steps__anim { opacity: 0; }
+  .steps.is-pinned .step__title { font-size: clamp(1.65rem, 1rem + 2.4svh, 2.6rem); }
+  .steps.is-pinned .step__sub { font-size: clamp(1.05rem, 0.7rem + 1.2svh, 1.4rem); }
 
-  .cap__n { grid-column: 1 / -1; margin-bottom: 8px; }
-  .cap__name, .cap__text { grid-column: 1 / -1; }
+  /* Capabilities: the words keep clear of the right edge, where the picture floats in as the row
+     lights up (as on desktop, it may overlap the rows either side). */
+  .cap { --cap-w: clamp(96px, 26vw, 190px); grid-template-columns: minmax(0, 1fr); padding-right: calc(var(--cap-w) + clamp(16px, 4vw, 32px)); }
+  .cap__n { grid-column: 1; margin-bottom: 8px; }
+  .cap__name, .cap__text { grid-column: 1; }
   .cap__text { margin-top: 10px; }
-  .cap__img { display: none; }
+  .cap__img { right: 0; width: var(--cap-w); }
 
   .pair__a, .pair__b, .pair__note { grid-column: 1 / -1; margin: 0; }
   .feature__img, .feature__card { grid-column: 1 / -1; }
@@ -441,6 +469,9 @@
   .cinema__more { grid-column: 1 / -1; }
   .centres--side { grid-column: 1 / -1; }
 }
+
+/* Reduced motion: a capability picture fades in without scaling or turning. */
+.reduced .cap__img { transform: translateY(-50%); transition: opacity 0.4s var(--ease-out); }
 
 /* Reduced motion: stepped stories become simple stacked lists. */
 .reduced .steps__stage { min-height: 0; }

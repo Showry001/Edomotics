@@ -69,7 +69,7 @@ projects.forEach((p, i) => {
   <meta name="description" content="${esc(p.name)}, a ${p.kind.toLowerCase()} by Edomotics. ${esc(p.lead.replace(/<[^>]+>/g, ''))}">
   <meta property="og:title" content="${esc(p.name)} — Edomotics">
   <meta property="og:description" content="${esc(p.name)}, a ${p.kind.toLowerCase()} by Edomotics.">
-  <meta property="og:image" content="/media/img/${p.cover}-md.webp">
+  <meta property="og:image" content="/media/share/${p.slug}.jpg">
 </head>
 <body>
 <!-- @include chrome -->

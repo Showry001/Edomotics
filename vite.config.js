@@ -22,6 +22,7 @@ const PAGES = {
   projects: 'projects/index.html',
   about: 'about/index.html',
   contact: 'contact/index.html',
+  notFound: '404.html',
   ...Object.fromEntries(readProjects().map((p) => [`project-${p.slug}`, `projects/${p.slug}/index.html`])),
 };
 
@@ -103,6 +104,45 @@ function responsivePictures() {
   };
 }
 
+// Search engines and link previews. Every page gets its address on the live domain (canonical and
+// og:url), an absolute share picture and a large-picture card; a build for the live site also writes
+// sitemap.xml and robots.txt. A build for anywhere else (the GitHub Pages preview, BASE_PATH set) is
+// marked noindex, so search engines list only edomotics.com. SITE_URL overrides the domain.
+const SITE = (process.env.SITE_URL || 'https://edomotics.com').replace(/\/+$/, '');
+const LIVE = BASE === '/';
+// Pages kept out of the sitemap and out of search results.
+const UNLISTED = ['404.html'];
+const routeOf = (file) => `/${file.replace(/index\.html$/, '')}`;
+
+function seo() {
+  return {
+    name: 'seo',
+    transformIndexHtml: {
+      order: 'pre',
+      handler(html, ctx) {
+        const file = ctx.path.replace(/^\//, '').replace(/(^|\/)$/, '$1index.html');
+        const unlisted = UNLISTED.includes(file);
+        const url = `${SITE}${routeOf(file)}`;
+        const tags = [
+          unlisted ? '' : `<link rel="canonical" href="${url}">`,
+          unlisted ? '' : `<meta property="og:url" content="${url}">`,
+          '<meta name="twitter:card" content="summary_large_image">',
+          LIVE && !unlisted ? '' : '<meta name="robots" content="noindex">',
+        ].filter(Boolean).map((t) => `  ${t}\n`).join('');
+        return html
+          .replace(/(<meta property="og:image" content=")\/(?!\/)/, `$1${SITE}/`)
+          .replace('</head>', `${tags}</head>`);
+      },
+    },
+    generateBundle() {
+      if (!LIVE) return;
+      const urls = Object.values(PAGES).filter((f) => !UNLISTED.includes(f)).map((f) => `  <url><loc>${SITE}${routeOf(f)}</loc></url>`);
+      this.emitFile({ type: 'asset', fileName: 'sitemap.xml', source: `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n` });
+      this.emitFile({ type: 'asset', fileName: 'robots.txt', source: `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n` });
+    },
+  };
+}
+
 // The markup links pages and media root-absolutely (/projects/…, /media/…). When the site
 // lives in a sub-folder, prefix every such URL in the finished HTML. Runs after Vite's own
 // rewriting, so anything Vite has already based is left alone.
@@ -126,7 +166,7 @@ function basePaths() {
 export default defineConfig({
   base: BASE,
   appType: 'mpa',
-  plugins: [partials(), responsivePictures(), basePaths()],
+  plugins: [partials(), responsivePictures(), seo(), basePaths()],
   server: { port: 5178, host: '127.0.0.1' },
   preview: { port: 5179, host: '127.0.0.1' },
   build: {

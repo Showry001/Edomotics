@@ -1,0 +1,56 @@
+# Edomotics website: rules for the live host (cPanel, Apache or LiteSpeed, with Cloudflare in front).
+# The build copies this file into dist/. Pages are folders with an index.html.
+
+Options -Indexes
+DirectoryIndex index.html index.php
+ErrorDocument 404 /404.html
+
+# The server's own files (this one included) are never served.
+<Files ".ht*">
+  Require all denied
+</Files>
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Addresses of the previous site, which search engines still list, go straight to the page that
+# replaces them (first, so an old www or http address also takes a single step). The closing "?"
+# drops old query strings (project-details.php?ref=…).
+RewriteRule ^(index|index-test|index-without-maps|index_16-08-2020|downloads)\.php$ https://edomotics.com/? [R=301,L]
+RewriteRule ^(home-automation|automation|lighting|solutions)\.php$ https://edomotics.com/automation/? [R=301,L]
+RewriteRule ^(home-theatre|audio-video)\.php$ https://edomotics.com/home-theatre/? [R=301,L]
+RewriteRule ^(projects|projects1|project-details)\.php$ https://edomotics.com/projects/? [R=301,L]
+RewriteRule ^(company|team|expertise|csr|careers|careers_30-09-2020)\.php$ https://edomotics.com/about/? [R=301,L]
+
+# Projects renamed during the redesign: their old addresses go to the new pages.
+RewriteRule ^projects/(dr-akhil-sunitha-residence|dr-ram-sunitha-residence)/?$ https://edomotics.com/projects/dr-ram-dr-sunitha-residence/ [R=301,L]
+RewriteRule ^projects/prudvi-kotta-residence/?$ https://edomotics.com/projects/prudhvi-kotha-residence/ [R=301,L]
+
+# One address for the whole site, https://edomotics.com: www and plain http are sent there.
+RewriteCond %{HTTP_HOST} ^www\.edomotics\.com$ [NC]
+RewriteRule ^ https://edomotics.com%{REQUEST_URI} [R=301,L]
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+# Photographs, films, logos and fonts keep their names: cached for 30 days.
+<FilesMatch "\.(avif|webp|jpe?g|png|svg|mp4|woff2?)$">
+  Header set Cache-Control "public, max-age=2592000"
+</FilesMatch>
+# Built scripts, styles and fonts carry a content hash in their names: cached for a year.
+<FilesMatch "-[A-Za-z0-9_-]{8}\.(js|css|woff2)$">
+  Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+# Pages, the sitemap and robots.txt are checked for a newer copy on every visit.
+<FilesMatch "\.(html|xml|txt)$">
+  Header set Cache-Control "no-cache"
+</FilesMatch>
+</IfModule>
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php82” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php82___lsphp .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
