@@ -51,7 +51,6 @@ function related(p) {
         <div class="wrap grid ptext">
           <h2 class="t-l ptext__title" data-lines>${p.related.title}</h2>
           <div class="ptext__body">
-            <p class="needs">[NEEDS COPY: what was designed and installed here, and how it is used]</p>
             <a class="link-arrow" href="${p.related.href}"><span class="link-arrow__t">${p.related.label}</span>${AP}</a>
           </div>
         </div>
@@ -83,10 +82,10 @@ projects.forEach((p, i) => {
           <div class="phero__title-wrap">
             <p class="phero__label" data-ph-label>${pad(i + 1)} / ${pad(projects.length)} · ${meta}</p>
             <h1 class="t-name" id="page-title" data-ph-title>${p.title}</h1>
-          </div>
+          </div>${p.summary ? `
           <div class="phero__aside" data-ph-aside>
-            <p class="needs">[NEEDS COPY: a one-line summary of the project]</p>
-          </div>
+            <p>${p.summary}</p>
+          </div>` : ''}
         </div>
         ${hero(p)}
       </section>

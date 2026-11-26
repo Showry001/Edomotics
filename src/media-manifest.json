@@ -2042,12 +2042,16 @@
     "avif": true
   },
   "home-climate": {
-    "width": 300,
-    "height": 400,
+    "width": 810,
+    "height": 1080,
     "widths": [
       {
-        "w": 300,
+        "w": 640,
         "file": "media/img/home-climate-sm.webp"
+      },
+      {
+        "w": 810,
+        "file": "media/img/home-climate-md.webp"
       }
     ],
     "avif": true
@@ -2263,20 +2267,12 @@
     "avif": true
   },
   "home-security": {
-    "width": 1536,
-    "height": 2048,
+    "width": 274,
+    "height": 365,
     "widths": [
       {
-        "w": 640,
+        "w": 274,
         "file": "media/img/home-security-sm.webp"
-      },
-      {
-        "w": 1280,
-        "file": "media/img/home-security-md.webp"
-      },
-      {
-        "w": 1536,
-        "file": "media/img/home-security-lg.webp"
       }
     ],
     "avif": true
